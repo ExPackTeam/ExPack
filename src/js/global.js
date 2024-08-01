@@ -1,0 +1,1 @@
+// Add code to auto detect hex code in an attribute
