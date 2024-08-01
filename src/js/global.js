@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
           if (cls.startsWith("color-")) {
             const colorCode = cls.substring(3);
             if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-              element.style.backgroundColor = `#${colorCode}`;
+              element.style.color = `#${colorCode}`;
             }
           }
         });
