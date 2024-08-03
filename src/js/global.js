@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
+    /* Issue where it won't change the color of the text with the class='color' 
     const mn_elements = document.querySelectorAll("[class*='color-']");
     mn_elements.forEach(element => {
         const classes = element.className.split(" ");
@@ -22,5 +23,5 @@ document.addEventListener("DOMContentLoaded", () => {
             }
           }
         });
-    });
+    }); */
 });
