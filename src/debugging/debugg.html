@@ -2,22 +2,9 @@
 <html>
     <head>
         <title>Debug</title>
-        <script>
-            var elements = document.querySelectorAll("[class*='bg-']");
-            elements.addEventListener("DOMContentLoaded", () => {
-                elements.forEach(elements => {
-                    const classes = elements.className.split(" ");
-                    classes.forEach(cl => {
-                        if (cl.startsWith("bg-")) {
-                            const colorCode = cls.substring(3);
-                            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-                                element.style.backgroundColor = `#${colorCode}`;
-                            };
-                        };
-                    });
-                });
-            });
+        <script src="./js/global.js">
         </script>
+        <link rel="stylesheet" href="./css/global.css"/>
     </head>
     <body>
         <div class="bg-000000">
