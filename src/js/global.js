@@ -47,6 +47,30 @@ document.addEventListener("DOMContentLoaded", () => {
 					element.style.padding = paddingValue;
 				}
 			}
+		});
+	});
+	// figure out how to have this work for all borders
+	const borderElements = document.querySelectorAll("[data-border]");
+	borderElements.forEach(element => {
+    	const borderData = element.getAttribute('data-border');
+		if (borderData) {
+			const parts = borderData.split(' ');
+			parts.forEach(part => {
+				if (part.startsWith("color-")) {
+					const colorCode = part.substring(6);
+					if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+						element.style.color = `#${colorCode}`;
+					}
+				}
+				if (part.startsWith("radius-")) {
+					const borderRadius = part.substring(7);
+					element.style.borderRadius = borderRadius;
+				}
+				if (part.startsWith("size-")) {
+					const borderSize = part.substring(7);
+					element.style.borderWidth = borderSize;
+				}
+			});
 		}
-	}
+	});
 });

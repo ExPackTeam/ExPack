@@ -1,2 +1,76 @@
 @import "navbar.css";
 @import "variables.css";
+/* not needed but if you want to use them
+[data-text="bold"] {
+	font-weight: bold;
+}
+[data-text="italic"] {
+	font-style: italic;
+}
+.text-bold {
+    font-weight: bold;
+}
+.text-italic {
+    font-style: italic;
+}
+*/
+[data-tool="tooltip"] {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+[data-tool="tooltip"] [data-tip="tooltip"] {
+	visibility: hidden;
+	width: 100%;
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+	// uses the 'br-*' and 'fr-*' for background and text color // uses [data-border] for the border size,
+}
+[data-tool="tooltip"]:hover [data-tip="tooltip"] {
+    visibility: visible;
+}
+ul.nav-list {
+    list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+li.nav-item {
+	float: left;
+}
+li.profile {
+	float: right;
+}
+a.nav-link {
+	height: 35px;
+	width: 35px;
+	padding: 5px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	
+}
+a.nav-link .null: hover {
+	height: 35px;
+	width: 35px;
+}
+/*a.nav-link:hover {
+	border: #fff 0.5px solid;
+	border-radius: 5%;
+}*/
+img.nav-icon {
+	height: 30px;
+	width: 30px;
+}
+.align-left {
+	float: left;
+}
+.align-center {
+	margin: auto;
+	width: 50%;
+	text-align: center;
+}
+.align-right {
+	float: right;
+}
