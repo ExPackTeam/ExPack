@@ -7,34 +7,6 @@
         <div class="bg-000000">
             <h1 class="color-ffffff">Hello!</h1> <!--DON'T FORGET 6 CHARACTERS NEEDED!!!-->
         </div>
-        <!--<script src="js/global.js"></script>-->
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                const bg_elements = document.querySelectorAll("[class*='bg-']");
-                bg_elements.forEach(bg_element => {
-                const classes = bg_element.className.split(" ");
-                classes.forEach(cls => {
-                    if (cls.startsWith("bg-")) {
-                        const colorCode = cls.substring(3);
-                        if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-                            element.style.backgroundColor = `#${colorCode}`;
-                        }
-                    }
-                    });
-                });
-                const mn_elements = document.querySelectorAll("[class*='color-']");
-                mn_elements.forEach(mn_element => {
-                    const classes = mn_element.className.split(" ");
-                    classes.forEach(cls => {
-                    if (cls.startsWith("color-")) {
-                        const colorCode = cls.substring(3);
-                        if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-                            mn_element.style.color = `#${colorCode}`;
-                        }
-                    }
-                    });
-                });
-            });
-        </script>
+        <script src="js/global.js"></script>
     </body>
 </html>
