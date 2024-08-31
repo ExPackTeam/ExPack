@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const classes = element.className.split(" ");
 		classes.forEach(cls => {
 			if (cls.startsWith("pad-")) {
-				const padding = cls.substring(5);
+				const paddingValue = cls.substring(5);
 				if (/^\d+px?$/.test(paddingValue)) {
                 // Apply padding to all sides
 					element.style.padding = paddingValue;
@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	imageDimension.forEach( element => {
 		const imageData = element.getAttribute('data-image');
 		if (imageData) {
-			// data-image=""
 			const parts = imageData.split(" ");
 			parts.forEach(parts => {
 				if (part.startsWith("height-")) {
@@ -114,5 +113,17 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 			});
 		}
+	});
+	const fontWeightClass = document.querySelectorAll("[class^='fw-'");
+	fontWeightClass.forEach(element => {
+		const classes = element.className.split(" ");
+		classes.forEach(cls => {
+			if (cls.startsWith("fw-")) {
+				const fwValue = cls.substring(3);
+				if (/^\d+px?$/.test(fwValue)) {
+					element.style.fontWeight = fwValue;
+				}
+			}
+		});
 	});
 });

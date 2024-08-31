@@ -1,76 +1,71 @@
-@import "navbar.css";
-@import "variables.css";
-/* not needed but if you want to use them
-[data-text="bold"] {
-	font-weight: bold;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+[data-font=roboto] {
+  font-family: "Roboto", sans-serif;
 }
-[data-text="italic"] {
-	font-style: italic;
-}
-.text-bold {
-    font-weight: bold;
-}
-.text-italic {
-    font-style: italic;
-}
-*/
 [data-tool="tooltip"] {
-	position: relative;
-	display: inline-block;
-	border-bottom: 1px dotted black;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted;
+  pointer-events: none;
 }
-[data-tool="tooltip"] [data-tip="tooltip"] {
-	visibility: hidden;
-	width: 100%;
-    text-align: center;
-    position: absolute;
-    z-index: 1;
-	// uses the 'br-*' and 'fr-*' for background and text color // uses [data-border] for the border size,
+[data-tool="tooltip"] [data-tip=tooltip] {
+  visibility: hidden;
+  position: absolute;
 }
 [data-tool="tooltip"]:hover [data-tip="tooltip"] {
-    visibility: visible;
+  display: inline;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  visibility: visible;
+  position: top;
 }
-ul.nav-list {
-    list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+
+nav {
+  margin: auto;
 }
-li.nav-item {
-	float: left;
+nav ul.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-li.profile {
-	float: right;
+nav ul.nav-list li.nav-item {
+  float: left;
+  padding: 5px;
 }
-a.nav-link {
-	height: 35px;
-	width: 35px;
-	padding: 5px;
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	
+nav ul.nav-list li.nav-item a.nav-link {
+  text-align: center;
+  text-decoration: none;
 }
-a.nav-link .null: hover {
-	height: 35px;
-	width: 35px;
+nav ul.nav-list li.nav-item a.nav-link:hover {
+  filter: brightness(150%);
 }
-/*a.nav-link:hover {
-	border: #fff 0.5px solid;
-	border-radius: 5%;
-}*/
-img.nav-icon {
-	height: 30px;
-	width: 30px;
+nav ul.nav-list li.profile {
+  float: right;
+  padding: 5px;
 }
+nav ul.nav-list img.nav-icon {
+  height: 40px;
+  width: 40px;
+}
+
 .align-left {
-	float: left;
+  float: left;
 }
+
 .align-center {
-	margin: auto;
-	width: 50%;
-	text-align: center;
+  margin: auto;
+  width: 50%;
+  text-align: center;
 }
+
 .align-right {
-	float: right;
+  float: right;
+}
+
+.place-hrz {
+  display: inline;
 }
