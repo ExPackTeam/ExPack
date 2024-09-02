@@ -69,3 +69,18 @@ nav ul.nav-list img.nav-icon {
 .place-hrz {
   display: inline;
 }
+/*.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+.modal [data-show=true] {
+  display: default;
+}
+.modal [data-show=false] {
+  display: none;
+}*/
+

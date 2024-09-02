@@ -136,7 +136,33 @@ document.addEventListener("DOMContentLoaded", () => {
 			const rightMargin = parts.cls(5);
 			element.style.marginRight = rightMargin;
 		} else if (parts.startsWith("l-")) {
-			
+
+		}
+	});
+	const indexValue = document.querySelectorAll("[data-index]");
+	indexValue.forEach(element => {
+		const indexData = element.getAttribute('data-index');
+		if (indexData) {
+			const parts = indexData.split(" ");
+			if (parts.startsWith("z-")) {
+				zIndex = part.substring(5);
+				element.style.zIndex = zIndex;
+			}
 		}
 	});
 });
+var modal = document.getElementsByClassName("modal");
+var modalBtn = document.getElementsByClassName("modal-btn");
+var closeClick = document.getElementsByClassName("close");
+modalBtn.onClick = function() {
+	modal.style.display = block;
+}
+closeClick.onClick = function() {
+	element.style.display = none;
+}
+window.onClick = function(event) {
+	if (event.target == modal) {
+		modal.style.display = none;
+	}
+}
+
