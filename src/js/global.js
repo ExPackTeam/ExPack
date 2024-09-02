@@ -126,4 +126,17 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	});
+	const marginCheck = document.querySelectorAll("[data-margin]");
+	marginCheck.forEach(element => {
+		const parts = element.className.split(" ");
+		if (parts.startsWith("a-")) {
+			const everyMargin = parts.cls(5);
+			element.style.margin = everyMargin;
+		} else if (parts.startsWith("r-")) {
+			const rightMargin = parts.cls(5);
+			element.style.marginRight = rightMargin;
+		} else if (parts.startsWith("l-")) {
+			
+		}
+	});
 });
