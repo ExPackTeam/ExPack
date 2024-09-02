@@ -3,4 +3,5 @@ ExPack is a library that lets you customize everything, being easy to use and ab
 
 # To-Do
 - [ ]  Have javascript modify margins
-- [ ]  Add to a cdn
+- [ ]  Add to a CDN
+- [ ]  May add custom a element for sidebars
