@@ -64,18 +64,5 @@ nav {
 .place-hrz {
 	display: inline;
 }
-.modal {
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	[data-show="true"] {
-		display: default;
-	}
-	[data-show="false"] {
-		display: none;
-	}
-	/*z-index uses javascript*/
-}
+
+  
