@@ -4,7 +4,8 @@
   "description": "A utility library focused on the user's ability to modify and design",
   "main": "src/js/global.js",
   "scripts": {
-    "test": "src/js/global.js"
+    "test": "src/js/global.js",
+    "sass": "sass src/scss/global.scss dist/css/main.css"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "homepage": "https://github.com/MicroRay620/ExPack#readme",
   "dependencies": {
     "expack": "file:"
+  },
+  "devDependencies": {
+    "sass": "^1.78.0"
   }
 }
