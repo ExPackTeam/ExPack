@@ -13,4 +13,4 @@ To properly run this, please make sure you install [SASS](https://sass-lang.com/
 ## Compiling SASS
 Originally (before having sass installed globally), the SASS (`.scss` files) was compiled using [json2csharp.com](https://json2csharp.com/css-tools/sass-to-css); so if you'd like you can use that.
 
-As of September 4th, 2024, the original repository is being compiled by running (in the ExPack directory): `sass src/scss/global.scss dist/css/distrubition.css`. 
+As of September 4th, 2024, the original repository is being compiled by running (in the ExPack directory): `sass src/scss/global.scss dist/css/dist_global.css`. 
