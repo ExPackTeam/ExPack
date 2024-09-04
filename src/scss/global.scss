@@ -1,62 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import "modal";
-:root {
-	$roboto: "Roboto", sans-serif;
-  	/*
-  		CSS: --var(roboto)
-		SASS: $roboto
-	*/
-}
+@import "tooltip";
+$roboto: "Roboto", sans-serif;
 [data-font=roboto] {
-  font-family: "Roboto", sans-serif;
-}
-[data-tool="tooltip"] {
-	position: relative;
-	display: inline-block;
-	border-bottom: 1px dotted black;
-	pointer-events: none;
-	[data-tip="tooltip"] {
-		visibility: hidden;
-		position: absolute;
-	}
-	[data-tool="tooltip"]:hover [data-tip="tooltip"] {
-		display: inline;
-		position: absolute;
-		bottom: calc(100% + 5px);
-		left: 50%;
-		transform: translate(-50%);
-		text-align: center;
-		visibility: visible;
-		position: top;
-	}
-}
-nav {
-	margin: auto;
-	ul.nav-list {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		li.nav-item {
-			float: left;
-			padding: 5px;
-			a.nav-link {
-				text-align: center;
-				text-decoration: none;
-				&:hover {
-					filter: brightness(150%);
-				}
-			}
-		}
-		li.profile {
-			float: right;
-			padding: 5px;
-		}
-		img.nav-icon {
-			height: 40px;
-			width: 40px;
-		}
-	}
+  font-family: $roboto;
 }
 .align-left {
 	float: left;
