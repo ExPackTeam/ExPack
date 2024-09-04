@@ -1,5 +1,5 @@
 # Node.js
-node_modules/
+node_modules/expack
 package-lock.json
 npm-debug.log
 yarn-error.log
