@@ -1,21 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "fonts";
 @import "modal";
 @import "tooltip";
 @import "navbar";
-$roboto: "Roboto", sans-serif;
-[data-font=roboto] {
-  font-family: $roboto;
-}
-.align-left {
-	float: left;
-}
-.align-center {
-	margin: auto;
-	width: 50%;
-	text-align: center;
-}
-.align-right {
+@import "alignment";
+.close {
+	color: #aaa;
 	float: right;
+	font-size: 28px;
+	font-weight: bold;
+	&:hover,
+	&:focus {
+		color: black; // Figure out how to have that work in javascript
+	  	text-decoration: none;
+	  	cursor: pointer;
+	}
 }
 .place-hrz {
 	display: inline;
