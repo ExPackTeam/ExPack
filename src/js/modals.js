@@ -1,14 +1,15 @@
+// modified from w3schools
 var modal = document.getElementsByClassName("modal");
 var modalBtn = document.getElementsByClassName("modal-btn");
 var closeClick = document.getElementsByClassName("close");
-modalBtn.onClick = function() {
-	modal.style.display = block;
+modalBtn.onclick = function() {
+  modal.style.display = "block";
 }
-closeClick.onClick = function() {
-	element.style.display = none;
+closeClick.onclick = function() {
+  modal.style.display = "none";
 }
-window.onClick = function(event) {
-	if (event.target == modal) {
-		modal.style.display = none;
-	}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

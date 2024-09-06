@@ -1,5 +1,5 @@
 import "modals";
-import "text_charges";
+import "text_changes";
 document.addEventListener("DOMContentLoaded", () => { 
 	const closingClass = document.getElementByClassName("close");
 	closingClass.textContent = "&times;";
