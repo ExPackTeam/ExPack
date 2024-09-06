@@ -23,5 +23,9 @@
   "homepage": "https://github.com/MicroRay620/ExPack#readme",
   "dependencies": {
     "expack": "file:"
+  },
+  "devDependencies": {
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   }
 }
