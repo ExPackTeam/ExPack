@@ -30,7 +30,7 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
 
-[data-popup=modal] {
+[data-popup="modal"] {
   /*
   	display: block;
   	position: fixed;
