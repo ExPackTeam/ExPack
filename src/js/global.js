@@ -1,6 +1,7 @@
-import "modals";
-import { modalFunction } from "text_changes";
+import { modalFunction } from "modals";
+import { loginOption } from "login";
 modalFunction();
+loginOption();
 document.addEventListener("DOMContentLoaded", () => { 
 	const bgElements = document.querySelectorAll("[class*='bg-']");
 	bgElements.forEach(element => {
