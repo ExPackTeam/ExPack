@@ -23,5 +23,8 @@
   "homepage": "https://github.com/MicroRay620/ExPack#readme",
   "dependencies": {
     "expack": "file:"
+  },
+  "devDependencies": {
+    "sass": "^1.78.0"
   }
 }

@@ -15,7 +15,13 @@
 	  	text-decoration: none;
 	  	cursor: pointer;
 	}
+	&::before {
+		content:"\00d7";
+	}
 }
 .place-hrz {
 	display: inline;
+}
+a::after {
+	content: "link";
 }
