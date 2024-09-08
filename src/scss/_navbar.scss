@@ -8,6 +8,11 @@ nav {
 		li.nav-item {
 			float: left;
 			padding: 5px;
+			.brand {
+				&::before {
+					content: "img/svg/ExPack.svg";
+				}
+			}
 			a.nav-link {
 				text-align: center;
 				text-decoration: none;
