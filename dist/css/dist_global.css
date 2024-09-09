@@ -89,7 +89,7 @@ nav ul.nav-list li.nav-item {
   padding: 5px;
 }
 nav ul.nav-list li.nav-item .brand::before {
-  content: "img/svg/ExPack.svg";
+  content: "!";
 }
 nav ul.nav-list li.nav-item a.nav-link {
   text-align: center;
@@ -127,13 +127,13 @@ nav ul.nav-list img.nav-icon {
   font-size: 28px;
   font-weight: bold;
 }
+.close::before {
+  content: "×";
+}
 .close:hover, .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
-}
-.close::before {
-  content: "×";
 }
 
 .place-hrz {
