@@ -4,7 +4,8 @@
   "description": "A utility library focused on the user's ability to modify and design",
   "main": "src/js/global.js",
   "scripts": {
-    "test": "src/js/global.js"
+    "test": "src/js/global.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
