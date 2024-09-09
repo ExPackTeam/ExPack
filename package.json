@@ -25,6 +25,7 @@
     "expack": "file:"
   },
   "devDependencies": {
-    "sass": "^1.78.0"
+    "sass": "^1.78.0",
+    "terser": "^5.32.0"
   }
 }
