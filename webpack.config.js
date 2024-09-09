@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: './src/js/global.js',
   output: {
-    filename: 'bundle.min.js',  // The output file name
+    filename: 'expack.min.js', 
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
-    minimize: true,  // Ensure minimization is enabled
+    minimize: true,
   },
 };
