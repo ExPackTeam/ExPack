@@ -25,6 +25,7 @@
     "expack": "file:"
   },
   "devDependencies": {
-    "sass": "^1.78.0"
+    "sass": "^1.78.0",
+    "webpack-cli": "^5.1.4"
   }
 }
