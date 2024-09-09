@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/js/global.js',
   output: {
     filename: 'expack.min.js', 
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/s'),
   },
   optimization: {
     minimize: true,
