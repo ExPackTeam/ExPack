@@ -2,9 +2,16 @@
 ExPack is a library that lets you customize everything, being easy to use and able to adjust based on your needs!
 
 ExPack was programmed in Visual Studio Code.
+## Languages
+### Programmed With
+ExPack was made with the following Coding Languages
+- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+- ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+
 
 # To-Do
 - [ ]  Have javascript modify margins
+- [ ]  Built in Python support
 - [ ]  Add to a CDN
 - [ ]  May add custom a element for sidebars
 
