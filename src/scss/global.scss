@@ -9,14 +9,13 @@
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
-	&:hover,
-	&:focus {
+	&::before {
+		content:"\00d7";
+	}
+	&:hover, &:focus {
 		color: black; // Figure out how to have that work in javascript
 	  	text-decoration: none;
 	  	cursor: pointer;
-	}
-	&::before {
-		content:"\00d7";
 	}
 }
 .place-hrz {

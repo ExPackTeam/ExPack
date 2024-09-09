@@ -10,7 +10,7 @@ nav {
 			padding: 5px;
 			.brand {
 				&::before {
-					content: "img/svg/ExPack.svg";
+					content: "\0021";
 				}
 			}
 			a.nav-link {
