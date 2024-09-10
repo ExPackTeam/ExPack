@@ -11,28 +11,36 @@ function loginOption() {
         return elements;
     }
     var registerBtn = document.getElementsByClassName("register-btn");
-    registerBtn.onclick() = function() { 
-        var emailRequired = hasRequiredClass(emailClass);
-        var passwordRequired = hasRequiredClass(passwordClass);
-        var usernameRequired = hasRequiredClass(usernameClass);
-        if (emailRequired) {
-            const emailValue = emailClass.value;
-            localStorage.setItem("email saved", emailValue);
-            var emailCookie = document.cookie = `userEmail=${emailValue}`;
-            return emailCookie; 
+    if (registerBtn.length > 0) {
+        for (var i = 0; i < registerBtns.length; i++) {
+            registerBtn[i].onclick() = function() { 
+                var emailRequired = hasRequiredClass(emailClass);
+                var passwordRequired = hasRequiredClass(passwordClass);
+                var usernameRequired = hasRequiredClass(usernameClass);
+                if (emailRequired) {
+                    const emailValue = emailClass.value;
+                    localStorage.setItem("email saved", emailValue);
+                    var emailCookie = document.cookie = `userEmail=${emailValue}`;
+                    return emailCookie; 
+                }
+                if (passwordRequired) {
+                    const passwordValue = hasRequiredClass(passwordClass);
+                    localStorage.setItem("password saved", passwordValue);
+                    var passwordCookie = document.cookie = `userPassword=${passwordValue}`;
+                    return passwordCookie;
+                }
+                if (usernameRequired) {
+                    const usernameValue = usernameClass.value;
+                    localStorage.setItem("username saved", usernameValue);
+                    var usernameCookie = document.cookie = `userUsername=${usernameValue}`;
+                    return usernameCookie;
+                }
+                return false;
+            }
         }
-        if (passwordRequired) {
-            const passwordValue = hasRequiredClass(passwordClass);
-            localStorage.setItem("password saved", passwordValue);
-            var passwordCookie = document.cookie = `userPassword=${passwordValue}`;
-            return passwordCookie;
-        }
-        if (usernameRequired) {
-            const usernameValue = usernameClass.value;
-            localStorage.setItem("username saved", usernameValue);
-            var usernameCookie = document.cookie = `userUsername=${usernameValue}`;
-            return usernameCookie;
-        }
+        return false;
+    } else {
+        console.log("no register");
     }
     return false;
 }

@@ -1,7 +1,7 @@
 import { modalFunction } from "./modals";
-// import { loginOption } from "login";
+// import { loginOption } from "./login.js";
 modalFunction();
-//loginOption();
+// loginOption();
 document.addEventListener("DOMContentLoaded", () => { 
 	const bgElements = document.querySelectorAll("[class*='bg-']");
 	bgElements.forEach(element => {
