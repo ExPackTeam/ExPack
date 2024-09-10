@@ -1,11 +1,12 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'development',
   entry: './src/js/global.js',
   output: {
     filename: 'expack.bundle.js', 
-    filename: 'expakc.min.js',
+    filename: 'expack.min.js',
     path: path.resolve(__dirname, 'dist/js'),
   },
   module: {
@@ -25,5 +26,13 @@ module.exports = {
         use: 'raw-loader'
       }
     ]
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        test: /\.js(\?.*)?$/i,
+      }),
+    ],
   },
 };
