@@ -1,13 +1,29 @@
 const path = require('path');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/js/global.js',
   output: {
-    filename: 'expack.min.js', 
+    filename: 'expack.bundle.js', 
+    filename: 'expakc.min.js',
     path: path.resolve(__dirname, 'dist/js'),
   },
-  /*optimization: {
-    minimize: true,
-  },*/
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
+        test: /\.txt$/,
+        use: 'raw-loader'
+      }
+    ]
+  },
 };
