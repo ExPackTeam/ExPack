@@ -38,11 +38,12 @@ ExPack was made with the following Coding Languages
 
 ### NPM
 - Webpack
+    - Terser Webpack Plugin
 - Sass
 - Babel
     - babel-loader
-    - @bable/core
-    - @bable/preset-env
+    - @babel/core
+    - @babel/preset-env
 
 All *npm* installs are localed in the **node_module** directory.
 
@@ -52,6 +53,9 @@ To properly run this, please make sure you install [SASS](https://sass-lang.com/
 Originally (before having sass installed globally), the SASS (`.scss` files) was compiled using [json2csharp.com](https://json2csharp.com/css-tools/sass-to-css); so if you'd like you can use that.
 
 As of September 4th, 2024, the original repository is being compiled by running (in the ExPack directory): `sass src/scss/global.scss dist/css/dist_global.css`. 
+
+## Compiling JS
+With the addition of webpack (added September 7th, 2024), to bundle and minimize the javascript code you should run: `npm run build`. For more info look at the [webpack config](/webpack.config.js) file.
 
 # For Support
 ![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white): teamexpack@gmail.com
