@@ -1,7 +1,7 @@
-import { modalFunction } from "modals";
-import { loginOption } from "login";
+import { modalFunction } from "./modals";
+// import { loginOption } from "login";
 modalFunction();
-loginOption();
+//loginOption();
 document.addEventListener("DOMContentLoaded", () => { 
 	const brandImage = document.querySelectorAll("[class='brand']");
 	brandImage.forEach(element => {
