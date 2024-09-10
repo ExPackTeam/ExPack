@@ -3,13 +3,6 @@ import { modalFunction } from "./modals";
 modalFunction();
 //loginOption();
 document.addEventListener("DOMContentLoaded", () => { 
-	const brandImage = document.querySelectorAll("[class='brand']");
-	brandImage.forEach(element => {
-		const classes = element.className.split(" ");
-		classes.forEach(cls => {
-			
-		})
-	})
 	const bgElements = document.querySelectorAll("[class*='bg-']");
 	bgElements.forEach(element => {
 		const classes = element.className.split(" ");
