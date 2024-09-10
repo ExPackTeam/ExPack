@@ -8,7 +8,7 @@ function loginOption() {
                 return true;
             }
         }
-        return false;
+        return elements;
     }
     var registerBtn = document.getElementsByClassName("register-btn");
     registerBtn.onclick() = function() { 
