@@ -28,13 +28,23 @@ ExPack was made with the following Coding Languages
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ### Software
 #### For Programming
-- [Atom](https://github.com/Atom) (![Atom](https://img.shields.io/badge/Atom-%2366595C.svg?style=for-the-badge&logo=atom&logoColor=white) **Not recommended, archived IDE**
+- [Atom](https://github.com/Atom) ![Atom](https://img.shields.io/badge/Atom-%2366595C.svg?style=for-the-badge&logo=atom&logoColor=white) **Not recommended, archived IDE**
 - [Visual Studio Code](https://code.visualstudio.com/download) ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) **Recommended**
 - [Visual Studio](https://visualstudio.microsoft.com/downloads/) ![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg?style=for-the-badge&logo=visual-studio&logoColor=white)
 
 > [!IMPORTANT]
 > Use which ever IDE you'd like, these are just the ones that the original [owner](https://github.com/MicroRay620) used to make ExPack.
 > If your IDE doesn't have Git support, run the Git Back terminal and then do the git commands there
+
+### NPM
+- Webpack
+- Sass
+- Babel
+    - babel-loader
+    - @bable/core
+    - @bable/preset-env
+
+All *npm* installs are localed in the **node_module** directory.
 
 ## Recommendations
 To properly run this, please make sure you install [SASS](https://sass-lang.com/install/). The starting system for ExPack was using `npm install -g sass`.
