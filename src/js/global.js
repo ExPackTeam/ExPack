@@ -1,7 +1,5 @@
 import { modalFunction } from "./modals";
-// import { loginOption } from "./login.js";
-modalFunction();
-// loginOption();
+import { loginOption } from "./login.js";
 document.addEventListener("DOMContentLoaded", () => { 
 	const bgElements = document.querySelectorAll("[class*='bg-']");
 	bgElements.forEach(element => {
@@ -158,3 +156,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 });
+modalFunction();
+loginOption();
