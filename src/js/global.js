@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
     // FINALLY FUCKING WORKS!!!!!!! 15/08/2024
 	// Doesn't work again 08/09/2024
+	// Fixed Issue 11/09/2024
     const fontWeightClass = document.querySelectorAll("[class^='fw-'");
 	fontWeightClass.forEach(element => {
 		const classes = element.className.split(" ");
