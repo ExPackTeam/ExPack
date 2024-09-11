@@ -1,0 +1,17 @@
+.math {
+    .mean {
+        &::before {
+            content: "\0078\0304";
+        }
+    }
+    .sigma {
+        &::before {
+            content: "\03A3";
+        }
+    }
+    .delta {
+        &::before {
+            content: "\0394";
+        }
+    }
+}
