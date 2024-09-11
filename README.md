@@ -13,10 +13,12 @@ ExPack was made with the following Coding Languages
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
 # To-Do
+## Code
 - [ ]  Have javascript modify margins
 - [ ]  Built in Python support
+- [ ]  Badges SCSS (may use javascript)
+## Others
 - [ ]  Add to a CDN
-- [ ]  May add custom a element for sidebars
 
 # Installs
 ## To Have Installed

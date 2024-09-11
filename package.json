@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/MicroRay620/ExPack#readme",
   "dependencies": {
-    "expack": "file:"
+    "expack": "file:",
+    "webpack-merge": "^6.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
