@@ -2,45 +2,42 @@ function loginOption() {
     var emailClass = document.getElementsByClassName("login-email");
     var passwordClass = document.getElementsByClassName("login-password");
     var usernameClass = document.getElementsByClassName("login-username");
+
     function hasRequiredClass(elements) {
         for (var i = 0; i < elements.length; i++) {
             if (elements[i].classList.contains('required')) {
                 return true;
             }
         }
-        return elements;
+        return false;
     }
+
     var registerBtn = document.getElementsByClassName("register-btn");
     if (registerBtn.length > 0) {
-        for (var i = 0; i < registerBtns.length; i++) {
-            registerBtn[i].onclick() = function() { 
+        for (var i = 0; i < registerBtn.length; i++) {
+            registerBtn[i].onclick = function() { 
                 var emailRequired = hasRequiredClass(emailClass);
                 var passwordRequired = hasRequiredClass(passwordClass);
                 var usernameRequired = hasRequiredClass(usernameClass);
-                if (emailRequired) {
-                    const emailValue = emailClass.value;
+
+                if (emailRequired && emailClass.length > 0) {
+                    const emailValue = emailClass[0].value;
                     localStorage.setItem("email saved", emailValue);
-                    var emailCookie = document.cookie = `userEmail=${emailValue}`;
-                    return emailCookie; 
+                    document.cookie = `userEmail=${emailValue}`;
                 }
-                if (passwordRequired) {
-                    const passwordValue = hasRequiredClass(passwordClass);
+                if (passwordRequired && passwordClass.length > 0) {
+                    const passwordValue = passwordClass[0].value;
                     localStorage.setItem("password saved", passwordValue);
-                    var passwordCookie = document.cookie = `userPassword=${passwordValue}`;
-                    return passwordCookie;
+                    document.cookie = `userPassword=${passwordValue}`;
                 }
-                if (usernameRequired) {
-                    const usernameValue = usernameClass.value;
+                if (usernameRequired && usernameClass.length > 0) {
+                    const usernameValue = usernameClass[0].value;
                     localStorage.setItem("username saved", usernameValue);
-                    var usernameCookie = document.cookie = `userUsername=${usernameValue}`;
-                    return usernameCookie;
+                    document.cookie = `userUsername=${usernameValue}`;
                 }
-                return false;
             }
         }
-        return false;
     } else {
         console.log("no register");
     }
-    return false;
 }

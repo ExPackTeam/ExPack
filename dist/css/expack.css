@@ -121,6 +121,16 @@ nav ul.nav-list img.nav-icon {
   float: right;
 }
 
+.math .mean::before {
+  content: "x̄";
+}
+.math .sigma::before {
+  content: "Σ";
+}
+.math .delta::before {
+  content: "Δ";
+}
+
 .close {
   color: #aaa;
   float: right;
