@@ -25,9 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	});
-    // FINALLY FUCKING WORKS!!!!!!! 15/08/2024
-	// Doesn't work again 08/09/2024
-	// Fixed Issue 11/09/2024
     const fontWeightClass = document.querySelectorAll("[class^='fw-'");
 	fontWeightClass.forEach(element => {
 		const classes = element.className.split(" ");
@@ -60,9 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
 		classes.forEach(cls => {
 			if (cls.startsWith("pad-")) {
 				const paddingValue = cls.substring(5);
-				if (/^\d+px?$/.test(paddingValue)) {
-                // Apply padding to all sides
-					element.style.padding = paddingValue;
+				if (cls.startsWith("pad-t-")) {
+					if (/^\d+px?$/.test(paddingValue)) {
+						element.style.paddingTop = paddingValue;
+					}
+				} else if (cls.startsWith("pad-l-")) { // left
+					if (/^\d+px?$/.test(paddingValue)) {
+						element.style.paddingLeft = paddingValue;
+					}
+				} else if (cls.startsWith("pad-r-")) { // right	
+					if (/^\d+px?$/.test(paddingValue)) {
+						element.style.paddingRight = paddingValue;
+					}
+				} else if (cls.startsWith("pad-b-")) { // bottom
+					if (/^\d+px?$/.test(paddingValue)) {
+						element.style.paddingBottom = paddingValue;
+					}
+				} else {
+					if (/^\d+px?$/.test(paddingValue)) { // padding all
+						element.style.padding = paddingValue;
+					}
 				}
 			}
 		});

@@ -1,9 +1,20 @@
 .math {
+    .times-x {
+        &::before {
+            content: "\00d7";
+        }
+    }
+    .divide {
+        &::before {
+            content: "\00F7";
+        }
+    }
     .mean {
         &::before {
             content: "\0078\0304";
         }
     }
+    // Greek Characters
     .sigma {
         &::before {
             content: "\03A3";
