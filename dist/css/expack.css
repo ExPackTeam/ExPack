@@ -121,6 +121,12 @@ nav ul.nav-list img.nav-icon {
   float: right;
 }
 
+.math .times-x::before {
+  content: "×";
+}
+.math .divide::before {
+  content: "÷";
+}
 .math .mean::before {
   content: "x̄";
 }
