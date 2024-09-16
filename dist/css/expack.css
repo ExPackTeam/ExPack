@@ -107,6 +107,33 @@ nav ul.nav-list img.nav-icon {
   width: 40px;
 }
 
+nav .sidenav ul.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav .sidenav ul.nav-list li.nav-item {
+  padding: 5px;
+}
+nav .sidenav ul.nav-list li.nav-item .brand::before {
+  content: "!";
+}
+nav .sidenav ul.nav-list li.nav-item li.profile {
+  float: right;
+  padding: 5px;
+}
+nav .sidenav ul.nav-list li.nav-item a.nav-link {
+  text-align: center;
+  text-decoration: none;
+}
+nav .sidenav ul.nav-list li.nav-item a.nav-link:hover {
+  filter: brightness(150%);
+}
+nav .sidenav ul.nav-list img.nav-icon {
+  height: 40px;
+  width: 40px;
+}
+
 .align-left {
   float: left;
 }
