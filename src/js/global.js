@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	});
-	const closingClass = document.getElementByClassName("close");
+	const closingClass = document.querySelectorAll("[class*='close'");
 	closingClass.textContent = "&times;";
-	const elementAlignment = document.querySelectorAll("[class^='align-']");
+	/*const elementAlignment = document.querySelectorAll("[class^='align-']");
 	elementAlignment.forEach(element => {
 		const classes = element.className.split(" ");
 		classes.forEach(cls => {
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 			}
 		});
-	});
+	});*/
 	const elementPadding = document.querySelectorAll("[class^='pad-']")
 	elementPadding.forEach(element => {
 		const classes = element.className.split(" ");
