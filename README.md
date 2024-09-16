@@ -45,8 +45,8 @@ ExPack was made with the following Coding Languages
 > [!NOTICE]
 > Since 16/09/2024, devolpment of Expack v0.0.3, Expack has switched from using Webpack to Rollup
 
+
 - Rollup
-    - 
 - Sass
 - Babel
     - babel-loader
