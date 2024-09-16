@@ -39,8 +39,12 @@ ExPack was made with the following Coding Languages
 > If your IDE doesn't have Git support, run the Git Back terminal and then do the git commands there
 
 ### NPM
-- Webpack
-    - Terser Webpack Plugin
+- ~~Webpack~~
+    - ~~Terser Webpack Plugin~~
+
+> [!NOTICE]
+> Since 16/09/2024, devolpment of Expack v0.0.3, Expack has switched from using Webpack to Rollup
+
 - Sass
 - Babel
     - babel-loader
