@@ -1,0 +1,92 @@
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import { babel } from "@rollup/plugin-babel";
+import { terser } from "rollup-plugin-terser";
+import postcss from 'rollup-plugin-postcss';
+
+const basePlugin = {
+  plugins: [
+    resolve(),
+    commonjs(),
+    babel({
+      exclude: "node_modules/**",
+      presets: ["@babel/preset-env"],
+      babelHelpers: "bundled",
+    }),
+    postcss({
+      extract: true, // Extract CSS into a separate file
+      modules: false, // Set to true if you want CSS modules
+      minimize: true, // Minify the CSS
+      sourceMap: true, // Generate source maps
+    }),
+  ],
+};
+
+const basejsConfig = {
+  input: "src/js/global.js",
+  ...basePlugin,
+};
+
+const baseCSSConfig = {
+  input: "src/scss/global.scss",
+  ...basePlugin,
+};
+
+const jsConfig = {
+  output: {
+    file: "dist/js/expack.esm.js",
+    format: "esm",
+    name: "ExPack",
+    sourcemap: true, // Generate source maps
+  },
+};
+
+const jsMiniConfig = {
+  output: {
+    file: "dist/js/expack.min.js",
+    format: "iife",
+    name: "ExPack",
+    sourcemap: true,
+  },
+};
+
+const cssConfig = {
+  output: {
+    file: "dist/css/expack.esm.css",
+    format: "esm",
+    name: "Expack",
+    sourcemap: true,
+  },
+};
+
+const cssMiniConfig = {
+  output: {
+    file: "dist/css/expack.min.css",
+    format: "iife",
+    name: "Expack",
+    sourcemap: false,
+  },
+};
+
+export default [
+  {
+    ...basejsConfig,
+    ...jsConfig,
+  },
+  {
+    ...basejsConfig,
+    plugins: [
+      ...basePlugin.plugins,
+      terser(), // Apply Terser plugin only to the minimized output
+    ],
+    ...jsMiniConfig,
+  },
+  {
+    ...baseCSSConfig,
+    ...cssConfig,
+  },
+  {
+    ...baseCSSConfig,
+    ...cssMiniConfig,
+  }
+];

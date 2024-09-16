@@ -1,5 +1,5 @@
 // modified from w3schools
-function modalFunction() {
+export function modalFunction() {
   var modal = document.getElementsByClassName("modal");
   var modalBtn = document.getElementsByClassName("modal-btn");
   var closeClick = document.getElementsByClassName("close");
