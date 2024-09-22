@@ -1,19 +1,15 @@
 .align-left {
+	justify-content: left;
 	float: left;
 }
 .align-center {
-	margin: auto;
-	width: 50%;
+	justify-content: center;
+	display: flex;
+	text-align: center;
+	margin: 0 auto;
+	//width: 50%;
 }
 .align-right {
+	justify-content: right;
 	float: right;
-}
-.text-left {
-	text-align: left;
-}
-.text-center {
-	text-align: center;
-}
-.text-right {
-	text-align: right;
 }
