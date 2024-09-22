@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { babel } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import postcss from 'rollup-plugin-postcss';
+import postcssAttributeCaseInsensitive from "postcss-attribute-case-insensitive";
 
 const basePlugin = {
   plugins: [
@@ -15,9 +16,12 @@ const basePlugin = {
     }),
     postcss({
       extract: true, // Extract CSS into a separate file
-      modules: false, // Set to true if you want CSS modules
-      minimize: true, // Minify the CSS
+      modules: true, // Set to true if you want CSS modules
+      minimize: false, // Change to false to prevent minification in the main CSS
       sourceMap: true, // Generate source maps
+      plugins: [
+        postcssAttributeCaseInsensitive(),
+      ]
     }),
   ],
 };
@@ -68,6 +72,9 @@ const cssMiniConfig = {
   },
 };
 
+
+// ... other configurations remain unchanged
+
 export default [
   {
     ...basejsConfig,
@@ -87,6 +94,21 @@ export default [
   },
   {
     ...baseCSSConfig,
+    plugins: [
+      resolve(),
+      commonjs(),
+      babel({
+        exclude: "node_modules/**",
+        presets: ["@babel/preset-env"],
+        babelHelpers: "bundled",
+      }),
+      postcss({
+        extract: true,
+        modules: false,
+        minimize: true, // Minify only in the minified output
+        sourceMap: false, // No source maps for minified output
+      }),
+    ],
     ...cssMiniConfig,
   }
 ];
