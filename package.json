@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/MicroRay620/ExPack#readme",
   "dependencies": {
-    "expack": "file:"
+    "expack": "file:",
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -33,6 +34,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "babel-loader": "^9.1.3",
     "postcss": "^8.4.47",
+    "postcss-attribute-case-insensitive": "^7.0.0",
     "postcss-scss": "^4.0.9",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
