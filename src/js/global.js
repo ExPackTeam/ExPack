@@ -63,7 +63,6 @@ function expackExport() {
                 }
             });
         });
-
         const elementPadding = document.querySelectorAll("[class^='pad-']");
         elementPadding.forEach(element => {
             const classes = element.className.split(" ");
@@ -199,4 +198,3 @@ function expackExport() {
     loginOption();
     unicodeFunction();
 }
-module.exports = expackExport;
