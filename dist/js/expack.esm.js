@@ -10772,195 +10772,198 @@ jquery.exports;
 var jqueryExports = jquery.exports;
 var $ = /*@__PURE__*/getDefaultExportFromCjs(jqueryExports);
 
-document.addEventListener("DOMContentLoaded", function () {
-  var bgElements = document.querySelectorAll("[class*='bg-']");
-  bgElements.forEach(function (element) {
-    var classes = element.className.split(" ");
-    classes.forEach(function (cls) {
-      if (cls.startsWith("bg-")) {
-        var colorCode = cls.substring(3);
-        if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-          element.style.backgroundColor = "#".concat(colorCode);
-        }
-      }
-    });
-  });
-  var mnElements = document.querySelectorAll("[class*='fr-']");
-  mnElements.forEach(function (element) {
-    var classes = element.className.split(" ");
-    classes.forEach(function (cls) {
-      if (cls.startsWith("fr-")) {
-        var colorCode = cls.substring(3);
-        if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-          element.style.color = "#".concat(colorCode);
-        }
-      }
-    });
-  });
-  var fontWeightClass = document.querySelectorAll("[class^='fw-']");
-  fontWeightClass.forEach(function (element) {
-    var classes = element.className.split(" ");
-    classes.forEach(function (cls) {
-      if (cls.startsWith("fw-")) {
-        var fwValue = cls.substring(3);
-        if (/^\d+px?$/.test(fwValue)) {
-          element.style.fontWeight = fwValue;
-        }
-      }
-    });
-  });
-  var closingClass = document.querySelectorAll("[class*='close']");
-  closingClass.forEach(function (element) {
-    element.innerHTML = "&times;";
-    element.addEventListener("click", function () {
-      element.style.visibility = "hidden";
-    });
-  });
-  var elementAlignment = document.querySelectorAll("[class*='align-']");
-  elementAlignment.forEach(function (element) {
-    var classes = element.className.split(" ");
-    classes.forEach(function (cls) {
-      if (cls.startsWith("align-")) {
-        var alignment = cls.substring(5);
-        if (alignment === "center" || alignment === "left" || alignment === "right") {
-          element.style.textAlign = alignment;
-          $(elementAlignment).css("text-align", alignment);
-        }
-      }
-    });
-  });
-  var elementPadding = document.querySelectorAll("[class^='pad-']");
-  elementPadding.forEach(function (element) {
-    var classes = element.className.split(" ");
-    classes.forEach(function (cls) {
-      if (cls.startsWith("pad-")) {
-        var paddingValue = cls.substring(5);
-        if (cls.startsWith("pad-t-")) {
-          if (/^\d+px?$/.test(paddingValue)) {
-            element.style.paddingTop = paddingValue;
-          }
-        } else if (cls.startsWith("pad-l-")) {
-          // left
-          if (/^\d+px?$/.test(paddingValue)) {
-            element.style.paddingLeft = paddingValue;
-          }
-        } else if (cls.startsWith("pad-r-")) {
-          // right	
-          if (/^\d+px?$/.test(paddingValue)) {
-            element.style.paddingRight = paddingValue;
-          }
-        } else if (cls.startsWith("pad-b-")) {
-          // bottom
-          if (/^\d+px?$/.test(paddingValue)) {
-            element.style.paddingBottom = paddingValue;
-          }
-        } else {
-          if (/^\d+px?$/.test(paddingValue)) {
-            // padding all
-            element.style.padding = paddingValue;
-          }
-        }
-      }
-    });
-  });
-
-  // figure out how to have this work for all borders
-  var borderElements = document.querySelectorAll("[data-border]");
-  borderElements.forEach(function (element) {
-    var borderData = element.getAttribute('data-border');
-    if (borderData) {
-      var parts = borderData.split(" ");
-      parts.forEach(function (part) {
-        if (part.startsWith("color-")) {
-          var colorCode = part.substring(6);
+function expackExport() {
+  document.addEventListener("DOMContentLoaded", function () {
+    var bgElements = document.querySelectorAll("[class*='bg-']");
+    bgElements.forEach(function (element) {
+      var classes = element.className.split(" ");
+      classes.forEach(function (cls) {
+        if (cls.startsWith("bg-")) {
+          var colorCode = cls.substring(3);
           if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-            element.style.borderColor = "#".concat(colorCode);
+            element.style.backgroundColor = "#".concat(colorCode);
           }
-        }
-        if (part.startsWith("radius-")) {
-          var borderRadius = part.substring(7);
-          if (borderRadius.includes("%")) {
-            borderRadius += "%";
-          } else {
-            borderRadius += "px";
-          }
-          element.style.borderRadius = borderRadius;
-        }
-        if (part.startsWith("size-")) {
-          var borderSize = part.substring(5);
-          element.style.borderWidth = borderSize;
         }
       });
-    }
-  });
-  var imageDimension = document.querySelectorAll("[data-image]");
-  imageDimension.forEach(function (element) {
-    var imageData = element.getAttribute('data-image');
-    if (imageData) {
-      var parts = imageData.split(" ");
+    });
+    var mnElements = document.querySelectorAll("[class*='fr-']");
+    mnElements.forEach(function (element) {
+      var classes = element.className.split(" ");
+      classes.forEach(function (cls) {
+        if (cls.startsWith("fr-")) {
+          var colorCode = cls.substring(3);
+          if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+            element.style.color = "#".concat(colorCode);
+          }
+        }
+      });
+    });
+    var fontWeightClass = document.querySelectorAll("[class^='fw-']");
+    fontWeightClass.forEach(function (element) {
+      var classes = element.className.split(" ");
+      classes.forEach(function (cls) {
+        if (cls.startsWith("fw-")) {
+          var fwValue = cls.substring(3);
+          if (/^\d+px?$/.test(fwValue)) {
+            element.style.fontWeight = fwValue;
+          }
+        }
+      });
+    });
+    var closingClass = document.querySelectorAll("[class*='close']");
+    closingClass.forEach(function (element) {
+      element.innerHTML = "&times;";
+      element.addEventListener("click", function () {
+        element.style.visibility = "hidden";
+      });
+    });
+    var elementAlignment = document.querySelectorAll("[class*='align-']");
+    elementAlignment.forEach(function (element) {
+      var classes = element.className.split(" ");
+      classes.forEach(function (cls) {
+        if (cls.startsWith("align-")) {
+          var alignment = cls.substring(5);
+          if (alignment === "center" || alignment === "left" || alignment === "right") {
+            element.style.textAlign = alignment;
+            $(elementAlignment).css("text-align", alignment);
+          }
+        }
+      });
+    });
+    var elementPadding = document.querySelectorAll("[class^='pad-']");
+    elementPadding.forEach(function (element) {
+      var classes = element.className.split(" ");
+      classes.forEach(function (cls) {
+        if (cls.startsWith("pad-")) {
+          var paddingValue = cls.substring(5);
+          if (cls.startsWith("pad-t-")) {
+            if (/^\d+px?$/.test(paddingValue)) {
+              element.style.paddingTop = paddingValue;
+            }
+          } else if (cls.startsWith("pad-l-")) {
+            // left
+            if (/^\d+px?$/.test(paddingValue)) {
+              element.style.paddingLeft = paddingValue;
+            }
+          } else if (cls.startsWith("pad-r-")) {
+            // right	
+            if (/^\d+px?$/.test(paddingValue)) {
+              element.style.paddingRight = paddingValue;
+            }
+          } else if (cls.startsWith("pad-b-")) {
+            // bottom
+            if (/^\d+px?$/.test(paddingValue)) {
+              element.style.paddingBottom = paddingValue;
+            }
+          } else {
+            if (/^\d+px?$/.test(paddingValue)) {
+              // padding all
+              element.style.padding = paddingValue;
+            }
+          }
+        }
+      });
+    });
+
+    // figure out how to have this work for all borders
+    var borderElements = document.querySelectorAll("[data-border]");
+    borderElements.forEach(function (element) {
+      var borderData = element.getAttribute('data-border');
+      if (borderData) {
+        var parts = borderData.split(" ");
+        parts.forEach(function (part) {
+          if (part.startsWith("color-")) {
+            var colorCode = part.substring(6);
+            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+              element.style.borderColor = "#".concat(colorCode);
+            }
+          }
+          if (part.startsWith("radius-")) {
+            var borderRadius = part.substring(7);
+            if (borderRadius.includes("%")) {
+              borderRadius += "%";
+            } else {
+              borderRadius += "px";
+            }
+            element.style.borderRadius = borderRadius;
+          }
+          if (part.startsWith("size-")) {
+            var borderSize = part.substring(5);
+            element.style.borderWidth = borderSize;
+          }
+        });
+      }
+    });
+    var imageDimension = document.querySelectorAll("[data-image]");
+    imageDimension.forEach(function (element) {
+      var imageData = element.getAttribute('data-image');
+      if (imageData) {
+        var parts = imageData.split(" ");
+        parts.forEach(function (part) {
+          if (part.startsWith("height-")) {
+            var imageHeight = part.substring(7);
+            if (imageHeight.includes("%")) {
+              imageHeight += "%";
+            } else if (imageHeight.includes("em") || imageHeight.includes("-em")) {
+              imageHeight += "em";
+            } else {
+              imageHeight += "px";
+            }
+            element.style.height = imageHeight;
+          }
+          if (part.startsWith("width-")) {
+            var imageWidth = part.substring(6);
+            if (imageWidth.includes("%")) {
+              imageWidth += "%";
+            } else if (imageWidth.includes("em") || imageWidth.includes("-em")) {
+              imageWidth += "em";
+            } else {
+              imageWidth += "px";
+            }
+            element.style.width = imageWidth;
+          }
+        });
+      }
+    });
+    var marginCheck = document.querySelectorAll("[data-margin]");
+    marginCheck.forEach(function (element) {
+      var parts = element.className.split(" ");
       parts.forEach(function (part) {
-        if (part.startsWith("height-")) {
-          var imageHeight = part.substring(7);
-          if (imageHeight.includes("%")) {
-            imageHeight += "%";
-          } else if (imageHeight.includes("em") || imageHeight.includes("-em")) {
-            imageHeight += "em";
-          } else {
-            imageHeight += "px";
-          }
-          element.style.height = imageHeight;
-        }
-        if (part.startsWith("width-")) {
-          var imageWidth = part.substring(6);
-          if (imageWidth.includes("%")) {
-            imageWidth += "%";
-          } else if (imageWidth.includes("em") || imageWidth.includes("-em")) {
-            imageWidth += "em";
-          } else {
-            imageWidth += "px";
-          }
-          element.style.width = imageWidth;
+        if (part.startsWith("a-")) {
+          var everyMargin = part.substring(2);
+          element.style.margin = everyMargin;
+        } else if (part.startsWith("r-")) {
+          var rightMargin = part.substring(2);
+          element.style.marginRight = rightMargin;
+        } else if (part.startsWith("l-")) {
+          var leftMargin = part.substring(2);
+          element.style.marginLeft = leftMargin;
+        } else if (part.startsWith("t-")) {
+          var topMargin = part.substring(2);
+          element.style.marginTop = topMargin;
+        } else if (part.startsWith("b-")) {
+          var bottomMargin = part.substring(2);
+          element.style.marginBottom = bottomMargin;
         }
       });
-    }
-  });
-  var marginCheck = document.querySelectorAll("[data-margin]");
-  marginCheck.forEach(function (element) {
-    var parts = element.className.split(" ");
-    parts.forEach(function (part) {
-      if (part.startsWith("a-")) {
-        var everyMargin = part.substring(2);
-        element.style.margin = everyMargin;
-      } else if (part.startsWith("r-")) {
-        var rightMargin = part.substring(2);
-        element.style.marginRight = rightMargin;
-      } else if (part.startsWith("l-")) {
-        var leftMargin = part.substring(2);
-        element.style.marginLeft = leftMargin;
-      } else if (part.startsWith("t-")) {
-        var topMargin = part.substring(2);
-        element.style.marginTop = topMargin;
-      } else if (part.startsWith("b-")) {
-        var bottomMargin = part.substring(2);
-        element.style.marginBottom = bottomMargin;
+    });
+    var indexValue = document.querySelectorAll("[data-index]");
+    indexValue.forEach(function (element) {
+      var indexData = element.getAttribute('data-index');
+      if (indexData) {
+        var parts = indexData.split(" ");
+        parts.forEach(function (part) {
+          if (part.startsWith("z-")) {
+            var zIndex = part.substring(2);
+            element.style.zIndex = zIndex;
+          }
+        });
       }
     });
   });
-  var indexValue = document.querySelectorAll("[data-index]");
-  indexValue.forEach(function (element) {
-    var indexData = element.getAttribute('data-index');
-    if (indexData) {
-      var parts = indexData.split(" ");
-      parts.forEach(function (part) {
-        if (part.startsWith("z-")) {
-          var zIndex = part.substring(2);
-          element.style.zIndex = zIndex;
-        }
-      });
-    }
-  });
-});
-modalFunction();
-loginOption();
-unicodeFunction();
+  modalFunction();
+  loginOption();
+  unicodeFunction();
+}
+module.exports = expackExport;
 //# sourceMappingURL=expack.esm.js.map
