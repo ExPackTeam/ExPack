@@ -1,12 +1,13 @@
 {
-  "name": "expack",
+  "name": "expack_library",
   "version": "0.0.1",
   "description": "A utility library focused on the user's ability to modify and design",
-  "main": "src/js/global.js",
+  "main": "dist/js/expack.min.js",
   "scripts": {
-    "test": "src/js/global.js",
+    "test": "node tests/test.js",
     "build": "rollup --config"
   },
+  "entry point": "dist/js/expack.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MicroRay620/ExPack.git"
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/MicroRay620/ExPack#readme",
   "dependencies": {
     "expack": "file:",
+    "expack_library": "file:",
     "jquery": "^3.7.1"
   },
   "devDependencies": {
