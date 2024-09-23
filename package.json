@@ -7,7 +7,7 @@
     "test": "node tests/test.js",
     "build": "rollup --config"
   },
-  "entry point": "dist/js/expack.min.js",
+  "entry point": "node dist/js/expack.min.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MicroRay620/ExPack.git"
@@ -20,9 +20,9 @@
   "author": "ruby_rose",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MicroRay620/ExPack/issues"
+    "url": "https://github.com/TeamExpack/ExPack/issues"
   },
-  "homepage": "https://github.com/MicroRay620/ExPack#readme",
+  "homepage": "https://github.com/TeamExpack/ExPack#readme",
   "dependencies": {
     "expack": "file:",
     "expack_library": "file:",

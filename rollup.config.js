@@ -4,7 +4,6 @@ import { babel } from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import postcss from 'rollup-plugin-postcss';
 import postcssAttributeCaseInsensitive from "postcss-attribute-case-insensitive";
-
 const basePlugin = {
   plugins: [
     resolve(),
@@ -71,10 +70,6 @@ const cssMiniConfig = {
     sourcemap: false,
   },
 };
-
-
-// ... other configurations remain unchanged
-
 export default [
   {
     ...basejsConfig,
