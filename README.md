@@ -2,6 +2,17 @@
 ExPack is a library that lets you customize everything, being easy to use and able to adjust based on your needs!
 
 ExPack was programmed in Visual Studio Code.
+
+## Importing ExPack
+For the CSS code, put the code below in your HTML <head> tag:
+```html
+<link href="https://cdn.jsdelivr.net/npm/expack_library@0.0.3/dist/css/expack.min.css" integrity="sha384-U0hBMi0zODQoZGlzdC9jc3MvZXhwYWNrLm1pbi5jc3MpPSBkNTY3NDBhY2IzZTMzYjVjMmRmYzgyMmRhYTVlNzU4MGI0NDE0ODM1ZTBhMjA1ODkzYzU0M2UzMmJmMTgxZjAxNDg5NTU5ODA5NjQxZGNjYzE5OWNlMTE4ZWQ2MGI1ODUNCg==" crossorigin="anonymous"/>
+```
+For the JavaScript code, at the bottom of your **<body>** tag put the code below:
+```html
+<script src="https://cdn.jsdelivr.net/npm/expack_library@0.0.3/dist/js/expack.min.js" integrity="sha384-U0hBMi0zODQoZGlzdC9qcy9leHBhY2subWluLmpzKT0gYWU2MWE1NzkyMzA4NDIzNzg4OWY3MWJlYTZkYTMxNmY0ZjA1NjkwNDQyYTI2NGYzNWQ3MDgzODFjODhkOWVlODA3MjY5MjhiNzY4NjFlMmI1Mjk5ZjJhZTJiNjNiYmIyDQo=" crossorigin="anonymous"></script>
+```
+
 ## Languages
 ### Programmed With
 ExPack was made with the following Coding Languages
