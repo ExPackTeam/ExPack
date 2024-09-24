@@ -1,8 +1,7 @@
-
+// import $ from "jquery";
 import { modalFunction } from "./modals";
 import { loginOption } from "./login.js";
 import { unicodeFunction } from "./unicode_character.js"
-import $ from "jquery";
 function expackExport() {
     document.addEventListener("DOMContentLoaded", () => { 
         const bgElements = document.querySelectorAll("[class*='bg-']");
@@ -198,3 +197,4 @@ function expackExport() {
     loginOption();
     unicodeFunction();
 }
+export default expackExport();
