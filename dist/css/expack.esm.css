@@ -135,7 +135,6 @@ nav .global_sidenav__-Z4oT ul.global_nav-list__pDZv2 img.global_nav-icon__gslqH 
 }
 
 .global_align-left__RHxSb {
-  justify-content: left;
   float: left;
 }
 
@@ -147,8 +146,19 @@ nav .global_sidenav__-Z4oT ul.global_nav-list__pDZv2 img.global_nav-icon__gslqH 
 }
 
 .global_align-right__ZGT5c {
-  justify-content: right;
   float: right;
+}
+
+.global_justify-left__PyPDA {
+  justify-content: left;
+}
+
+.global_justify-center__MZme1 {
+  justify-content: center;
+}
+
+.global_justify-right__u1a6a {
+  justify-content: right;
 }
 
 .global_math__08ce8 .global_times-x__-56vN::before {
@@ -184,9 +194,5 @@ nav .global_sidenav__-Z4oT ul.global_nav-list__pDZv2 img.global_nav-icon__gslqH 
 
 .global_place-hrz__L1bNO {
   display: inline;
-}
-
-a::after {
-  content: "link";
 }
 /*# sourceMappingURL=expack.esm.css.map */

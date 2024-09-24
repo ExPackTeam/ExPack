@@ -71,6 +71,14 @@ function unicodeFunction() {
   });
 }
 
+function copyClip() {
+  var copyText = document.querySelectorAll("[class*='copy-text']");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(copyText.value);
+  alert("Copied Text: " + copyText.value());
+}
+
 // import $ from "jquery";
 function expackExport() {
   document.addEventListener("DOMContentLoaded", function () {
@@ -173,7 +181,7 @@ function expackExport() {
         var parts = borderData.split(" ");
         parts.forEach(function (part) {
           if (part.startsWith("color-")) {
-            var colorCode = part.substring(6);
+            var colorCode = part.substring(7);
             if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
               element.style.borderColor = "#".concat(colorCode);
             }
@@ -188,7 +196,7 @@ function expackExport() {
             element.style.borderRadius = borderRadius;
           }
           if (part.startsWith("size-")) {
-            var borderSize = part.substring(5);
+            var borderSize = part.substring(7);
             element.style.borderWidth = borderSize;
           }
         });
@@ -230,20 +238,20 @@ function expackExport() {
       var parts = element.className.split(" ");
       parts.forEach(function (part) {
         if (part.startsWith("a-")) {
-          var everyMargin = part.substring(2);
-          element.style.margin = everyMargin;
+          var everyMargin = part.substring(5);
+          element.style.margin = everyMargin + "px";
         } else if (part.startsWith("r-")) {
-          var rightMargin = part.substring(2);
-          element.style.marginRight = rightMargin;
+          var rightMargin = part.substring(5);
+          element.style.marginRight = rightMargin + "px";
         } else if (part.startsWith("l-")) {
-          var leftMargin = part.substring(2);
-          element.style.marginLeft = leftMargin;
+          var leftMargin = part.substring(5);
+          element.style.marginLeft = leftMargin + "px";
         } else if (part.startsWith("t-")) {
-          var topMargin = part.substring(2);
-          element.style.marginTop = topMargin;
+          var topMargin = part.substring(5);
+          element.style.marginTop = topMargin + "px";
         } else if (part.startsWith("b-")) {
-          var bottomMargin = part.substring(2);
-          element.style.marginBottom = bottomMargin;
+          var bottomMargin = part.substring(5);
+          element.style.marginBottom = bottomMargin + "px";
         }
       });
     });
@@ -254,7 +262,7 @@ function expackExport() {
         var parts = indexData.split(" ");
         parts.forEach(function (part) {
           if (part.startsWith("z-")) {
-            var zIndex = part.substring(2);
+            var zIndex = part.substring(5);
             element.style.zIndex = zIndex;
           }
         });
@@ -264,6 +272,7 @@ function expackExport() {
   modalFunction();
   loginOption();
   unicodeFunction();
+  copyClip();
 }
 var global = expackExport();
 
