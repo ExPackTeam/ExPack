@@ -2,18 +2,47 @@
 <html>
     <head>
         <title>Expack</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/expack_library@0.0.4/dist/css/expack.min.css" integrity="sha384-1WdArLPjO1wt/IItql51gLRBSDXgogWJPFQ+Mr8YHwFIlVmAlkHczBmc4RjtYLWF" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/expack_library@0.0.6-a5.2/dist/css/expack.min.css" integrity="sha384-bfthV7f8eSLfQAwBbKYarJ3gDx8NlBNKBeM8z6ONp8FtYjlAk32pkVRxdeBuEZIY" crossorigin="anonymous">
     </head>
     <body class="bg-313338 fr-ffffff" data-font="arial">
         <nav id="navbar" class="navbar">
             
         </nav>
-        <h1 id="site_title" class="align-center">ExPack</h1>
-        <div id="basic_text" class="align-center bg-43454d" data-border="radius-25" style="text-align: center;">
-            <p><b>Expack</b> is a web library with a primary focus on you working on the layout and backend of the site.</p>
+        <span class="align-center"><h1 id="site_title" class="align-center">ExPack</h1></span>
+        <br>
+        <div class="justify-center" data-margin="500">
+            <div id="basic_text" class="align-center bg-43454d pad-20em" data-border="radius-15">
+                <p><b>ExPack</b> is a web library with a primary focus on you working on the layout and backend of the site.</p>
+            </div>
         </div>
-        <div id="install" class="align-center">
+        <div id="install">
+            <div id="css_install">
+                <span  class="align-center"> 
+                    <h2 class="justify-center" data-font="times-roman">CSS</h2>
+                </span>
+                <table>
+                    <thead>
+                        <tr><th scope="col">&lt;link&gt; Code</th></tr>
+                        <tr><th scope="col">NPM</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="col">
+                                <div id="css_install_code" class="align-center justify-right">
+                                    <button onclick="copyClip()"><img class="clip-empty" src="https://cdn.jsdelivr.net/npm/expack-icons@0.0.1-alpha-2/dist/svg/general_svgs/empty_clipboard.svg"/></button>
+                                </div>
+                                <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/expack_library@0.0.6-a5.2/dist/css/expack.min.css" integrity="sha384-bfthV7f8eSLfQAwBbKYarJ3gDx8NlBNKBeM8z6ONp8FtYjlAk32pkVRxdeBuEZIY" crossorigin="anonymous"&gt;</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="col">
+                                <code>npm i expack --save-dev</code>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/expack_library@0.0.4/dist/js/expack.min.js" integrity="sha384-rmGleSMIQjeIn3G+ptoxb08FaQRComTzXXCDgciNnugHJpKLdoYeK1KZ8q4rY7uy" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/expack_library@0.0.6-a5.2/dist/js/expack.min.js" integrity="sha384-/hqqfPD0OujuHHQ6cIgoEEdFm2n6wjt1QgT+px1FVvTL0XAJ2y/TPnRh3BSlBMs7" crossorigin="anonymous"></script>
     </body>
 </html>
