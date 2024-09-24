@@ -2,6 +2,7 @@
 import { modalFunction } from "./modals";
 import { loginOption } from "./login.js";
 import { unicodeFunction } from "./unicode_character.js"
+import { copyClip } from "./copy_clip.js";
 function expackExport() {
     document.addEventListener("DOMContentLoaded", () => { 
         const bgElements = document.querySelectorAll("[class*='bg-']");
@@ -101,7 +102,7 @@ function expackExport() {
                 const parts = borderData.split(" ");
                 parts.forEach(part => {
                     if (part.startsWith("color-")) {
-                        const colorCode = part.substring(6);
+                        const colorCode = part.substring(7);
                         if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
                             element.style.borderColor = `#${colorCode}`;
                         }
@@ -116,7 +117,7 @@ function expackExport() {
                         element.style.borderRadius = borderRadius;
                     }
                     if (part.startsWith("size-")) {
-                        const borderSize = part.substring(5);
+                        const borderSize = part.substring(7);
                         element.style.borderWidth = borderSize;
                     }
                 });
@@ -160,20 +161,20 @@ function expackExport() {
             const parts = element.className.split(" ");
             parts.forEach(part => {
                 if (part.startsWith("a-")) {
-                    const everyMargin = part.substring(2);
-                    element.style.margin = everyMargin;
+                    const everyMargin = part.substring(5);
+                    element.style.margin = everyMargin + "px";
                 } else if (part.startsWith("r-")) {
-                    const rightMargin = part.substring(2);
-                    element.style.marginRight = rightMargin;
+                    const rightMargin = part.substring(5);
+                    element.style.marginRight = rightMargin + "px";
                 } else if (part.startsWith("l-")) {
-                    const leftMargin = part.substring(2);
-                    element.style.marginLeft = leftMargin;
+                    const leftMargin = part.substring(5);
+                    element.style.marginLeft = leftMargin + "px";
                 } else if (part.startsWith("t-")) {
-                    const topMargin = part.substring(2);
-                    element.style.marginTop = topMargin;
+                    const topMargin = part.substring(5);
+                    element.style.marginTop = topMargin + "px";
                 } else if (part.startsWith("b-")) {
-                    const bottomMargin = part.substring(2);
-                    element.style.marginBottom = bottomMargin;
+                    const bottomMargin = part.substring(5);
+                    element.style.marginBottom = bottomMargin + "px";
                 }
             });
         });
@@ -185,7 +186,7 @@ function expackExport() {
                 const parts = indexData.split(" ");
                 parts.forEach(part => {
                     if (part.startsWith("z-")) {
-                        const zIndex = part.substring(2);
+                        const zIndex = part.substring(5);
                         element.style.zIndex = zIndex;
                     }
                 });
@@ -196,5 +197,6 @@ function expackExport() {
     modalFunction();
     loginOption();
     unicodeFunction();
+    copyClip();
 }
 export default expackExport();

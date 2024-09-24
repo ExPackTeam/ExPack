@@ -1,5 +1,4 @@
 .align-left {
-	justify-content: left;
 	float: left;
 }
 .align-center {
@@ -10,6 +9,14 @@
 	//width: 50%;
 }
 .align-right {
-	justify-content: right;
 	float: right;
+}
+.justify-left {
+	justify-content: left;
+}
+.justify-center {
+	justify-content: center;
+}
+.justify-right {
+	justify-content: right;
 }
