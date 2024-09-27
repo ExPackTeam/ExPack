@@ -40,7 +40,7 @@ const jsConfig = {
     file: "dist/js/expack.esm.js",
     format: "esm",
     name: "ExPack",
-    sourcemap: true, // Generate source maps
+    sourcemap: false, // Generate source maps
   },
 };
 
@@ -49,16 +49,39 @@ const jsMiniConfig = {
     file: "dist/js/expack.min.js",
     format: "iife",
     name: "ExPack",
-    sourcemap: true,
+    sourcemap: false,
   },
 };
+
+const pageRenderBase = {
+  input: "src/js/optional/render_page.js",
+  ...basePlugin
+}
+
+const renderPageConfig = {
+  output: {
+    file: "dist/js/expack.render.esm.js",
+    format:"esm",
+    name: "ExPack",
+    sourcemap: false
+  }
+}
+
+const renderPageMiniConfig = {
+  output: {
+    file: "dist/js/expack.render.min.js",
+    format: "iife",
+    name: "ExPack",
+    sourcemap: false,
+  }
+}
 
 const cssConfig = {
   output: {
     file: "dist/css/expack.esm.css",
     format: "esm",
     name: "Expack",
-    sourcemap: true,
+    sourcemap: false,
   },
 };
 
@@ -82,6 +105,18 @@ export default [
       terser(), // Apply Terser plugin only to the minimized output
     ],
     ...jsMiniConfig,
+  },
+  {
+    ...pageRenderBase,
+    ...renderPageConfig,
+  },
+  {
+    ...pageRenderBase,
+    plugins: [
+      ...basePlugin.plugins,
+      terser()
+    ],
+    ...renderPageMiniConfig,
   },
   {
     ...baseCSSConfig,

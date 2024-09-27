@@ -72,11 +72,14 @@ function unicodeFunction() {
 }
 
 function copyClip() {
-  var copyText = document.querySelectorAll("[class*='copy-text']");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-  alert("Copied Text: " + copyText.value());
+  var copyText = document.querySelectorAll("[class^='copy-text'");
+  copyText.forEach(function (elements) {
+    elements.focus();
+    elements.select();
+    elements.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(elements.value);
+    alert("Copied Text: " + elements.value);
+  });
 }
 
 // import $ from "jquery";
@@ -118,26 +121,27 @@ function expackExport() {
         }
       });
     });
-    var closingClass = document.querySelectorAll("[class*='close']");
-    closingClass.forEach(function (element) {
-      element.innerHTML = "&times;";
-      element.addEventListener("click", function () {
-        element.style.visibility = "hidden";
-      });
-    });
-    var elementAlignment = document.querySelectorAll("[class*='align-']");
-    elementAlignment.forEach(function (element) {
-      var classes = element.className.split(" ");
-      classes.forEach(function (cls) {
-        if (cls.startsWith("align-")) {
-          var alignment = cls.substring(5);
-          if (alignment === "center" || alignment === "left" || alignment === "right") {
-            element.style.textAlign = alignment;
-            $(elementAlignment).css("text-align", alignment);
-          }
-        }
-      });
-    });
+
+    /*const closingClass = document.querySelectorAll("[class*='close']");
+    closingClass.forEach(element => {
+        element.innerHTML = "&times;";
+        element.addEventListener("click", function(){
+            element.style.visibility = "hidden";
+        });
+    });*/
+    /*const elementAlignment = document.querySelectorAll("[class*='align-']");
+    elementAlignment.forEach(element => {
+        const classes = element.className.split(" ");
+        classes.forEach(cls => {
+            if (cls.startsWith("align-")) {
+                const alignment = cls.substring(5);
+                if (alignment === "center" || alignment === "left" || alignment === "right") {
+                    element.style.textAlign = alignment;
+                    $(elementAlignment).css("text-align", alignment);
+                }
+            }
+        });
+    });*/
     var elementPadding = document.querySelectorAll("[class^='pad-']");
     elementPadding.forEach(function (element) {
       var classes = element.className.split(" ");
@@ -277,4 +281,3 @@ function expackExport() {
 var global = expackExport();
 
 export { global as default };
-//# sourceMappingURL=expack.esm.js.map

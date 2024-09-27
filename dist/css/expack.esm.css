@@ -195,4 +195,12 @@ nav .global_sidenav__-Z4oT ul.global_nav-list__pDZv2 img.global_nav-icon__gslqH 
 .global_place-hrz__L1bNO {
   display: inline;
 }
+
+iframe .global_no-border__cEHI5 {
+  border: none;
+}
+
+.global_disable__OR46N {
+  cursor: move;
+}
 /*# sourceMappingURL=expack.esm.css.map */
