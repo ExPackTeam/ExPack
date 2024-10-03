@@ -1,6 +1,6 @@
 {
   "name": "expack_library",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "A utility library focused on the user's ability to modify and design",
   "main": "dist/js/expack.min.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "entry point": "node dist/js/expack.min.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MicroRay620/ExPack.git"
+    "url": "git+https://github.com/TeamExpack/ExPack.git"
   },
   "keywords": [
     "javascript",
