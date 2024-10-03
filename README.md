@@ -29,7 +29,7 @@ ExPack was made with the following Coding Languages
 - [ ]  Built in Python support
 - [ ]  Badges SCSS (may use javascript)
 ## Others
-- [ x ]  Add to a CDN
+- [x]  Add to a CDN
 
 # Installs
 ## To Have Installed
