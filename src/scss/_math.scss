@@ -1,28 +1,15 @@
-.math {
-    .times-x {
+@mixin DataMath($name, $unicode) {
+    [data-math="#{$name}"] {
         &::before {
-            content: "\00d7";
-        }
-    }
-    .divide {
-        &::before {
-            content: "\00F7";
-        }
-    }
-    .mean {
-        &::before {
-            content: "\0078\0304";
-        }
-    }
-    // Greek Characters
-    .sigma {
-        &::before {
-            content: "\03A3";
-        }
-    }
-    .delta {
-        &::before {
-            content: "\0394";
+            content: $unicode;
         }
     }
 }
+@include DataMath("times", "\00d7");
+@include DataMath("divide", "\00F7");
+@include DataMath("mean", "\0078\0304");
+@include DataMath("mean-sigma", "\03C3");
+@include DataMath("sigma-add", "\03A3");
+@include DataMath("delta", "\0394");
+@include DataMath("mu-deviation", "\03BC");
+@include DataMath("theta-ordinal", "\03B8");

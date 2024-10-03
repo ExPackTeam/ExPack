@@ -43,14 +43,14 @@ function expackExport() {
             });
         });
 
-        const closingClass = document.querySelectorAll("[class*='close']");
+        /*const closingClass = document.querySelectorAll("[class*='close']");
         closingClass.forEach(element => {
             element.innerHTML = "&times;";
             element.addEventListener("click", function(){
                 element.style.visibility = "hidden";
             });
-        });
-        const elementAlignment = document.querySelectorAll("[class*='align-']");
+        });*/
+        /*const elementAlignment = document.querySelectorAll("[class*='align-']");
         elementAlignment.forEach(element => {
             const classes = element.className.split(" ");
             classes.forEach(cls => {
@@ -62,7 +62,7 @@ function expackExport() {
                     }
                 }
             });
-        });
+        });*/
         const elementPadding = document.querySelectorAll("[class^='pad-']");
         elementPadding.forEach(element => {
             const classes = element.className.split(" ");
@@ -193,7 +193,6 @@ function expackExport() {
             }
         });
     });
-
     modalFunction();
     loginOption();
     unicodeFunction();

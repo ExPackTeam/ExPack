@@ -1,7 +1,10 @@
 export function copyClip() {
-    const copyText = document.querySelectorAll("[class*='copy-text']");
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(copyText.value);
-    alert("Copied Text: " + copyText.value());
+    var copyText = document.querySelectorAll("[class^='copy-text'");
+    copyText.forEach(elements => {
+        elements.focus();
+        elements.select();
+        elements.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(elements.value);
+        alert("Copied Text: " + elements.value);
+    })
 }
