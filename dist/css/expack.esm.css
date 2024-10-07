@@ -193,6 +193,14 @@ a.global_nav-link__F1Uas:hover {
   content: "θ";
 }
 
+[data-type=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku {
+  text-align: center;
+}
+[data-type=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku li.global_dropdown-item__c4FH-.global_list-header__Kh3ZG {
+  text-transform: uppercase;
+  opacity: 50%;
+}
+
 .global_close__rVQEY {
   color: #aaa;
   float: right;

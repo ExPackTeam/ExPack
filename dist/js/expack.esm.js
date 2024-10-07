@@ -114,9 +114,21 @@ function expackExport() {
       var classes = element.className.split(" ");
       classes.forEach(function (cls) {
         if (cls.startsWith("fw-")) {
-          var fwValue = cls.substring(3);
-          if (/^\d+px?$/.test(fwValue)) {
-            element.style.fontWeight = fwValue;
+          var _fwValue = cls.substring(3);
+          if (/^\d+px?$/.test(_fwValue)) {
+            element.style.fontWeight = _fwValue;
+          }
+        }
+      });
+    });
+    var fontSizeValue = document.querySelectorAll("[class*='sz-']");
+    fontSizeValue.forEach(function (element) {
+      var classes = element.className.split(" ");
+      classes.forEach(function (cls) {
+        if (cls.startsWith("sz-")) {
+          var sizeValue = cls.substring(3);
+          if (/^\d+px?$/.test(sizeValue)) {
+            element.style.fontSize = fwValue;
           }
         }
       });
