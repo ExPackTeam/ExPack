@@ -43,6 +43,19 @@ function expackExport() {
             });
         });
 
+        const fontSizeValue = document.querySelectorAll("[class*='sz-']");
+        fontSizeValue.forEach(element => {
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("sz-")) {
+                    const sizeValue = cls.substring(3);
+                    if (/^\d+px?$/.test(sizeValue)) {
+                        element.style.fontSize = fwValue;
+                    }
+                }
+            });
+        });
+
         /*const closingClass = document.querySelectorAll("[class*='close']");
         closingClass.forEach(element => {
             element.innerHTML = "&times;";
