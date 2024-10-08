@@ -1,17 +1,19 @@
+[![NPM Version](https://badge.fury.io/js/esta.svg?style=flat)](https://npmjs.org/package/esta) 
 # ExPack 
 ExPack is a library that lets you customize everything, being easy to use and able to adjust based on your needs!
 
 ExPack was programmed in Visual Studio Code.
 
 ## Importing ExPack
-For the CSS code, put the code below in your HTML <head> tag:
+For the CSS code, put the code below in your HTML **<head>** tag:
 ```html
-<link href="https://cdn.jsdelivr.net/npm/expack_library@0.0.3/dist/css/expack.min.css" integrity="sha384-U0hBMi0zODQoZGlzdC9jc3MvZXhwYWNrLm1pbi5jc3MpPSBkNTY3NDBhY2IzZTMzYjVjMmRmYzgyMmRhYTVlNzU4MGI0NDE0ODM1ZTBhMjA1ODkzYzU0M2UzMmJmMTgxZjAxNDg5NTU5ODA5NjQxZGNjYzE5OWNlMTE4ZWQ2MGI1ODUNCg==" crossorigin="anonymous"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/expack_library@1.0.6/dist/css/expack.min.css" integrity="sha384-gyGaM4G8+5jQD/qOH8itL5HgoRjbzIK8xRaIayFviSDPTjok1QXiH7NUZMdQciOu" crossorigin="anonymous">
 ```
 For the JavaScript code, at the bottom of your **<body>** tag put the code below:
 ```html
-<script src="https://cdn.jsdelivr.net/npm/expack_library@0.0.3/dist/js/expack.min.js" integrity="sha384-U0hBMi0zODQoZGlzdC9qcy9leHBhY2subWluLmpzKT0gYWU2MWE1NzkyMzA4NDIzNzg4OWY3MWJlYTZkYTMxNmY0ZjA1NjkwNDQyYTI2NGYzNWQ3MDgzODFjODhkOWVlODA3MjY5MjhiNzY4NjFlMmI1Mjk5ZjJhZTJiNjNiYmIyDQo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/expack_library@1.0.6/dist/js/expack.min.js" integrity="sha384-G3MxSQ6fon39aP3Wvb1+ivb8Enkgb34T0IFzdPgIBLkXbbm/TZXUixaC4PhCdWC/" crossorigin="anonymous"></script>
 ```
+It is also recommended to include jQuery as well.
 
 ## Languages
 ### Programmed With
@@ -80,3 +82,9 @@ With the addition of webpack (added September 7th, 2024), to bundle and minimize
 # For Support
 ![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white): teamexpack@gmail.com
 
+# Security
+To test the ExPack library security, [snyk.io](https://app.snyk.io/) is used.
+
+# Other ExPack Projects
+- [Ruby Gem](https://github.com/ExPackTeam/expack_gem) 
+- 
