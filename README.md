@@ -1,4 +1,4 @@
-[![NPM Version](https://badge.fury.io/js/esta.svg?style=flat)](https://npmjs.org/package/esta) 
+[![Build Status](https://app.travis-ci.com/ExPackTeam/ExPack.svg?token=xrPDXF4yoHp1uqKHg9XJ&branch=master)](https://app.travis-ci.com/ExPackTeam/ExPack) [![NPM Version](https://badge.fury.io/js/esta.svg?style=flat)](https://npmjs.org/package/esta) 
 # ExPack 
 ExPack is a library that lets you customize everything, being easy to use and able to adjust based on your needs!
 
@@ -71,9 +71,6 @@ All *npm* installs are localed in the **node_module** directory.
 ## Recommendations
 To properly run this, please make sure you install [SASS](https://sass-lang.com/install/). The starting system for ExPack was using `npm install -g sass`.
 ## Compiling SASS
-~~Originally (before having sass installed globally), the SASS (`.scss` files) was compiled using [json2csharp.com](https://json2csharp.com/css-tools/sass-to-css); so if you'd like you can use that.
-
-As of September 4th, 2024, the original repository is being compiled by running (in the ExPack directory): `sass src/scss/global.scss dist/css/dist_global.css`.~~
 As of September 16th, 2024, the original repository is being compiled at the same time as the js; by running `npm run build`.
 
 ## Compiling JS
