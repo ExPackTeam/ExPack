@@ -54,6 +54,5 @@ Thumbs.db
 # Git specific
 *.git/
 node_modules/
-site
 node_modules
 tests
