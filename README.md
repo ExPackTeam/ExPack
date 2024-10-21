@@ -30,6 +30,7 @@ ExPack was made with the following Coding Languages
 - [ ]  Have javascript modify margins
 - [ ]  Built in Python support
 - [ ]  Badges SCSS (may use javascript)
+- [ ]  Have JavaScript search for fonts.
 ## Others
 - [x]  Add to a CDN
 
