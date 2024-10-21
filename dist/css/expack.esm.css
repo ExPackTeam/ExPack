@@ -201,6 +201,75 @@ a.global_nav-link__F1Uas:hover {
   opacity: 50%;
 }
 
+.global_list-none__tDkqF {
+  list-style-type: "none";
+}
+
+ol .global_list-upper-alpha__wvhSJ {
+  list-style-type: "upper-alpha";
+}
+ol .global_list-lower-alpha__RuAjK {
+  list-style-type: "lower-alpha";
+}
+ol .global_list-upper-roman__FcrQS {
+  list-style-type: "upper-roman";
+}
+ol .global_list-lower-roman__IaVlk {
+  list-style-type: "lower-roman";
+}
+ol .global_list-upper-latin__H2zV1 {
+  list-style-type: "upper-latin";
+}
+ol .global_list-lower-latin__E87rf {
+  list-style-type: "lower-latin";
+}
+ol .global_list-upper-greek__BO7NV {
+  list-style-type: "upper-greek";
+}
+ol .global_list-lower-greek__c0mfI {
+  list-style-type: "lower-greek";
+}
+ol .global_list-decimal__-sQq7 {
+  list-style-type: "decimal";
+}
+ol .global_list-decimal-zero__FXWtU {
+  list-style-type: "decimal-zero";
+}
+ol .global_list-georgian__R1BOj {
+  list-style-type: "georgian";
+}
+ol .global_list-hebrew__-R-F1 {
+  list-style-type: "hebrew";
+}
+ol .global_list-armenian__DcxVd {
+  list-style-type: "armenian";
+}
+ol .global_list-ideographic__qTaQR {
+  list-style-type: "cjk-ideographic";
+}
+ol .global_list-hirigana__8tYdk {
+  list-style-type: "hirigana";
+}
+ol .global_list-hirigana-iroha__qY0xG {
+  list-style-type: "hirigana-iroha";
+}
+ol .global_list-katana__E-9hV {
+  list-style-type: "katana";
+}
+ol .global_list-katana-iroha__S6ayL {
+  list-style-type: "katana-iroha";
+}
+
+ul .global_list-disc__aHjJ5 {
+  list-style-type: "disc";
+}
+ul .global_list-circle__oQpad {
+  list-style-type: "circle";
+}
+ul .global_list-square__Fm54K {
+  list-style-type: "square";
+}
+
 .global_close__rVQEY {
   color: #aaa;
   float: right;
