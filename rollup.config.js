@@ -53,29 +53,6 @@ const jsMiniConfig = {
   },
 };
 
-const pageRenderBase = {
-  input: "src/js/optional/render_page.js",
-  ...basePlugin
-}
-
-const renderPageConfig = {
-  output: {
-    file: "dist/js/expack.render.esm.js",
-    format:"esm",
-    name: "ExPack",
-    sourcemap: false
-  }
-}
-
-const renderPageMiniConfig = {
-  output: {
-    file: "dist/js/expack.render.min.js",
-    format: "iife",
-    name: "ExPack",
-    sourcemap: false,
-  }
-}
-
 const cssConfig = {
   output: {
     file: "dist/css/expack.esm.css",
@@ -105,18 +82,6 @@ export default [
       terser(), // Apply Terser plugin only to the minimized output
     ],
     ...jsMiniConfig,
-  },
-  {
-    ...pageRenderBase,
-    ...renderPageConfig,
-  },
-  {
-    ...pageRenderBase,
-    plugins: [
-      ...basePlugin.plugins,
-      terser()
-    ],
-    ...renderPageMiniConfig,
   },
   {
     ...baseCSSConfig,
