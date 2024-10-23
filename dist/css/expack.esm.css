@@ -75,6 +75,19 @@
   position: top;
 }
 
+img.global_nav-icon__gslqH {
+  height: 40px;
+  width: 40px;
+}
+
+a.global_nav-link__F1Uas {
+  text-align: center;
+  text-decoration: none;
+}
+a.global_nav-link__F1Uas:hover {
+  filter: brightness(150%);
+}
+
 nav {
   margin: auto;
 }
@@ -117,19 +130,6 @@ nav .global_sidenav__-Z4oT ul.global_sidenav-list__FnvVc li.global_sidenav-item_
   filter: brightness(150%);
 }
 
-img.global_nav-icon__gslqH {
-  height: 40px;
-  width: 40px;
-}
-
-a.global_nav-link__F1Uas {
-  text-align: center;
-  text-decoration: none;
-}
-a.global_nav-link__F1Uas:hover {
-  filter: brightness(150%);
-}
-
 .global_margin-auto__S1Z7i {
   margin: auto;
 }
@@ -161,36 +161,44 @@ a.global_nav-link__F1Uas:hover {
   justify-content: right;
 }
 
-[data-math=times]::before {
+i[data-math=times]::before {
   content: "×";
+  font-style: normal;
 }
 
-[data-math=divide]::before {
+i[data-math=divide]::before {
   content: "÷";
+  font-style: normal;
 }
 
-[data-math=mean]::before {
+i[data-math=mean]::before {
   content: "x̄";
+  font-style: normal;
 }
 
-[data-math=mean-sigma]::before {
+i[data-math=mean-sigma]::before {
   content: "σ";
+  font-style: normal;
 }
 
-[data-math=sigma-add]::before {
+i[data-math=sigma-add]::before {
   content: "Σ";
+  font-style: normal;
 }
 
-[data-math=delta]::before {
+i[data-math=delta]::before {
   content: "Δ";
+  font-style: normal;
 }
 
-[data-math=mu-deviation]::before {
+i[data-math=mu-deviation]::before {
   content: "μ";
+  font-style: normal;
 }
 
-[data-math=theta-ordinal]::before {
+i[data-math=theta-ordinal]::before {
   content: "θ";
+  font-style: normal;
 }
 
 [data-type=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku {

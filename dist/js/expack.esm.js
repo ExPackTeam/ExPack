@@ -1,3 +1,36 @@
+function copyClip() {
+  var copyText = document.querySelectorAll("[class^='copy-text']");
+  var copyButtons = document.querySelectorAll("[class^='copy-button']");
+  copyButtons.forEach(function (button, index) {
+    button.onclick = function () {
+      if (copyText[index] instanceof HTMLElement) {
+        var textElement = copyText[index];
+
+        // Check if the textElement is an input or textarea
+        if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
+          textElement.focus();
+          textElement.select();
+          navigator.clipboard.writeText(textElement.value).then(function () {
+            //alert("Copied Text: " + textElement.value);
+          })["catch"](function (err) {
+            console.error('Failed to copy: ', err);
+          });
+        } else {
+          // For other types of elements, use textContent or innerText
+          var textToCopy = textElement.textContent || textElement.innerText;
+          navigator.clipboard.writeText(textToCopy).then(function () {
+            //alert("Copied Text: " + textToCopy);
+          })["catch"](function (err) {
+            console.error('Failed to copy: ', err);
+          });
+        }
+      } else {
+        console.error("Not a valid HTML element: ", copyText[index]);
+      }
+    };
+  });
+}
+
 function modalFunction() {
   var modal = document.getElementsByClassName("modal");
   var modalBtn = document.getElementsByClassName("modal-btn");
@@ -71,18 +104,6 @@ function unicodeFunction() {
   });
 }
 
-function copyClip() {
-  var copyText = document.querySelectorAll("[class^='copy-text'");
-  copyText.forEach(function (elements) {
-    elements.focus();
-    elements.select();
-    elements.setSelectionRange(0, 99999);
-    navigator.clipboard.writeText(elements.value);
-    alert("Copied Text: " + elements.value);
-  });
-}
-
-// import $ from "jquery";
 function expackExport() {
   document.addEventListener("DOMContentLoaded", function () {
     var bgElements = document.querySelectorAll("[class*='bg-']");
@@ -139,19 +160,6 @@ function expackExport() {
         element.innerHTML = "&times;";
         element.addEventListener("click", function(){
             element.style.visibility = "hidden";
-        });
-    });*/
-    /*const elementAlignment = document.querySelectorAll("[class*='align-']");
-    elementAlignment.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("align-")) {
-                const alignment = cls.substring(5);
-                if (alignment === "center" || alignment === "left" || alignment === "right") {
-                    element.style.textAlign = alignment;
-                    $(elementAlignment).css("text-align", alignment);
-                }
-            }
         });
     });*/
     var elementPadding = document.querySelectorAll("[class^='pad-']");
@@ -285,10 +293,10 @@ function expackExport() {
       }
     });
   });
+  copyClip();
   modalFunction();
   loginOption();
   unicodeFunction();
-  copyClip();
 }
 var global = expackExport();
 
