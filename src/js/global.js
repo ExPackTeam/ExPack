@@ -1,8 +1,7 @@
-// import $ from "jquery";
+import { copyClip } from "./copy_clip.js";
 import { modalFunction } from "./modals";
 import { loginOption } from "./login.js";
-import { unicodeFunction } from "./unicode_character.js"
-import { copyClip } from "./copy_clip.js";
+import { unicodeFunction } from "./unicode_character.js";
 function expackExport() {
     document.addEventListener("DOMContentLoaded", () => { 
         const bgElements = document.querySelectorAll("[class*='bg-']");
@@ -61,19 +60,6 @@ function expackExport() {
             element.innerHTML = "&times;";
             element.addEventListener("click", function(){
                 element.style.visibility = "hidden";
-            });
-        });*/
-        /*const elementAlignment = document.querySelectorAll("[class*='align-']");
-        elementAlignment.forEach(element => {
-            const classes = element.className.split(" ");
-            classes.forEach(cls => {
-                if (cls.startsWith("align-")) {
-                    const alignment = cls.substring(5);
-                    if (alignment === "center" || alignment === "left" || alignment === "right") {
-                        element.style.textAlign = alignment;
-                        $(elementAlignment).css("text-align", alignment);
-                    }
-                }
             });
         });*/
         const elementPadding = document.querySelectorAll("[class^='pad-']");
@@ -136,7 +122,6 @@ function expackExport() {
                 });
             }
         });
-
         const imageDimension = document.querySelectorAll("[data-image]");
         imageDimension.forEach(element => {
             const imageData = element.getAttribute('data-image');
@@ -168,7 +153,6 @@ function expackExport() {
                 });
             }
         });
-
         const marginCheck = document.querySelectorAll("[data-margin]");
         marginCheck.forEach(element => {
             const parts = element.className.split(" ");
@@ -191,7 +175,6 @@ function expackExport() {
                 }
             });
         });
-
         const indexValue = document.querySelectorAll("[data-index]");
         indexValue.forEach(element => {
             const indexData = element.getAttribute('data-index');
@@ -206,9 +189,9 @@ function expackExport() {
             }
         });
     });
+    copyClip();
     modalFunction();
     loginOption();
     unicodeFunction();
-    copyClip();
 }
 export default expackExport();
