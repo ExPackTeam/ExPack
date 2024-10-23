@@ -1,8 +1,7 @@
 @mixin DataMath($name, $unicode) {
-    [data-math="#{$name}"] {
-        &::before {
-            content: $unicode;
-        }
+    i[data-math="#{$name}"]::before {
+        content: $unicode;
+        font-style: normal;
     }
 }
 @include DataMath("times", "\00d7");

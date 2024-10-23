@@ -1,3 +1,14 @@
+img.nav-icon {
+	height: 40px;
+	width: 40px;
+}
+a.nav-link {
+	text-align: center;
+	text-decoration: none;
+	&:hover {
+		filter: brightness(150%);
+	}
+}
 nav {
 	margin: auto;
 	ul.nav-list {
@@ -43,16 +54,5 @@ nav {
 				}
 			}
 		}
-	}
-}
-img.nav-icon {
-	height: 40px;
-	width: 40px;
-}
-a.nav-link {
-	text-align: center;
-	text-decoration: none;
-	&:hover {
-		filter: brightness(150%);
 	}
 }
