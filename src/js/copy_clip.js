@@ -4,16 +4,16 @@ export function copyClip() {
 
     copyButtons.forEach((button, index) => {
         button.onclick = function() {
+            console.log("clicked")
             if (copyText[index] instanceof HTMLElement) {
                 const textElement = copyText[index];
-
                 // Check if the textElement is an input or textarea
                 if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
                     textElement.focus();
                     textElement.select();
                     navigator.clipboard.writeText(textElement.value)
                         .then(() => {
-                            //alert("Copied Text: " + textElement.value);
+                            alert("Copied Text: " + textElement.value);
                         })
                         .catch(err => {
                             console.error('Failed to copy: ', err);
@@ -23,7 +23,7 @@ export function copyClip() {
                     const textToCopy = textElement.textContent || textElement.innerText;
                     navigator.clipboard.writeText(textToCopy)
                         .then(() => {
-                            //alert("Copied Text: " + textToCopy);
+                            alert("Copied Text: " + textToCopy);
                         })
                         .catch(err => {
                             console.error('Failed to copy: ', err);
