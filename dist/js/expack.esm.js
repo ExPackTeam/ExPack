@@ -3,15 +3,15 @@ function copyClip() {
   var copyButtons = document.querySelectorAll("[class^='copy-button']");
   copyButtons.forEach(function (button, index) {
     button.onclick = function () {
+      console.log("clicked");
       if (copyText[index] instanceof HTMLElement) {
         var textElement = copyText[index];
-
         // Check if the textElement is an input or textarea
         if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
           textElement.focus();
           textElement.select();
           navigator.clipboard.writeText(textElement.value).then(function () {
-            //alert("Copied Text: " + textElement.value);
+            alert("Copied Text: " + textElement.value);
           })["catch"](function (err) {
             console.error('Failed to copy: ', err);
           });
@@ -19,7 +19,7 @@ function copyClip() {
           // For other types of elements, use textContent or innerText
           var textToCopy = textElement.textContent || textElement.innerText;
           navigator.clipboard.writeText(textToCopy).then(function () {
-            //alert("Copied Text: " + textToCopy);
+            alert("Copied Text: " + textToCopy);
           })["catch"](function (err) {
             console.error('Failed to copy: ', err);
           });
