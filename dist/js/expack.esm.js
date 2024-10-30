@@ -1,36 +1,3 @@
-function copyClip() {
-  var copyText = document.querySelectorAll("[class^='copy-text']");
-  var copyButtons = document.querySelectorAll("[class^='copy-button']");
-  copyButtons.forEach(function (button, index) {
-    button.onclick = function () {
-      console.log("clicked");
-      if (copyText[index] instanceof HTMLElement) {
-        var textElement = copyText[index];
-        // Check if the textElement is an input or textarea
-        if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
-          textElement.focus();
-          textElement.select();
-          navigator.clipboard.writeText(textElement.value).then(function () {
-            alert("Copied Text: " + textElement.value);
-          })["catch"](function (err) {
-            console.error('Failed to copy: ', err);
-          });
-        } else {
-          // For other types of elements, use textContent or innerText
-          var textToCopy = textElement.textContent || textElement.innerText;
-          navigator.clipboard.writeText(textToCopy).then(function () {
-            alert("Copied Text: " + textToCopy);
-          })["catch"](function (err) {
-            console.error('Failed to copy: ', err);
-          });
-        }
-      } else {
-        console.error("Not a valid HTML element: ", copyText[index]);
-      }
-    };
-  });
-}
-
 function modalFunction() {
   var modal = document.getElementsByClassName("modal");
   var modalBtn = document.getElementsByClassName("modal-btn");
@@ -104,6 +71,7 @@ function unicodeFunction() {
   });
 }
 
+// import { copyClip } from "./copy_clip.js";
 function expackExport() {
   document.addEventListener("DOMContentLoaded", function () {
     var bgElements = document.querySelectorAll("[class*='bg-']");
@@ -293,7 +261,7 @@ function expackExport() {
       }
     });
   });
-  copyClip();
+  // copyClip();
   modalFunction();
   loginOption();
   unicodeFunction();
