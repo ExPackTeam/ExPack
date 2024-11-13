@@ -10,7 +10,7 @@
   "entry point": "node dist/js/expack.min.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TeamExpack/ExPack.git"
+    "url": "git+https://github.com/TeamExpack/ExPack"
   },
   "keywords": [
     "javascript",
