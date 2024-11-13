@@ -1,5 +1,3 @@
-$diff-name: false;
-$type-name: basic-name;
 @mixin LinkChanges ($option, $type, $name) {
     @if $option == under {
         [data-link="under-#{$name}"] {
