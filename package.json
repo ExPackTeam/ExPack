@@ -1,6 +1,6 @@
 {
   "name": "expack_library",
-  "version": "1.0.9-a4",
+  "version": "1.0.10",
   "description": "A utility library focused on the user's ability to modify and design",
   "main": "dist/js/expack.min.js",
   "scripts": {
@@ -36,8 +36,8 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "babel-loader": "^9.2.1",
-    "postcss": "^8.4.47",
     "postcss-attribute-case-insensitive": "^7.0.0",
+    "postcss-modules": "^6.0.1",
     "postcss-scss": "^4.0.9",
     "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.79.3",
