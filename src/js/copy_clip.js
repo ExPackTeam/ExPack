@@ -1,4 +1,4 @@
-export function copyClip() {
+export function CopyClip() {
     var copyText = document.querySelectorAll("[class^='copy-text']");
     var copyButtons = document.querySelectorAll("[class^='copy-button']");
 

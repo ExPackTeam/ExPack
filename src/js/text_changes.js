@@ -1,4 +1,4 @@
-export function textFunction() {
+export function TextFunction() {
         const bgElements = document.querySelectorAll("[class*='bg-']");
         bgElements.forEach(element => {
             const classes = element.className.split(" ");

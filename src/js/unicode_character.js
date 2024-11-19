@@ -1,4 +1,4 @@
-export function unicodeFunction() {
+export function UnicodeFunction() {
     document.addEventListener("DOMContentLoaded", () => {
         const unicode = document.querySelectorAll("[class*='u-']");
         unicode.forEach(element => {

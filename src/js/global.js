@@ -1,8 +1,14 @@
-import { copyClip } from "./copy_clip.js";
-import { modalFunction } from "./modals";
-import { loginOption } from "./login.js";
-import { unicodeFunction } from "./unicode_character.js";
-function expackExport() {
+import { CopyClip } from "./copy_clip.js";
+import { ModalFunction } from "./modals";
+import { LoginOption } from "./login.js";
+import { UnicodeFunction } from "./unicode_character.js";
+function ImportedFunctions() {
+    CopyClip();
+    ModalFunction();
+    LoginOption();
+    UnicodeFunction();
+}
+function ExpackExport() {
     document.addEventListener("DOMContentLoaded", () => { 
         const bgElements = document.querySelectorAll("[class*='bg-']");
         bgElements.forEach(element => {
@@ -28,7 +34,6 @@ function expackExport() {
                 }
             });
         });
-
         const fontWeightClass = document.querySelectorAll("[class^='fw-']");
         fontWeightClass.forEach(element => {
             const classes = element.className.split(" ");
@@ -41,7 +46,6 @@ function expackExport() {
                 }
             });
         });
-
         const fontSizeValue = document.querySelectorAll("[class*='sz-']");
         fontSizeValue.forEach(element => {
             const classes = element.className.split(" ");
@@ -54,7 +58,6 @@ function expackExport() {
                 }
             });
         });
-
         /*const closingClass = document.querySelectorAll("[class*='close']");
         closingClass.forEach(element => {
             element.innerHTML = "&times;";
@@ -189,9 +192,6 @@ function expackExport() {
             }
         });
     });
-    copyClip();
-    modalFunction();
-    loginOption();
-    unicodeFunction();
+    ImportedFunctions();
 }
-export default expackExport();
+export default ExpackExport();

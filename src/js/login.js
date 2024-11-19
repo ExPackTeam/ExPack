@@ -1,4 +1,4 @@
-export function loginOption() {
+export function LoginOption() {
     var emailClass = document.getElementsByClassName("login-email");
     var passwordClass = document.getElementsByClassName("login-password");
     var usernameClass = document.getElementsByClassName("login-username");

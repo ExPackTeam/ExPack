@@ -1,3 +1,4 @@
+import $ from"jquery";
 export function timeTracker() {
     const dateElement = $("*").attr("data-time");
     const dateIs = new Date();

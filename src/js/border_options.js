@@ -1,4 +1,4 @@
-export function borderFunction() {
+export function BorderFunction() {
     const elementPadding = document.querySelectorAll("[class^='pad-']");
     elementPadding.forEach(element => {
         const classes = element.className.split(" ");
