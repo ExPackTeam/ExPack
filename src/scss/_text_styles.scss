@@ -1,0 +1,36 @@
+@mixin DecorOption ($type) {
+    .td-#{$type} {
+        text-decoration: unquote($type);
+    }
+}
+@mixin DecorOptionDiff ($name, $type) {
+    .td-#{$name} {
+        text-decoration: unquote($type);
+    }
+}
+.fs-italic {
+    font-style: italic;
+}
+.fs-oblique {
+    font-style: oblique;
+}
+@include DecorOption("dashed");
+@include DecorOption("dotted");
+@include DecorOption("double");
+@include DecorOptionDiff("strike", "line-through");
+@include DecorOption("none");
+@include DecorOptionDiff("over", "overline");
+@include DecorOption("solid");
+@include DecorOptionDiff("under", "underline");
+@include DecorOption("wavy");
+.td-dotted {
+    text-decoration: dashed;
+    text-decoration: dotted;
+    text-decoration: double;
+    text-decoration: line-through;
+    text-decoration: none;
+    text-decoration: overline;
+    text-decoration: solid;
+    text-decoration: underline;
+    text-decoration: wavy;
+}
