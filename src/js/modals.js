@@ -1,16 +1,33 @@
-export function modalFunction() {
-  var modal = document.getElementsByClassName("modal");
-  var modalBtn = document.getElementsByClassName("modal-btn");
-  var closeClick = document.getElementsByClassName("close");
-  modalBtn.onclick = function() {
-    modal.style.display = "block";
+import $ from "jquery";
+export function ModalFunction() {
+  const modal = $("*").attr("data-popup");
+  var hiddenContent = $(modalContent).hide();
+  var shownContent = $(modalContent).show();
+  console.log(modal);
+  if (modal === "modal") {
+    var modalContent = $("*").attr("data-modal");
+  }
+  var modalBtn = $("button").hasClass("modal-btn");
+  var modalBtnCall = $("*").hasClass("modal-btn");
+  console.log(modalBtn);
+  var closeClick = $("*").hasClass("close");
+  if (modalBtnCall == "undefined") {
+    shownContent;
+  } else {
+    hiddenContent;
+    modalBtn.onclick = function() {
+      shownContent;
+      console.log(shownContent);
+    }
   }
   closeClick.onclick = function() {
-    modal.style.display = "none";
+    hiddenContent;
+    console.log(hiddenContent);
   }
   window.onclick = function(event) {
     if (event.target == modal) {
-      modal.style.display = "none";
+      hiddenContent;
+      console.log(hiddenContent);
     }
   }
 }
