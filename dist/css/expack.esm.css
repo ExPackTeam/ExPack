@@ -201,12 +201,32 @@ i[data-math=theta-ordinal]::before {
   font-style: normal;
 }
 
-[data-type=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku {
+[data-drop=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku {
   text-align: center;
 }
-[data-type=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku li.global_dropdown-item__c4FH-.global_list-header__Kh3ZG {
+[data-drop=dropdown] [data-toggle=dropdown] ul.global_dropdown-list__me3ku li.global_dropdown-item__c4FH-.global_list-header__Kh3ZG {
   text-transform: uppercase;
   opacity: 50%;
+}
+
+select[data-toggle=dropdown] option.global_dropdown-item__c4FH-.global_bullet__H2Kew::before {
+  content: "•";
+}
+select[data-toggle=dropdown] option.global_dropdown-item__c4FH-.global_arrow__SV6jP::before {
+  content: ">";
+}
+
+optgroup {
+  text-transform: capitalize;
+}
+optgroup.global_fw-bold__7djUC {
+  font-weight: bold;
+}
+optgroup option.global_dropdown-item__c4FH-.global_bullet__H2Kew::before {
+  content: "•";
+}
+optgroup option.global_dropdown-item__c4FH-.global_arrow__SV6jP::before {
+  content: ">";
 }
 
 .global_list-none__tDkqF {
@@ -293,6 +313,62 @@ i[data-math=theta-ordinal]::before {
   list-style-type: square;
 }
 
+.global_fs-italic__LOol9 {
+  font-style: italic;
+}
+
+.global_fs-oblique__LB5R2 {
+  font-style: oblique;
+}
+
+.global_td-dashed__NGJEv {
+  text-decoration: dashed;
+}
+
+.global_td-dotted__4T--M {
+  text-decoration: dotted;
+}
+
+.global_td-double__cjk6z {
+  text-decoration: double;
+}
+
+.global_td-strike__pw48E {
+  text-decoration: line-through;
+}
+
+.global_td-none__Tck2P {
+  text-decoration: none;
+}
+
+.global_td-over__jK5kK {
+  text-decoration: overline;
+}
+
+.global_td-solid__G40dF {
+  text-decoration: solid;
+}
+
+.global_td-under__dczw9 {
+  text-decoration: underline;
+}
+
+.global_td-wavy__IuGkv {
+  text-decoration: wavy;
+}
+
+.global_td-dotted__4T--M {
+  text-decoration: dashed;
+  text-decoration: dotted;
+  text-decoration: double;
+  text-decoration: line-through;
+  text-decoration: none;
+  text-decoration: overline;
+  text-decoration: solid;
+  text-decoration: underline;
+  text-decoration: wavy;
+}
+
 .global_close__rVQEY {
   color: #aaa;
   float: right;
@@ -322,4 +398,3 @@ iframe .global_no-border__cEHI5 {
 .global_disable__OR46N {
   cursor: move;
 }
-/*# sourceMappingURL=expack.esm.css.map */
