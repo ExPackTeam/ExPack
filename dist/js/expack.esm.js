@@ -1,36 +1,3 @@
-function CopyClip() {
-  var copyText = document.querySelectorAll("[class^='copy-text']");
-  var copyButtons = document.querySelectorAll("[class^='copy-button']");
-  copyButtons.forEach(function (button, index) {
-    button.onclick = function () {
-      console.log("clicked");
-      if (copyText[index] instanceof HTMLElement) {
-        var textElement = copyText[index];
-        // Check if the textElement is an input or textarea
-        if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
-          textElement.focus();
-          textElement.select();
-          navigator.clipboard.writeText(textElement.value).then(function () {
-            alert("Copied Text: " + textElement.value);
-          })["catch"](function (err) {
-            console.error('Failed to copy: ', err);
-          });
-        } else {
-          // For other types of elements, use textContent or innerText
-          var textToCopy = textElement.textContent || textElement.innerText;
-          navigator.clipboard.writeText(textToCopy).then(function () {
-            alert("Copied Text: " + textToCopy);
-          })["catch"](function (err) {
-            console.error('Failed to copy: ', err);
-          });
-        }
-      } else {
-        console.error("Not a valid HTML element: ", copyText[index]);
-      }
-    };
-  });
-}
-
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 function getDefaultExportFromCjs (x) {
@@ -10731,31 +10698,126 @@ var jquery = {exports: {}};
 var jqueryExports = jquery.exports;
 var $ = /*@__PURE__*/getDefaultExportFromCjs(jqueryExports);
 
-function ModalFunction() {
-  var modal = $("*").attr("data-popup");
-  var hiddenContent = $(modalContent).hide();
-  var shownContent = $(modalContent).show();
-  console.log(modal);
-  if (modal === "modal") {
-    var modalContent = $("*").attr("data-modal");
-  }
-  var modalBtn = $("button").hasClass("modal-btn");
-  var modalBtnCall = $("*").hasClass("modal-btn");
-  console.log(modalBtn);
-  var closeClick = $("*").hasClass("close");
-  if (modalBtnCall == "undefined") ; else {
-    modalBtn.onclick = function () {
-      console.log(shownContent);
-    };
-  }
-  closeClick.onclick = function () {
-    console.log(hiddenContent);
-  };
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      console.log(hiddenContent);
+function TextOptions(color, hasUnits, multiVariables, type, cssName) {
+  var className = $(this).attr("class");
+  $(this).hasClass(type).each(function () {
+    var regex; {
+      if (hasUnits === true) {
+        var regex = new RegExp("^" + "\"".concat(type, "\"") + "\\d+(%|em|px)$");
+      }
     }
-  };
+    var match = className.match(regex);
+    var number = match[1];
+    if (multiVariables === true) {
+      var unit = match[2];
+      $(this).css(cssName, number + unit);
+    } else {
+      {
+        $(this).css(cssName, number);
+      }
+    }
+  });
+}
+function ColorOptions(type, cssName) {
+  var className = $(this).attr("class");
+  console.log(className); // Remove later
+  var typeName = $(this).hasClass(type);
+  console.log("Type Name is " + typeName);
+  $(typeName).each(function () {
+    var regex = /[A-Fa-f0-9]{6}$/;
+    var match = className.match(regex);
+    if (match) {
+      console.log("Found Class: " + className);
+      var hexCode = match[1];
+      console.log("The hex code is " + hexCode);
+      $(this).css(cssName, hexCode);
+    }
+  });
+}
+function TextFunction() {
+  $(document).ready(function () {
+    /* 
+        TextOptions(true, false, false, "bg", "background-color");
+        TextOptions(true, false, false, "fr", "color");
+    */
+    ColorOptions("bg", "background-color");
+    ColorOptions("fr", "color");
+    TextOptions(false, false, false, "fw", "font-weight"); // Bold uses css
+    TextOptions(false, true, true, "sz", "font-size");
+  });
+}
+
+function CopyClip() {
+  var copyText = document.querySelectorAll("[class^='copy-text']");
+  var copyButtons = document.querySelectorAll("[class^='copy-button']");
+  copyButtons.forEach(function (button, index) {
+    button.onclick = function () {
+      console.log("clicked");
+      if (copyText[index] instanceof HTMLElement) {
+        var textElement = copyText[index];
+        // Check if the textElement is an input or textarea
+        if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
+          textElement.focus();
+          textElement.select();
+          navigator.clipboard.writeText(textElement.value).then(function () {
+            alert("Copied Text: " + textElement.value);
+          })["catch"](function (err) {
+            console.error('Failed to copy: ', err);
+          });
+        } else {
+          // For other types of elements, use textContent or innerText
+          var textToCopy = textElement.textContent || textElement.innerText;
+          navigator.clipboard.writeText(textToCopy).then(function () {
+            alert("Copied Text: " + textToCopy);
+          })["catch"](function (err) {
+            console.error('Failed to copy: ', err);
+          });
+        }
+      } else {
+        console.error("Not a valid HTML element: ", copyText[index]);
+      }
+    };
+  });
+}
+
+function ModalFunction() {
+  $(document).ready(function () {
+    var modal = $("*").attr("data-popup");
+    $(modalContent).hide();
+    $(modalContent).show();
+    console.log(modal);
+    if (modal === "modal") {
+      var modalContent = $("*").attr("data-modal");
+    }
+    var modalBtn = $("button").hasClass("modal-btn");
+    $("*").hasClass("modal-btn");
+    console.log(modalBtn);
+    $("*").hasClass("close");
+    /*$(closeClick).click();
+    if (modalBtnCall == "undefined") {
+      shownContent;
+    } else {
+      hiddenContent;
+      modalBtn.onclick = function() {
+        shownContent;
+        console.log(shownContent);
+      }
+      $(modalBtn).on("click", function() {
+        alert(shownContent);
+        console.log(shownContent);
+      });
+    }
+    $(closeClick).on("click", function() {
+      alert(hiddenContent);
+      hiddenContent;
+    });*/
+    /*window.onclick = function(event) {
+      if (event.target == modal) {
+        hiddenContent;
+        console.log(hiddenContent);
+      }
+    }*/
+  });
 }
 
 function LoginOption() {
@@ -10814,201 +10876,246 @@ function UnicodeFunction() {
   });
 }
 
-function ImportedFunctions() {
-  CopyClip();
-  ModalFunction();
-  LoginOption();
-  UnicodeFunction();
-}
-function ExpackExport() {
-  document.addEventListener("DOMContentLoaded", function () {
-    var bgElements = document.querySelectorAll("[class*='bg-']");
-    bgElements.forEach(function (element) {
-      var classes = element.className.split(" ");
-      classes.forEach(function (cls) {
-        if (cls.startsWith("bg-")) {
-          var colorCode = cls.substring(3);
-          if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-            element.style.backgroundColor = "#".concat(colorCode);
-          }
-        }
-      });
-    });
-    var mnElements = document.querySelectorAll("[class*='fr-']");
-    mnElements.forEach(function (element) {
-      var classes = element.className.split(" ");
-      classes.forEach(function (cls) {
-        if (cls.startsWith("fr-")) {
-          var colorCode = cls.substring(3);
-          if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-            element.style.color = "#".concat(colorCode);
-          }
-        }
-      });
-    });
-    var fontWeightClass = document.querySelectorAll("[class^='fw-']");
-    fontWeightClass.forEach(function (element) {
-      var classes = element.className.split(" ");
-      classes.forEach(function (cls) {
-        if (cls.startsWith("fw-")) {
-          var _fwValue = cls.substring(3);
-          if (/^\d+px?$/.test(_fwValue)) {
-            element.style.fontWeight = _fwValue;
-          }
-        }
-      });
-    });
-    var fontSizeValue = document.querySelectorAll("[class*='sz-']");
-    fontSizeValue.forEach(function (element) {
-      var classes = element.className.split(" ");
-      classes.forEach(function (cls) {
-        if (cls.startsWith("sz-")) {
-          var sizeValue = cls.substring(3);
-          if (/^\d+px?$/.test(sizeValue)) {
-            element.style.fontSize = fwValue;
-          }
-        }
-      });
-    });
-    /*const closingClass = document.querySelectorAll("[class*='close']");
-    closingClass.forEach(element => {
-        element.innerHTML = "&times;";
-        element.addEventListener("click", function(){
-            element.style.visibility = "hidden";
-        });
-    });*/
-    var elementPadding = document.querySelectorAll("[class^='pad-']");
-    elementPadding.forEach(function (element) {
-      var classes = element.className.split(" ");
-      classes.forEach(function (cls) {
-        if (cls.startsWith("pad-")) {
-          var paddingValue = cls.substring(5);
-          if (cls.startsWith("pad-t-")) {
-            if (/^\d+px?$/.test(paddingValue)) {
-              element.style.paddingTop = paddingValue;
-            }
-          } else if (cls.startsWith("pad-l-")) {
-            // left
-            if (/^\d+px?$/.test(paddingValue)) {
-              element.style.paddingLeft = paddingValue;
-            }
-          } else if (cls.startsWith("pad-r-")) {
-            // right	
-            if (/^\d+px?$/.test(paddingValue)) {
-              element.style.paddingRight = paddingValue;
-            }
-          } else if (cls.startsWith("pad-b-")) {
-            // bottom
-            if (/^\d+px?$/.test(paddingValue)) {
-              element.style.paddingBottom = paddingValue;
-            }
-          } else {
-            if (/^\d+px?$/.test(paddingValue)) {
-              // padding all
-              element.style.padding = paddingValue;
-            }
-          }
-        }
-      });
-    });
-
-    // figure out how to have this work for all borders
-    var borderElements = document.querySelectorAll("[data-border]");
-    borderElements.forEach(function (element) {
-      var borderData = element.getAttribute('data-border');
-      if (borderData) {
-        var parts = borderData.split(" ");
-        parts.forEach(function (part) {
-          if (part.startsWith("color-")) {
-            var colorCode = part.substring(7);
-            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-              element.style.borderColor = "#".concat(colorCode);
-            }
-          }
-          if (part.startsWith("radius-")) {
-            var borderRadius = part.substring(7);
-            if (borderRadius.includes("%")) {
-              borderRadius += "%";
-            } else {
-              borderRadius += "px";
-            }
-            element.style.borderRadius = borderRadius;
-          }
-          if (part.startsWith("size-")) {
-            var borderSize = part.substring(7);
-            element.style.borderWidth = borderSize;
-          }
-        });
+function PageClassOptions(type, cssName) {
+  $(this).hasClass(type).each(function () {
+    var typeClass = $(this).attr("class");
+    var regex = new RegExp("^" + "\"".concat(type, "\"") + "\\d+(%|em|px)$");
+    var match = typeClass.match(regex);
+    if (match) {
+      console.log("Found" + type + ": " + typeClass); // remove later
+      var amount = match[1];
+      var unit = match[2];
+      if (!isNaN(amount)) {
+        $(this).css("\"".concat(cssName, "\""), amount + unit);
+      } else {
+        var thirdChoice = "\"".concat(cssName, "-\"") + amount;
+        amount = match[2];
+        unit = match[3];
+        $(this).css(thirdChoice, amount + unit);
       }
-    });
-    var imageDimension = document.querySelectorAll("[data-image]");
-    imageDimension.forEach(function (element) {
-      var imageData = element.getAttribute('data-image');
-      if (imageData) {
-        var parts = imageData.split(" ");
-        parts.forEach(function (part) {
-          if (part.startsWith("height-")) {
-            var imageHeight = part.substring(7);
-            if (imageHeight.includes("%")) {
-              imageHeight += "%";
-            } else if (imageHeight.includes("em") || imageHeight.includes("-em")) {
-              imageHeight += "em";
-            } else {
-              imageHeight += "px";
-            }
-            element.style.height = imageHeight;
-          }
-          if (part.startsWith("width-")) {
-            var imageWidth = part.substring(6);
-            if (imageWidth.includes("%")) {
-              imageWidth += "%";
-            } else if (imageWidth.includes("em") || imageWidth.includes("-em")) {
-              imageWidth += "em";
-            } else {
-              imageWidth += "px";
-            }
-            element.style.width = imageWidth;
-          }
-        });
-      }
-    });
-    var marginCheck = document.querySelectorAll("[data-margin]");
-    marginCheck.forEach(function (element) {
-      var parts = element.className.split(" ");
-      parts.forEach(function (part) {
-        if (part.startsWith("a-")) {
-          var everyMargin = part.substring(5);
-          element.style.margin = everyMargin + "px";
-        } else if (part.startsWith("r-")) {
-          var rightMargin = part.substring(5);
-          element.style.marginRight = rightMargin + "px";
-        } else if (part.startsWith("l-")) {
-          var leftMargin = part.substring(5);
-          element.style.marginLeft = leftMargin + "px";
-        } else if (part.startsWith("t-")) {
-          var topMargin = part.substring(5);
-          element.style.marginTop = topMargin + "px";
-        } else if (part.startsWith("b-")) {
-          var bottomMargin = part.substring(5);
-          element.style.marginBottom = bottomMargin + "px";
-        }
-      });
-    });
-    var indexValue = document.querySelectorAll("[data-index]");
-    indexValue.forEach(function (element) {
-      var indexData = element.getAttribute('data-index');
-      if (indexData) {
-        var parts = indexData.split(" ");
-        parts.forEach(function (part) {
-          if (part.startsWith("z-")) {
-            var zIndex = part.substring(5);
-            element.style.zIndex = zIndex;
-          }
-        });
-      }
-    });
+    }
   });
-  ImportedFunctions();
+}
+function PageBorderOption(number, color, hasPosition, position, typeName, attrSuffix, cssName) {
+  console.log(position); // remove later
+  var regex;
+  var match;
+  $("[data-bord]").each(function () {
+    var dataOption = $(this).data("bord");
+    var dataAttr = $(this).attr("data"); // Backup for if dataOption causes match to return null
+    // dataAttr is short for dataAttribute
+    /*
+        dataOption and dataAttr are declared together to make it easier for calling them later on in this function.
+        Saving a few seconds of typing this function out
+    */
+    if (hasPosition === false) {
+      if (number == true && color == false) {
+        regex = new RegExp("^" + "\"".concat(typeName, "\"") + "\\d+(%|em|px)$");
+        match = dataOption.match(regex);
+        attrSuffix = match[1]; // Attribute suffix is for the needed spot for the what is being called in the data
+        /*
+            Examples are 
+            clr ~> color, sz ~> width/size, and rad ~> radius
+        */
+        console.log("Attribute Prexis is " + attrSuffix); // remove later
+        if (match) {
+          console.log("Found data-bord: " + dataOption); // remove later
+          var amount = match[2];
+          var unit = match[3];
+          $(this).css(cssName, amount + unit);
+        } else {
+          regex = new RegExp("^" + "\"".concat(typeName, "\"") + "\\d+(%|em|px)$");
+          match = dataAttr.match(regex);
+          attrSuffix = match[1];
+          console.log("Attribute Prexis is " + attrSuffix);
+          if (match) {
+            console.log("Found data-" + attrName + ": " + dataAttr); // remove later
+            var amount = match[2];
+            var unit = match[3];
+            $(this).css(cssName, amount + unit);
+          } else {
+            console.log("Match is broken"); // comment out later
+          }
+        }
+      } else if (color == true && number == false) {
+        regex = /^[A-Fa-f0-9]{6}$/;
+        match = dataOption.match(regex);
+        attrSuffix = match[1];
+        console.log("Attribute Suffix is " + attrSuffix); // remove later
+        if (match) {
+          var attrColor = match[2];
+          $(this).css(cssName, attrColor);
+        } else {
+          match = dataAttr.match(regex);
+          if (match) {
+            var attrColor = match[2];
+            $(this).css(cssName, attrColor);
+          } else {
+            console.log("Match is broken"); // comment out later
+          }
+        }
+      }
+    } else {
+      if (number == true && color == false) {
+        regex = new RegExp("^" + "\"".concat(typeName, "\"") + "\\d+(%|em|px)$");
+        match = dataOption.match(regex);
+        position = match[1];
+        attrSuffix = match[2];
+        console.log("Attribute Prexis is " + attrSuffix); // remove later
+        if (match) {
+          console.log("Found data-" + attrName + ": " + dataOption); // remove later
+          var amount = match[3];
+          var unit = match[3];
+          $(this).css(cssName, amount + unit);
+        } else {
+          regex = new RegExp("^" + "\"".concat(typeName, "\"") + "\\d+(%|em|px)$");
+          match = dataAttr.match(regex);
+          attrSuffix = match[3];
+          console.log("Attribute Prexis is " + attrSuffix);
+          if (match) {
+            console.log("Found data-" + attrName + ": " + dataAttr); // remove later
+            var amount = match[3];
+            var unit = match[4];
+            $(this).css(cssName, amount + unit);
+          } else {
+            console.log("Match is broken"); // comment out later
+          }
+        }
+      } else if (color == true && number == false) {
+        regex = /^[A-Fa-f0-9]{6}$/;
+        match = dataOption.match(regex);
+        attrSuffix = match[2];
+        console.log("Attribute Suffix is " + attrSuffix); // remove later
+        if (match) {
+          var attrColor = match[3];
+          $(this).css(cssName, attrColor);
+        } else {
+          match = dataAttr.match(regex);
+          if (match) {
+            var attrColor = match[3];
+            $(this).css(cssName, attrColor);
+          } else {
+            console.log("Match is broken"); // comment out later
+          }
+        }
+      }
+    }
+  });
+}
+function PageImageOption(typeName, attrSuffix, cssName) {
+  /*  
+      Will add clip path, aspect ration, and transform in a later version
+  */
+  var regex;
+  var match;
+  $("[data-img]").each(function () {
+    var dataOption = $(this).data("img");
+    var dataAttr = $(this).attr("data");
+    regex = new RegExp("^" + "\"".concat(typeName, "\"") + "\\d+(%|em|px)$");
+    match = dataOption.match(regex);
+    attrSuffix = match[1]; // Short for Attribute Suffix
+    console.log("Attribute Suffix is " + attrSuffix); // remove later
+    if (match) {
+      console.log("Found data-img: " + dataOption); // remove later
+      var amount = match[2];
+      var unit = match[3];
+      $(this).css(cssName, amount + unit);
+    } else {
+      match = dataAttr.match(regex);
+      attrSuffix = match[1];
+      if (match) {
+        console.log("Found data-img: " + dataAttr);
+        var amount = match[2];
+        var unit = match[3];
+        $(this).css(cssName, amount + unit);
+      } else {
+        console.log("Match not working");
+      }
+    }
+  });
+}
+function PageOptions() {
+  $(document).ready(function () {
+    PageClassOptions("margin", "margin");
+    PageClassOptions("pad", "padding");
+    /* 
+        Border Data Options
+        ~> Border Data Name = data-bord
+        Spot 1: number // treat as Boolean
+        Spot 2: color // treat as Boolean
+        Spot 3: hasPosition // treat as Boolean
+        Spot 4: position // string variable 
+            // if hasPosition is false, put it as "none" 
+            // if hasPotion is true, put the position it is in
+        Spot 5: typeName // treat as string variable 
+            // if color is true, put the identifier
+        Spot 6: attrSuffix // treated as string variable
+            // short for attributeSuffix
+            // The suffix for what the attribute is referred to as
+                // color is clr
+                // size is sz ~> Border is width
+                // radius is rad
+        Spot 7: cssName // treat as string variable
+            // The css name for what is being done
+    */
+    // Base Data Options
+    PageBorderOption(false, true, false, "none", "none", "clr", "border-color");
+    PageBorderOption(true, false, false, "none", "sz", "sz", "border-width");
+    PageBorderOption(true, false, false, "none", "rad", "rad", "border-radius");
+    /* Position Datas
+        // There is no radius options in positions
+    */
+    // Top Positions
+    PageBorderOption(false, true, true, "top", "top-clr", "border-top-color");
+    PageBorderOption(true, false, true, "top", "top-sz", "border-top-width");
+    // Left Positions
+    PageBorderOption(false, true, true, "left", "lft-clr", "border-left-color");
+    PageBorderOption(true, false, true, "left", "lft-sz", "border-left-width");
+    // Right Positions
+    PageBorderOption(false, true, true, "right", "rgt-clr", "border-right-color");
+    PageBorderOption(true, false, true, "right", "rgt-sz", "border-right-width");
+    // Bottom Positions
+    PageBorderOption(false, true, true, "bottom", "btm-clr", "border-bottom-color");
+    PageBorderOption(true, false, true, "bottom", "btm-sz", "border-bottom-width");
+    /*
+        Image Data Options
+        ~> Image Data Name = data-img
+        Spot 1: typeName // treat as string variable
+            // For the change being done
+            // Choices: height (hgt) and width (wid)
+        Spot 2: attrSuffix // treat as string variable
+            // Short for attributeSuffix
+            // The suffix of what it will do
+                // Invert ~> inv
+                // Height ~> hgt
+                // Width ~> wid
+        Spot 5: cssName // treat as string variable
+            // The name is CSS for what we want to do
+    */
+    PageImageOption("height", "hgt", "height");
+    PageImageOption("width", "wid", "width");
+  });
+}
+
+function ExpackExport() {
+  $(document).ready(function () {
+    CopyClip();
+    ModalFunction();
+    LoginOption();
+    UnicodeFunction();
+    PageOptions();
+    TextFunction();
+    /*
+        Will be removed later
+        const closingClass = document.querySelectorAll("[class*='close']");
+        closingClass.forEach(element => {
+            element.innerHTML = "&times;";
+            element.addEventListener("click", function(){
+                element.style.visibility = "hidden";
+            });
+        });
+    */
+  });
 }
 var global$1 = ExpackExport();
 

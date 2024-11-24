@@ -1,9 +1,270 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+[data-bord=stl-solid] {
+  border-style: solid;
+}
+
+[data-bord=stl-dashed] {
+  border-style: dashed;
+}
+
+[data-bord=stl-dotted] {
+  border-style: dotted;
+}
+
+[data-bord=stl-double] {
+  border-style: double;
+}
+
+[data-bord=stl-grooved] {
+  border-style: grooved;
+}
+
+[data-bord=stl-ridge] {
+  border-style: ridge;
+}
+
+[data-bord=stl-inset] {
+  border-style: inset;
+}
+
+[data-bord=stl-none] {
+  border-style: none;
+}
+
+[data-bord=stl-outset] {
+  border-style: outset;
+}
+
+[data-bord=stl-solid] {
+  border-style: solid;
+}
+
+[data-bord=sz-thin] {
+  border-width: thin;
+}
+
+[data-bord=sz-medium] {
+  border-width: medium;
+}
+
+[data-bord=sz-thick] {
+  border-width: thick;
+}
+
+[data-bord=stl-top-solid] {
+  border-top-style: solid;
+}
+
+[data-bord=stl-top-dashed] {
+  border-top-style: dashed;
+}
+
+[data-bord=stl-top-dotted] {
+  border-top-style: dotted;
+}
+
+[data-bord=stl-top-double] {
+  border-top-style: double;
+}
+
+[data-bord=stl-top-grooved] {
+  border-top-style: grooved;
+}
+
+[data-bord=stl-top-ridge] {
+  border-top-style: ridge;
+}
+
+[data-bord=stl-top-inset] {
+  border-top-style: inset;
+}
+
+[data-bord=stl-top-outset] {
+  border-top-style: outset;
+}
+
+[data-bord=stl-top-none] {
+  border-top-style: none;
+}
+
+[data-bord=stl-top-solid] {
+  border-top-style: solid;
+}
+
+[data-bord=sz-top-thin] {
+  border-top-width: thin;
+}
+
+[data-bord=sz-top-medium] {
+  border-top-width: medium;
+}
+
+[data-bord=sz-top-thick] {
+  border-top-width: thick;
+}
+
+[data-bord=stl-lft-solid] {
+  border-left-style: solid;
+}
+
+[data-bord=stl-lft-dashed] {
+  border-left-style: dashed;
+}
+
+[data-bord=stl-lft-dotted] {
+  border-left-style: dotted;
+}
+
+[data-bord=stl-lft-double] {
+  border-left-style: double;
+}
+
+[data-bord=stl-lft-grooved] {
+  border-left-style: grooved;
+}
+
+[data-bord=stl-lft-ridge] {
+  border-left-style: ridge;
+}
+
+[data-bord=stl-lft-inset] {
+  border-left-style: inset;
+}
+
+[data-bord=stl-lft-none] {
+  border-left-style: none;
+}
+
+[data-bord=stl-lft-outset] {
+  border-left-style: outset;
+}
+
+[data-bord=stl-lft-solid] {
+  border-left-style: solid;
+}
+
+[data-bord=sz-lft-thin] {
+  border-left-width: thin;
+}
+
+[data-bord=sz-lft-medium] {
+  border-left-width: medium;
+}
+
+[data-bord=sz-lft-thick] {
+  border-left-width: thick;
+}
+
+[data-bord=stl-rgt-solid] {
+  border-right-style: solid;
+}
+
+[data-bord=stl-rgt-dashed] {
+  border-right-style: dashed;
+}
+
+[data-bord=stl-rgt-dotted] {
+  border-right-style: dotted;
+}
+
+[data-bord=stl-rgt-double] {
+  border-right-style: double;
+}
+
+[data-bord=stl-rgt-grooved] {
+  border-right-style: grooved;
+}
+
+[data-bord=stl-rgt-ridge] {
+  border-right-style: ridge;
+}
+
+[data-bord=stl-rgt-inset] {
+  border-right-style: inset;
+}
+
+[data-bord=stl-rgt-none] {
+  border-right-style: none;
+}
+
+[data-bord=stl-rgt-outset] {
+  border-right-style: outset;
+}
+
+[data-bord=stl-rgt-solid] {
+  border-right-style: solid;
+}
+
+[data-bord=sz-rgt-thin] {
+  border-right-width: thin;
+}
+
+[data-bord=sz-rgt-medium] {
+  border-right-width: medium;
+}
+
+[data-bord=sz-rgt-thick] {
+  border-right-width: thick;
+}
+
+[data-bord=stl-bot-dashed] {
+  border-bottom-style: dashed;
+}
+
+[data-bord=stl-bot-dotted] {
+  border-bottom-style: dotted;
+}
+
+[data-bord=stl-bot-double] {
+  border-bottom-style: double;
+}
+
+[data-bord=stl-bot-grooved] {
+  border-bottom-style: grooved;
+}
+
+[data-bord=stl-bot-ridge] {
+  border-bottom-style: ridge;
+}
+
+[data-bord=stl-bot-inset] {
+  border-bottom-style: inset;
+}
+
+[data-bord=stl-bot-outset] {
+  border-bottom-style: outset;
+}
+
+[data-bord=stl-bot-none] {
+  border-bottom-style: none;
+}
+
+[data-bord=stl-bot-solid] {
+  border-bottom-style: solid;
+}
+
+[data-bord=sz-bot-thin] {
+  border-bottom-width: thin;
+}
+
+[data-bord=sz-bot-medium] {
+  border-bottom-width: medium;
+}
+
+[data-bord=sz-bot-thick] {
+  border-bottom-width: thick;
+}
+
 @font-face {
   font-family: "Alegreya Sans SC", sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,700;1,800;1,900&display=swap");
+}
+@font-face {
+  font-family: "Pacifico", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 }
 @font-face {
   font-family: "Roboto", sans-serif;
@@ -15,6 +276,18 @@
 
 [data-font=arial] {
   font-family: Arial, Helvetica, sans-serif;
+}
+
+[data-font=comic-sans] {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+[data-font=georgia] {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+[data-font=pacifico] {
+  font-family: "Pacifico", cursive;
 }
 
 [data-font=roboto] {
@@ -139,10 +412,12 @@ nav .global_sidenav__-Z4oT ul.global_sidenav-list__FnvVc li.global_sidenav-item_
 }
 
 .global_align-center__hV74U {
-  justify-content: center;
-  display: flex;
-  text-align: center;
+  justify-content: "center";
   margin: 0 auto;
+}
+
+.global_align-centre__vEaSq {
+  justify-content: center;
 }
 
 .global_align-right__ZGT5c {
@@ -157,8 +432,32 @@ nav .global_sidenav__-Z4oT ul.global_sidenav-list__FnvVc li.global_sidenav-item_
   justify-content: center;
 }
 
+.global_justify-centre__A-VJG {
+  justify-content: center;
+}
+
 .global_justify-right__u1a6a {
   justify-content: right;
+}
+
+.global_text-left__XCy5X {
+  text-align: left;
+}
+
+.global_text-center__t-U8C {
+  text-align: center;
+}
+
+.global_text-centre__BzCbl {
+  text-align: center;
+}
+
+.global_text-right__pFpOr {
+  text-align: right;
+}
+
+.global_text-justify__x-J8Q {
+  text-align: justify;
 }
 
 i[data-math=times]::before {
@@ -354,18 +653,6 @@ optgroup option.global_dropdown-item__c4FH-.global_arrow__SV6jP::before {
 }
 
 .global_td-wavy__IuGkv {
-  text-decoration: wavy;
-}
-
-.global_td-dotted__4T--M {
-  text-decoration: dashed;
-  text-decoration: dotted;
-  text-decoration: double;
-  text-decoration: line-through;
-  text-decoration: none;
-  text-decoration: overline;
-  text-decoration: solid;
-  text-decoration: underline;
   text-decoration: wavy;
 }
 
