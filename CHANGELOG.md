@@ -6,3 +6,12 @@
 - Modals broken again, not sure why
 - Added text style options 
 - Expanded dropdowns to be more diverse
+
+# v1.0.13
+- Added new fonts
+    - Pacifico, Comic Sans, Georgia
+- Border Options have been expanded
+    - Now can do border styles, border size, and border positions
+- Display has been added 
+- Font Weight, more than just bold, has been re-introduced
+- Font Size has been added
