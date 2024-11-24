@@ -1,23 +1,50 @@
 @import "./margins";
-.align-left {
-	float: left;
+@mixin Alignment($align, $place) {
+	@if $align == "align" {
+		.align-#{$place} {
+			@if $place == "center" {
+					justify-content: $place;
+					// display moved to "./display.scss"
+					margin: 0 auto;
+			} @else if $place == "centre" {
+				justify-content: center;
+			} @else {
+				float: unquote($place);
+			}
+		}
+	}
+	@else if $align == "just" {
+		.justify-#{$place} {
+			@if $place != "centre" {
+				justify-content: unquote($place);
+			} @else {
+				justify-content: center;
+			}
+		}
+	}
+	@else if $align == "text" {
+		.text-#{$place} {
+			@if $place != "centre" {
+				text-align: unquote($place);
+			} @else {
+				text-align: center;
+			}
+		}
+	}
 }
-.align-center {
-	justify-content: center;
-	display: flex;
-	text-align: center;
-	margin: 0 auto;
-	//width: 50%;
-}
-.align-right {
-	float: right;
-}
-.justify-left {
-	justify-content: left;
-}
-.justify-center {
-	justify-content: center;
-}
-.justify-right {
-	justify-content: right;
-}
+// Alignment
+@include Alignment("align", "left");
+@include Alignment("align", "center");
+@include Alignment("align", "centre");
+@include Alignment("align", "right");
+// Justify 
+@include Alignment("just", "left");
+@include Alignment("just", "center");
+@include Alignment("just", "centre");
+@include Alignment("just", "right");
+// Text
+@include Alignment("text", "left");
+@include Alignment("text", "center");
+@include Alignment("text", "centre");
+@include Alignment("text", "right");
+@include Alignment("text", "justify");
