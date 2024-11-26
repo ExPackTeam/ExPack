@@ -55,3 +55,4 @@ Thumbs.db
 *.git/
 node_modules/
 tests/
+src/js/text_changes_test.js
