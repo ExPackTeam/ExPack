@@ -1,65 +1,149 @@
 import $ from "jquery";
-function TextOptions(color, hasUnits, multiVariables, type, cssName) {
-    /*
-        color, hasUnits, and multiVariables are to be treated as Boolean variables
-        This determines whether or not the searched class has a hex code attached to it, if it needs units, or the called function needs multiple variables
-    */
-   /*
-        Is breaking
-        Will try and see if multiple functions fixes this 
-   */
-    type;
-    var className = $(this).attr("class");
-    $(this).hasClass(type).each(function() {
-        if (color === true) {
-            var regex = /[A-Fa-f0-9]{6}$/;
-        } else {
-            if (hasUnits === true) {
-                var regex = new RegExp("^" + `"${type}"` + "\\d+(%|em|px)$");
-            } 
-        }
-        var match = className.match(regex);
-        var number = match[1];
-        if (multiVariables === true) {
-            var unit = match[2];
-            $(this).css(cssName, number + unit);
-        } else {
-            if (color === true) {
-                $(this).css(cssName, "#" + number);
+var backUp;
+function ColorChanger(calledElement, className, cssName) {
+    console.log("Started Color Changing");
+    console.log("Called Element is " + calledElement);
+    if (calledElement != undefined) {
+        className = $(calledElement).attr("class");
+        console.log("Class name is " + className); // remove later, only for debugging
+    } else {
+        className = $("*")
+    }
+    if (className != undefined) {
+        backUp = false;
+        $(className).each(function() { // Hopefully this will fix the issue of not adding the `style=""` attribute to the element
+            /*
+                having it be 
+                ```
+                    $(this).hasClass(className).each(className, function(){})
+                ```
+                gave an error 
+            */
+            console.log("Entering color function"); // remove later, only for debuggin
+            // Above console.log() is to make sure that the className function is found
+            var regex = new RegExp("^[A-Fa-f0-9]{6}$");
+            var match = className.match(regex);
+            if (match) {
+                console.log("Matched class is " + className); // remove later, only for debugging
+                /*
+                    Above console.log() is checking to make sure the className is displayed and found
+                */
+                var hexCode = match[0];
+                if (hexCode) {
+                    // This if statement is to just make sure hexCode is being found
+                    /*
+                        The console.logs() below are to check if the hex code and css name are found
+                        Remove in v1.0.13
+                            - console.log("Color found is " + hexCode); // Puts the found hexCode in the console to check if the hex code in the class
+                            - console.log("CSS Name is " + cssName); // Puts the found cssName in the console to check if the code found the css name is found
+                            - console.log("Testing hexcode " + /^[A-Fa-f0-9]{6}$/.test(hexCode));
+                    */
+                    console.log("Color found is " + hexCode); // remove later, only for debugging
+                    console.log("CSS Name is " + cssName); // remove later, only for debugging
+                    console.log("Testing hexcode " + /^[A-Fa-f0-9]{6}$/.test(hexCode)); // remove later, only for debugging
+                    if (/^[A-Fa-f0-9]{6}$/.test(hexCode)) {
+                        $(this).css(cssName, `#${hexCode}`);
+                    }
+                } else if (hexCode == null) {
+                    // This is an error function for if hexCode returns null
+                    var hexCodeNullError = new Error("Hex code is null");
+                    throw hexCodeNullError;
+                } else if (hexCode == undefined) {
+                    throw new Error("hex code is undefined");
+                } else {
+                //This is an error function for hexCode returns invalid
+                var hexCodeOtherError = new Error("Hex code is invalid or undefined");
+                throw hexCodeOtherError;
+                }
+                return hexCode;
+            } else if (match == null) {
+                /*
+                    This is an error function for if match is null
+                */
+                const matchNullError = new Error("Match returned null");
+                throw matchNullError;
             } else {
-                $(this).css(cssName, number);
+                /*  
+                    This is an additional error for if the match isn't there or null
+                */
+                const matchOtherError = new Error("Match is improperly used or undefined");
+                throw matchOtherError;
             }
+        });
+    } else {
+        /*
+            This will be removed once the issue with jQuery is fixed
+        */
+        backUp = true;
+        const bgElements = document.querySelectorAll("[class*='bg-']");
+        bgElements.forEach(element => {
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("bg-")) {
+                    const colorCode = cls.substring(3);
+                    if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                        element.style.backgroundColor = `#${colorCode}`;
+                    }
+                }
+            });
+        });
+        const mnElements = document.querySelectorAll("[class*='fr-']");
+        mnElements.forEach(element => {
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("fr-")) {
+                    const colorCode = cls.substring(3);
+                    if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                        element.style.color = `#${colorCode}`;
+                    }
+                }
+            });
+        });
+
+        const fontWeightClass = document.querySelectorAll("[class^='fw-']");
+        fontWeightClass.forEach(element => {
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("fw-")) {
+                    const fwValue = cls.substring(3);
+                    if (/^\d+px?$/.test(fwValue)) {
+                        element.style.fontWeight = fwValue;
+                    }
+                }
+            });
+        });
+
+        const fontSizeValue = document.querySelectorAll("[class*='sz-']");
+        fontSizeValue.forEach(element => {
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("sz-")) {
+                    const sizeValue = cls.substring(3);
+                    if (/^\d+px?$/.test(sizeValue)) {
+                        element.style.fontSize = fwValue;
+                    }
+                }
+            });
+        });
+    }
+    if (calledElement == undefined && className == undefined || calledElement == undefined && className != undefined || calledElement != undefined && className == undefined) {
+        var calledElementUndefined = new Error("calledElement is undefined");
+        var classNameUndefined = new Error("className is undefined");
+        if (calledElement == undefined && className == undefined) {
+            throw calledElementUndefined + classNameUndefined;
+        } else if (className == undefined && calledElement != undefined) {
+            throw classNameUndefined;
+        } else {
+            throw calledElementUndefined;
         }
-    });
-}
-function ColorOptions(type, cssName) {
-    const className = $(this).attr("class");
-    console.log(className); // Remove later
-    var typeName = $(this).hasClass(type);
-    console.log("Type Name is " + typeName);
-    $(typeName).each(function() {
-        const regex = /[A-Fa-f0-9]{6}$/;
-        var match = className.match(regex);
-        if (match) {
-            console.log("Found Class: " + className);
-            const hexCode = match[1];
-            console.log("The hex code is " + hexCode);
-            $(this).css(cssName, "#" + hexCode);
-        }
-    })
-}
-function NumberOptions() {
-    
+    }
+    if (className == undefined) {
+        throw classNameUndefined;
+    }
 }
 export function TextFunction() {
-    $(document).ready(function() {
-        /* 
-            TextOptions(true, false, false, "bg", "background-color");
-            TextOptions(true, false, false, "fr", "color");
-        */
-        ColorOptions("bg", "background-color");
-        ColorOptions("fr", "color");
-        TextOptions(false, false, false, "fw", "font-weight"); // Bold uses css
-        TextOptions(false, true, true, "sz", "font-size");
-    });
+    ColorChanger(this, "bg", "background-color");
+    ColorChanger(this, "fr", "color"); // Will be changed to fg at a later date
+    /* TextOptions(false, false, false, "fw", "font-weight"); // Bold uses css
+    TextOptions(false, true, true, "sz", "font-size");*/
 }
