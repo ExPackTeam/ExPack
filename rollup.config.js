@@ -42,6 +42,14 @@ const jsConfig = {
     name: "ExPack",
     sourcemap: false, // Generate source maps
   },
+  external: ['jquery'],
+  plugins: [
+    terser({
+      mangle: {
+        reserved: ['$', 'jquery'],
+      },
+    }),
+  ],
 };
 
 const jsMiniConfig = {
