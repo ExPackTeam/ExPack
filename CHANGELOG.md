@@ -8,6 +8,7 @@
 - Expanded dropdowns to be more diverse
 
 # v1.0.13
+- Changed all JavaScript files to be using jQuery
 - Added new fonts
     - Pacifico, Comic Sans, Georgia
 - Border Options have been expanded
