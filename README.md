@@ -23,6 +23,7 @@ ExPack was made with the following Coding Languages
 - [ ]  Have JavaScript search for fonts.
 ## Others
 - [x]  Add to a CDN
+
 Also see the [Focal Issues](./Issues.md) or go to [Issues](https://github.com/ExPackTeam/ExPack/issues)
 
 # Installs
