@@ -4,26 +4,16 @@ ExPack is a library that lets you customize everything, being easy to use and ab
 
 ExPack was programmed in Visual Studio Code.
 
-## Importing ExPack
-For the CSS code, put the code below in your HTML **<head>** tag:
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/expack_library@1.0.6/dist/css/expack.min.css" integrity="sha384-gyGaM4G8+5jQD/qOH8itL5HgoRjbzIK8xRaIayFviSDPTjok1QXiH7NUZMdQciOu" crossorigin="anonymous">
-```
-For the JavaScript code, at the bottom of your **<body>** tag put the code below:
-```html
-<script src="https://cdn.jsdelivr.net/npm/expack_library@1.0.6/dist/js/expack.min.js" integrity="sha384-G3MxSQ6fon39aP3Wvb1+ivb8Enkgb34T0IFzdPgIBLkXbbm/TZXUixaC4PhCdWC/" crossorigin="anonymous"></script>
-```
-It is also recommended to include jQuery as well.
-
 ## Languages
 ### Programmed With
 ExPack was made with the following Coding Languages
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) 
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
 ### Externally Used
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
-![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) 
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) 
+![RollupJS](https://img.shields.io/badge/RollupJS-ef3335?style=for-the-badge&logo=rollup.js&logoColor=white)
 
 # To-Do
 ## Code
@@ -59,13 +49,13 @@ ExPack was made with the following Coding Languages
 > [!IMPORTANT]
 > Since 16/09/2024, devolpment of Expack v0.0.3, Expack has switched from using Webpack to Rollup
 
-
-- Rollup
 - Sass
 - Babel
     - babel-loader
     - @babel/core
     - @babel/preset-env
+- jQuery
+- Rollup
 
 All *npm* installs are localed in the **node_module** directory.
 
