@@ -3,12 +3,39 @@ var backUp;
 function ColorChanger(calledElement, className, cssName) {
     console.log("Started Color Changing");
     console.log("Called Element is " + calledElement);
+    /*
+        New error, className is now returning false
+        Reason unknown
+    */
     if (calledElement != undefined) {
-        className = $(calledElement).attr("class");
-        console.log("Class name is " + className); // remove later, only for debugging
+        if (className == true) {
+            console.log("Class name is true");
+        } else {
+            console.log("Class name is false");
+            if (cssName == "background-color") {
+                className = $(calledElement).hasClass("bg");
+                console.log("class name is " + className);
+            } else if (cssName == "color") {
+                className = $(calledElement).hasClass("fr");
+                console.log("class name is " + className);
+            }
+        }
     } else {
-        className = $("*")
+        console.log("Start called element else statement");
+        if (className == true) {
+            console.log("Class name is true");
+        } else {
+            console.log("Class name is false");
+            if (cssName == "background-color") {
+                className = $(calledElement).hasClass("bg");
+                console.log("class name is " + className);
+            } else if (cssName == "color") {
+                className = $(calledElement).hasClass("fr");
+                console.log("class name is " + className);
+            }
+        }
     }
+    
     if (className != undefined) {
         backUp = false;
         $(className).each(function() { // Hopefully this will fix the issue of not adding the `style=""` attribute to the element
@@ -142,8 +169,8 @@ function ColorChanger(calledElement, className, cssName) {
     }
 }
 export function TextFunction() {
-    ColorChanger(this, "bg", "background-color");
-    ColorChanger(this, "fr", "color"); // Will be changed to fg at a later date
+    ColorChanger("*", "bg", "background-color");
+    ColorChanger("*", "fr", "color"); // Will be changed to fg at a later date
     /* TextOptions(false, false, false, "fw", "font-weight"); // Bold uses css
     TextOptions(false, true, true, "sz", "font-size");*/
 }
