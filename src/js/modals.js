@@ -12,7 +12,7 @@ export function ModalFunction() {
     var modalBtnCall = $("*").hasClass("modal-btn");
     console.log(modalBtn);
     var closeClick = $("*").hasClass("close");
-    /*$(closeClick).click();
+    $(closeClick).click();
     if (modalBtnCall == "undefined") {
       shownContent;
     } else {
@@ -29,7 +29,7 @@ export function ModalFunction() {
     $(closeClick).on("click", function() {
       alert(hiddenContent);
       hiddenContent;
-    });*/
+    });
     /*window.onclick = function(event) {
       if (event.target == modal) {
         hiddenContent;

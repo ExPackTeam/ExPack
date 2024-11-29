@@ -17,7 +17,7 @@ const basePlugin = {
       extract: true, // Extract CSS into a separate file
       modules: true, // Set to true if you want CSS modules
       minimize: false, // Change to false to prevent minification in the main CSS
-      sourceMap: false, // Generate source maps
+      sourcemap: false, // Generate source maps
       plugins: [
         postcssAttributeCaseInsensitive(),
       ]
@@ -42,6 +42,14 @@ const jsConfig = {
     name: "ExPack",
     sourcemap: false, // Generate source maps
   },
+  external: ['jquery'],
+  plugins: [
+    terser({
+      mangle: {
+        reserved: ['$', 'jquery'],
+      },
+    }),
+  ],
 };
 
 const jsMiniConfig = {

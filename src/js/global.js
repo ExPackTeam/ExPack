@@ -1,28 +1,18 @@
 import $ from "jquery";
 import { TextFunction } from "./text_changes.js";
-import { CopyClip } from "./copy_clip.js";
-import { ModalFunction } from "./modals";
-import { LoginOption } from "./login.js";
-import { UnicodeFunction } from "./unicode_character.js";
-import { PageOptions } from "./page_options.js";
+// import { PageOptions } from "./page_options.js";
+// import { UnicodeFunction } from "./unicode_character.js";
+// import { ModalFunction } from "./modals";
+// import { CopyClip } from "./copy_clip.js";
+// import { LoginOption } from "./login.js";
 function ExpackExport() {
-    $(document).ready(function() {
-        CopyClip();
-        ModalFunction();
-        LoginOption();
-        UnicodeFunction();
-        PageOptions();
+    $(function() {
         TextFunction();
-        /*
-            Will be removed later
-            const closingClass = document.querySelectorAll("[class*='close']");
-            closingClass.forEach(element => {
-                element.innerHTML = "&times;";
-                element.addEventListener("click", function(){
-                    element.style.visibility = "hidden";
-                });
-            });
-        */
+        // PageOptions();
+        // CopyClip();
+        // ModalFunction();
+        // LoginOption();
+        // UnicodeFunction();
     });
 }
 export default ExpackExport();

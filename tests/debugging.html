@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ExPack Debuggin</title>
+        <meta charset="UTF-8">
+        <link href="../dist/css/expack.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#" class="nav-link">Testing</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="bg-000000 fg-ffffff">
+            <p>This is a test</p>
+        </div>
+        <div class="marg-15px">
+            <span>Testing Margins</span>
+        </div>
+        <div data-bord="wid-2em">
+            Testing Borders
+        </div>
+        <div id="dropdowns" data-font="times-roman">
+            <label for="debug-dropdown">Choose Option:</label>
+            <select id="debug-dropdown" data-toggle="dropdown" data-font="times-roman">
+                <optgroup label="Group One">
+                    <option class="dropdown-item">Option One</option>
+                    <option class="dropdown-item">Option Two</option>
+                    <option class="dropdown-item">Option Three</option>
+                </optgroup>
+                <optgroup label="Group Two">
+                    <option class="dropdown-item">Option One</option>
+                    <option class="dropdown-item">Option Two</option>
+                    <option class="dropdown-item">Option Three</option>
+                </optgroup>
+                <option class="dropdown-item" selected>Selected Option</option>
+            </select>
+        </div>
+        <button class="modal-btn">Show Modal</button>
+        <div class="modal" data-popup="modal">
+            <span class="close"></span>
+            <div class="modal-content">
+                This is a modal for testing purposes
+            </div>
+        </div>
+        <script src="../dist/js/expack.min.js"></script>
+        <script src=" https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js "></script>
+    </body>
+</html>
