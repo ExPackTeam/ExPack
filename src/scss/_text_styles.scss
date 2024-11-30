@@ -8,12 +8,21 @@
         text-decoration: unquote($type);
     }
 }
+@mixin FontWeight($type) {
+    .fw-#{$type} {
+        font-weight: unquote($type);
+    }
+}
 .fs-italic {
     font-style: italic;
 }
 .fs-oblique {
     font-style: oblique;
 }
+@include FontWeight("lighter");
+@include FontWeight("normal");
+@include FontWeight("bold");
+@include FontWeight("bolder");
 @include DecorOption("dashed");
 @include DecorOption("dotted");
 @include DecorOption("double");
