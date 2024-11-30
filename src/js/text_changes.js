@@ -1,83 +1,77 @@
 import $ from "jquery";
 import { TextBackup } from "./backup";
 /*
-    All console.log()s are temporary and only here for debugging.
+    All // console.log()s are temporary and only here for debugging.
     In the master branch, these won't be here
 */
 function ColorChanger(className, cssName) {
     var classBackName = $("*").attr("class");
     var classNameGet = $("*").hasClass(className);
     var classCalledName = $("*").attr("class") ? true : undefined; // This is here to let there be a boolean for className and className stays a string
-    var backUp = className == undefined /*classCalledName == undefined || classBackName == undefined*/ ? true : false;
+    var backUp = classNameGet == undefined /*classCalledName == undefined || classBackName == undefined*/ ? true : false;
     var classBackUp = classCalledName == undefined ? true : false;
-    console.log("Started Color Changing");
-    console.log("Called Element is *");
-    console.log("Class Called Name is " + classCalledName);
-    console.log("Class Back Name is " + classBackName);
+    // console.log("Started Color Changing");
+    // console.log("Called Element is *");
+    // console.log("Class Called Name is " + classCalledName);
+    // console.log("Class Back Name is " + classBackName);
     // Backup Check
     /*
         This is here to make sure no errors occur when searching the code
         If the jQuery code fails, it will use the plain JavaScript code
         ~> At a later date a new file called `backups.js` will be made and contain backup functions for every file using plain js
     */
-    var debugChance = Math.random() * 2;
-    if (debugChance == 1) {
-        backUp = false;
-    } else {
-        backUp = backUp;
-    }
-    console.log("Back Up is " + backUp);
+    // console.log("Back Up is " + backUp);
     if (backUp == false) {
         if (classCalledName == true) {
             classBackUp = false;
-            console.log("Class name is true (no variable in here)");
+            // console.log("Class name is true (no variable in here)");
             className = $("*").hasClass(className) ? className : undefined; 
             // the `? className : undefined` is an if statement in the declaration
-            console.log("Class Name is " + className);
+            // console.log("Class Name is " + className);
         } else {
             classBackUp = true;
-            console.log("Class name is false (no variable in here)");
+            // console.log("Class name is false (no variable in here)");
             if (cssName == "background-color") {
                 classBackName; 
-                console.log("Class name is " + className);
-                console.log("Class Back Name is " + classBackName);
+                // console.log("Class name is " + className);
+                // console.log("Class Back Name is " + classBackName);
             } else if (cssName == "color") {
                 classBackName;
-                console.log("Class name is " + className);
-                console.log("Class Back Name is " + classBackName);
+                // console.log("Class name is " + className);
+                // console.log("Class Back Name is " + classBackName);
             }
             if (classBackName != undefined && typeof(classBackName) == "string") {
                 classNameGet = classBackName;
             } else {
                 classNameGet = className;
             }
-            console.log("Class Backup Name is " + classBackName);
+            // console.log("Class Backup Name is " + classBackName);
             if (classCalledName != undefined) {
-                console.log("Working as indended");
+                // console.log("Working as indended");
             } else {
-                console.log("Class Name still not working properly");
+                // console.log("Class Name still not working properly");
             }
-            console.log("Class Name is now " + className);
+            // console.log("Class Name is now " + className);
         }
         $/*("*").attr("class")*/("." + className).each(function() { 
-            console.log("Entering color function"); // remove later, only for debugging
+            // console.log("Entering color function"); // remove later, only for debugging
             var regex = /^[0-9A-Fa-f]{6}$/; // for getting the hex code in the class
-            // console.log("Class Name Get is " + classNameGet);
-            console.log("Regex is " + regex);
-            console.log("Class Name is (pre-match) " + className)
+            // // console.log("Class Name Get is " + classNameGet);
+            // console.log("Regex is " + regex);
+            // console.log("Class Name is (pre-match) " + className)
             var match = className.match(regex);
-            console.log("Match is " + match);
+            // console.log("Match is " + match);
             /*
                 Match is returning null
                 Reason unknown
             */
             if (match) {
                 var hexCode = match[0] ? hexCode : null;
-                console.log("The hexcode is " + hexCode);
+                // console.log("The hexcode is " + hexCode);
                 if (hexCode) {
                     // This if statement is to just make sure hexCode is being found
-                    console.log("Color found is " + hexCode); // remove later, only for debugging
-                    console.log("CSS Name is " + cssName); // remove later, only for debugging
+                    // console.log("Color found is " + hexCode); // remove later, only for debugging
+                    // console.log("CSS Name is " + cssName); // remove later, only for debugging
                     if (/^[0-9A-Fa-f]{6}$/.test(hexCode)) {
                         $("*").css(cssName, `#${hexCode}`);
                     }
