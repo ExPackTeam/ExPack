@@ -620,6 +620,22 @@ optgroup option.global_dropdown-item__c4FH-.global_arrow__SV6jP::before {
   font-style: oblique;
 }
 
+.global_fw-lighter__QeYdx {
+  font-weight: lighter;
+}
+
+.global_fw-normal__wYaWZ {
+  font-weight: normal;
+}
+
+.global_fw-bold__7djUC {
+  font-weight: bold;
+}
+
+.global_fw-bolder__2Sc2p {
+  font-weight: bolder;
+}
+
 .global_td-dashed__NGJEv {
   text-decoration: dashed;
 }
