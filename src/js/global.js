@@ -1,6 +1,7 @@
 import $ from "jquery";
 import { TextFunction } from "./text_changes.js";
-// import { PageOptions } from "./page_options.js";
+import { PageOptions } from "./page_options.js";
+import { LinkExport } from "./link_options.js";
 // import { UnicodeFunction } from "./unicode_character.js";
 // import { ModalFunction } from "./modals";
 // import { CopyClip } from "./copy_clip.js";
@@ -8,7 +9,8 @@ import { TextFunction } from "./text_changes.js";
 function ExpackExport() {
     $(function() {
         TextFunction();
-        // PageOptions();
+        PageOptions();
+        LinkExport();
         // CopyClip();
         // ModalFunction();
         // LoginOption();
