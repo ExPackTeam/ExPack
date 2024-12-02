@@ -20,7 +20,14 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 [data-font="comic-sans"] {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Comic Sans MS", sans-serif;
+  /*
+    Trying out comic sans WITHOUT "cursive"
+    original code `font-family: "Comic Sans MS", cursive, sans-serif;`
+  */
+}
+[data-font="consolas"] {
+  font-family: Consolas, monospace;
 }
 [data-font="georgia"] {
   font-family: Georgia, "Times New Roman", Times, serif;
