@@ -5,19 +5,25 @@ import { TextBackup } from "./backup";
     In the master branch, these won't be here
 */
 function ColorChanger(className, cssName) {
-    var classBack = $(this).attr("class", className) ? className : undefined;
-    var classGet = $(this).attr("class", className) ? className : undefined;
-    var classCall = $(this).attr("class", className) ? true : undefined; // This is here to let there be a boolean for className and className stays a string
+    // var classBack = $(this).attr("class", className);
+    var classGet = $(this).attr("class"); // removed attr("class", className);
+    // var classGet = $(this).hasClass(className);
+    var classCall = classGet != undefined ? true : false; // This is here to let there be a boolean for className and className stays a string
     /*  
         retrying with $(this) instead of $("*")
     */
-    var backUp = classGet == undefined  ? true : false;
+    console.log("Class Get is " + classGet + /*"\nClass Back is " + classBack +*/ "\nClass Call is " + classCall);
+    var backUp = classCall == false  ? true : false;
     console.log("Started Color Changing");
     if (backUp == false) {
+        console.log("Class Call is " + classCall);
         if (classCall == true) {
+            console.log("Class Get is " + classGet);
             $(classGet).each(function() {
                 var regex = /^[0-9A-Fa-f]{6}$/
                 var match = classGet.match(regex);
+                console.log("regex is " + regex);
+                console.log("match is " + match);
                 if (match) {
                     var hexCode = match[0];
                     if (hexCode) {
@@ -31,7 +37,8 @@ function ColorChanger(className, cssName) {
                     console.error("[match] is " + match);
                 }
             });
-        } else {
+        } /* else {
+            console.log("Class Back is " + classBack);
             $(classBack).each(function() {
                 var regex = /^[0-9A-Fa-f]{6}$/
                 var match = classGet.match(regex);
@@ -48,7 +55,7 @@ function ColorChanger(className, cssName) {
                     console.error("[match] is " + match);
                 }
             });
-        }
+        } */
     } else if (backUp == true) {
         TextBackup();
         var jqueryScriptFail = new Error("Indended color changing jQuery code failed");
@@ -61,15 +68,15 @@ function ColorChanger(className, cssName) {
         if (this != undefined && className != undefined) {
             console.error(jqueryScriptFail);
         } else if (this === undefined || className === undefined) {
-            console.error(jqueryScriptFail + undefinedError);
+            console.error(jqueryScriptFail + " " + undefinedError);
         }
     }
 }
 function NumberChanger(className, cssName) {
-    var classBack = $(this).attr("class", className) ? className : undefined;
-    var classGet = $(this).attr("class",className) ? className : undefined;
+    var classBack = $(this).attr("class", className);
+    var classGet = $(this).attr("class",className);
     var classCall = $(this).attr("class", className) ? true : false;
-    var backUp = classGet == false ? true : false;
+    var backUp = classCall == false ? true : false;
     console.log("Starting Numbers");
     console.log("Class Call is " + classCall);
     console.log("Class Get is " + classGet);
