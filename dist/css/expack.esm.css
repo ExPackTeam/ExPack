@@ -332,6 +332,10 @@
   width: 80%;
 }
 
+.global_close__rVQEY::before {
+  content: "X";
+}
+
 [data-tool=tooltip] {
   position: relative;
   display: inline-block;
