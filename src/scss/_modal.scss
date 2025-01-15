@@ -14,13 +14,10 @@
 	height: 100%;
 	width: 100%;
 	overflow: auto;
-	
-	box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.5); // May convert to Javascript
+	// box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.5); // Convert to Javascript
 	[data-modal="content"] {
-		margin: 15%, auto;
-		padding: 2em;
 		// Border uses javascript
-		width: 80%;
+		width: 80%; // May convert to javascript
 		// May add code for modal header and footer
 	}
 }
