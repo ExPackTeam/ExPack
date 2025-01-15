@@ -21,3 +21,6 @@
 		// May add code for modal header and footer
 	}
 }
+.close::before {
+	content: "X";
+}

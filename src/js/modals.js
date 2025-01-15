@@ -35,19 +35,19 @@ export function ModalFunction() {
             - $(event.target).children()
             ~> Result: failed
             // Doing $("[data-popup='modal']").children() results in both modals being affected
+            - $("CLASS").parent().show()
+            ~> Result: failed
         */
-       console.log(`{CHECK} children of data-popup='modal' is ${$("[data-popup='modal']").children()}`);
         $(".modal-btn").on("click", function () {
-            var modalCount = 0;
-            $("[data-popup='modal']").each(function() {
-                modalCount += 1;
-            });
-            if (modalCount <= 1) {
-                
-            }
+            $(this).siblings(".modal-ctn").show();
+            $(".close").show();
+            $(this).hide();
+            // Using $(this) works properly, but need a way to do that in the button 
         });
         $(".close").on("click", function () {
-            $(event.target).children().hide();
+            $(".modal-ctn").hide();
+            $(this).hide();
+            $(".modal-btn").show();
         });
     });
     return classLook;
