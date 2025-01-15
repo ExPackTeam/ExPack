@@ -1,321 +1,224 @@
 import $ from "jquery";
-import { PageClassBackup, PageBorderBackup, PageImageBackup } from "./backup";
-function PageClassOptions(placeHolder, className, cssName) {
-    let backUp = className == undefined ? true : false;
-    if (backUp == false) {
-        console.log("Start Class " + className);
-        className = $(placeHolder).attr("class");
-        console.log("Placeholder is " + placeHolder);
-        $(className).each(function() {
-            if (placeHolder != undefined) {
-                className = className;
-                console.log("Class name is " + className);
-                console.log("Placeholder is true");
-            } else {
-                console.log("Placeholder is false");
-                if ("*" != undefined) {
-                    className = $("*").attr("class");
-                    console.log("Class name is " + className);
-                } else if ("*" == undefined) {
-                    className = $(className).attr("class");
-                    console.log("Class name is " + className);
-                }
-            }
-            var regex = new RegExp("^" + className + "-(\\d+)(%|em|px)$");
-            console.log("regex is " + regex);
-            var match = className.match(regex);
-            console.log("Match is " + match);
-            if (match) {
-                console.log("Found" + className + ": " + classNameClass) // remove later
-                var amount = match[2]; // Is for the amount being called
-                var unit = match[3]; // The units of what is called
-                if(!isNaN(amount)) {
-                    $(placeHolder).css(cssName, amount + unit);
+import { PageBackup } from "./backup";
+// Retype Count: 1 // This is the amount I have re-written this code FROM scratch
+// All `console.log()`s are for debugging, they are going to removed once it's ready for the master branch
+function PageClasses() {
+    var classGet = [];
+    var backUp = null;
+    var classHasLocations = null;
+    const classLook = $("body").find("[class]").each(function () {
+        var classSearch = $(this).attr("class");
+        const getBackUp = classSearch == undefined ? true : false;
+        classGet = classSearch ? classSearch.split(" ") : null;
+        backUp = getBackUp;
+        console.log("[classGet] is " + classGet + "\n[classGet] is " + typeof classGet);
+        console.log("[backUp] is " + backUp);
+        if (backUp != true) {
+            const classGetSize = classGet.length;
+            console.log("[classGetSize] is " + classGetSize);
+            if (classGetSize == 1) {
+                const classPlace = classGet[0];
+                if (classPlace.includes("top") || classPlace.includes("btm") || classPlace.includes("lft") || classPlace.includes("rgt")) {
+                    var classLocation = classPlace.includes("top") ? "top" : classPlace.includes("lft") ? "left" : classPlace.includes("btm") ? "btm" : classPlace.includes("rgt") ? "right" : null;
+                    var classPart = classPlace.substring(9);
+                    classHasLocations = true;
                 } else {
-                    /*
-                        Forgot why "*" was added
-                        May remove in v1.0.13
-                    */
-                    var thirdChoice = cssName + amount;
-                    amount = match[2];
-                    unit = match[3];
-                    $(placeHolder).css(thirdChoice, amount + unit);
+                    classPart = classPlace.substring(5);
+                    classHasLocations = false;
+                }
+                if (classHasLocations == true) {
+                    classPart = classPlace.substring(9);
+                } else {
+                    classPart = classPlace.substring(5);
+                }
+                console.log("[classPart] is " + classPart);
+                if (classPlace) {
+                    if (classPlace.includes("marg")) {
+                        if (classHasLocations == true) {
+                            $(this).css(`margin-${classLocation}`, classPart);
+                        } else {
+                            $(this).css("margin", classPart);
+                        }
+                    } else if (classPlace.includes("padd")) {
+                        if (classHasLocations == true) {
+                            $(this).css(`padding-${classLocation}`, classPart);
+                        } else {
+                            $(this).css("padding", classPart);
+                        }
+                    } else if (classPlace.includes("indz")) {
+                        $(this).css("z-index", classPart)
+                    } else if (classPlace.includes("hgt")) {
+                        $(this).css("height", classPart);
+                    } else if (classPlace.includes("wid")) {
+                        $(this).css("width", classPart);
+                    } 
+                }
+            } else if (classGetSize > 1) {
+                for (var i = 0; i < classGetSize; i++) {
+                    const classPlace = classGet[i];
+                    console.log("[i] is " + i);
+                    if (classGet.includes("top") || classGet.includes("btm") || classGet.includes("lft") || classGet.includes("rgt")) {
+                        var classLocation = classPlace.includes("top") ? "top" : classPlace.includes("lft") ? "left" : classPlace.includes("btm") ? "bottom" : classPlace.includes("rgt") ? "right" : null;
+                        classHasLocations = true;
+                    } else {
+                        classHasLocations = false;
+                    }
+                    if (classHasLocations == true) {
+                        var classPart = classPlace.substring(9);
+                    } else {
+                        classPart = classPlace.substring(5);
+                    }
+                    if (classSearch.includes("marg")) {
+                        if (classHasLocations == true) {
+                            $(this).css(`margin-${classLocation}`, classPart);
+                        } else {
+                            $(this), css("margin", classPart);
+                        }
+                    } else if (classSearch.includes("padd")) {
+                        if (classHasLocations == true) {
+                            $(this).css(`padding-${classLocation}`, classPart);
+                        } else {
+                            $(this).css("padding", classPart);
+                        }
+                    } else if (classSearch.includes("indz")) {
+                        $(this).css("z-index", classPart);
+                    } else if (classPlace.includes("higt")) {
+                        $(this).css("height", classPart);
+                    } else if (classPlace.includes("widt")) {
+                        $(this).css("width", classPart);
+                    }
                 }
             }
-        });
-    } else {
-        PageClassBackup();
-    }
-}
-function PageBorders(position, attrSuffix, cssName) {
-    /* 
-        Will add border image at a later date
-        border-image: url("[source url]");
-        suffix will be "img"
-    */
-    /*
-        Will add border style at a later date
-        border-style: [styleName];
-        suffix will be "stl"
-    */
-    var attrName = $("*").attr("data");
-    var regex;
-    var match;
-    var matchError = new Error("Match is invalid");
-    position;
-    let backUp = attrSuffix == undefined ? true : false;
-    /*
-        if (attrName != " " || attrName != undefined) {
-            attrSuffix = $(classNameElement).data(attrSuffix);
-            if (attrSuffix != " " || attrSuffix != undefined) {
-                console.log("Attribute Suffix is " + attrSuffix);
-            }
-        } else if (attrName == " ") {
-            var attrNameEmptyError = new Error("attrName is empty");
-            console.log(attrNameEmptyError);
-            throw attrNameEmptyError;
         } else {
-            var attrNameErrorUndefined = new Error("attrName is undefined");
-            throw attrNameErrorUndefined;
+            PageBackup("class", "margin");
+            PageBackup("class", "padding");
+            PageBackup("class", "zIndex");
+            PageBackup("class", "height");
+            PageBackup("class", "width");
+            console.error("encountered an error with trying to run page options classes");
         }
-    */
-    if (backUp == false) {
-        $(attrName).each(function() {
-            if (position == "none") {
-                if (attrSuffix != "clr") {
-                    regex = new RegExp("^" + attrSuffix + "-(\\d+)(%|em|px)$"); // Will find what is input
-                    match = attrName.match(regex);
-                    console.log(match[0]); // remove later, for debugging // checking whole output
-                    if (match) {
-                        attrSuffix = match[1]; // checks for the first position in match, meant to be the attribute suffix;
-                        if (attrSuffix != "" && attrName != undefined) {
-                            console.log("Attribute Suffix is " + attrSuffix);
-                        }
-                        var amount = match[2];
-                        var unit = match[3];
-                        var amountValid;
-                        var unitValid;
-                        if (!isNaN(amount)) {
-                            console.log("Amount is " + amount); // remove later, for debuggin
-                            alert("Amount is " + amount);
-                            amountValid = true;
-                        } else {
-                            amountValid = false;
-                            var amountNotValidError = new Error("Amount isn't a valid number");
-                            alert(amountNotValidError); // remove later, only for debugging
-                            throw amountNotValidError;
-                        }
-                        console.log(amountValid); // remove later, only for debugging // For making sure amountValid is met or not
-                        if (unit != "" && unit != undefined) {
-                            unitValid = true;
-                            console.log("Unit is " + unit);
-                        } else if (unit == "") {
-                            var unitEmptyError = new Error("Unit is Empty");
-                            console.log(unitEmptyError); // remove later, only for debugging
-                            throw unitEmptyError;
-                        } else {
-                            unitValid = false
-                            var unitUndefinedError = new Error("Unit is undefined");
-                            console.log (unitUndefinedError); // remove later, only for debugging
-                            throw unitUndefinedError;
-                        }
-                        console.log(unitValid); // remove later, only for debugging // For making sure unitValid is met or not
-                        if (amountValid == true && unitValid == true) {
-                            console.log("Conditions for amount and units met") // remove later, only for debugging
-                            $("*").css(cssName, amount + unit);
-                        } else {
-                            var validNotMetError = new Error("amount and unit are invalid");
-                            throw validNotMetError;
-                        }
-                    } else {
-                        throw matchError;
-                    }
-                } else if (attrSuffix == "clr") {
-                    regex = new RegExp("^[A-Fa-f0-9]{6}$");
-                    match = attrName.match(regex);
-                    console.log(match[0]); // remove later, checking what match[0] outputs
-                    if (match) {
-                        var hexCode = match[0];
-                        console.log("Hex code is " + hexCode);
-                        if (hexCode != "" && hexCode != undefined) {
-                            $("*").css(cssName, hexCode);
-                        } else if (hexCode == "") {
-                            var hexCodeEmptyError = new Error("hexCode is empty");
-                            throw hexCodeEmptyError;
-                        } else {
-                            var hexCodeUndefinedError = new Error("hexCode is undefined");
-                            throw hexCodeUndefinedError;
-                        }
-                    } else {
-                        throw matchError;
-                    }
-                }
-            } else if (position != "" && position != "none") {
-                if (attrSuffix != "clr" && attrSuffix != "rad") {
-                    regex = new RegExp("^" + attrSuffix + "-(\\d+)(%|em|px)$"); // Will find what is input
-                    match = attrName.match(regex);
-                    console.log(match[0]); // remove later, for debugging // checking whole output
-                    if (match) {
-                        attrSuffix = match[1]; // checks for the first position in match, meant to be the attribute suffix;
-                        if (attrSuffix != "" && attrName != undefined) {
-                            console.log("Attribute Suffix is " + attrSuffix);
-                        }
-                        var amount = match[2];
-                        var unit = match[3];
-                        var amountValid;
-                        var unitValid;
-                        if (!isNaN(amount)) {
-                            console.log("Amount is " + amount); // remove later, for debuggin
-                            alert("Amount is " + amount);
-                            amountValid = true;
-                        } else {
-                            amountValid = false;
-                            var amountNotValidError = new Error("Amount isn't a valid number");
-                            alert(amountNotValidError); // remove later, only for debugging
-                            throw amountNotValidError;
-                        }
-                        console.log(amountValid); // remove later, only for debugging // For making sure amountValid is met or not
-                        if (unit != "" && unit != undefined) {
-                            unitValid = true;
-                            console.log("Unit is " + unit);
-                        } else if (unit == "") {
-                            var unitEmptyError = new Error("Unit is Empty");
-                            console.log(unitEmptyError); // remove later, only for debugging
-                            throw unitEmptyError;
-                        } else {
-                            unitValid = false
-                            var unitUndefinedError = new Error("Unit is undefined");
-                            console.log (unitUndefinedError); // remove later, only for debugging
-                            throw unitUndefinedError;
-                        }
-                        console.log(unitValid); // remove later, only for debugging // For making sure unitValid is met or not
-                        if (amountValid == true && unitValid == true) {
-                            console.log("Conditions for amount and units met") // remove later, only for debugging
-                            $("*").css(cssName, amount + unit);
-                        } else {
-                            var validNotMetError = new Error("amount and unit are invalid");
-                            throw validNotMetError;
-                        }
-                    } else {
-                        throw matchError;
-                    }
-                } else if (attrSuffix == "clr") {
-                    regex = new RegExp("^[A-Fa-f0-9]{6}$");
-                    match = attrName.match(regex);
-                    console.log(match[0]); // remove later, checking what match[0] outputs
-                    if (match) {
-                        var hexCode = match[0];
-                        console.log("Hex code is " + hexCode);
-                        if (hexCode != "" && hexCode != undefined) {
-                            $("*").css(cssName, hexCode);
-                        } else if (hexCode == "") {
-                            var hexCodeEmptyError = new Error("hexCode is empty");
-                            throw hexCodeEmptyError;
-                        } else {
-                            var hexCodeUndefinedError = new Error("hexCode is undefined");
-                            throw hexCodeUndefinedError;
-                        }
-                    } else {
-                        throw matchError;
-                    }
-                } else if (attrSuffix == "rad") {
-                    var positionError = new Error("Position can't have radius");
-                    throw positionError;
-                }
-            } else if (position == "") {
-                var positionEmptyError = new Error("position is empty");
-                throw positionEmptyError;
-            }
-        });
-    } else {
-        PageBorderBackup();
-    }
+    });
+    return classLook;
 }
-function PageImageOption(placeHolderSpot, attrName, attrSuffix, cssName) {
-    /*  
-        Will add clip path, aspect ration, and transform in a later version
-    */
-    var regex;
-    var match;
-    let backUp = attrName == undefined ? true : false;
-    if (backUp == false) {
-        $("[data-img]").each(function() {
-            var dataOption = $(placeHolderSpot).data("img");
-            var dataAttr = $(placeHolderSpot).attr("data");
-            regex = new RegExp("^" + attrName + "\\d+(%|em|px)$");
-            match = dataOption.match(regex);
-            attrSuffix = match[1] // Short for Attribute Suffix
-            console.log("Attribute Suffix is " + attrSuffix); // remove later
-            if (match) {
-                console.log("Found data-img: " + dataOption); // remove later
-                var amount = match[2];
-                var unit = match[3];
-                $("*").css(cssName, amount + unit);
-            } else {
-                match = dataAttr.match(regex);
-                attrSuffix = match[1];
-                if (match) {
-                    console.log("Found data-img: " + dataAttr);
-                    var amount = match[2];
-                    var unit = match[3];
-                    $("*").css(cssName, amount + unit);
+function PageDatas(dataName) {
+    // May change to be classes
+    // If changed to classes, it will be bord-{function} with bordloc-{location} for where
+    var dataGet = [];
+    var backUp = null;
+    var dataHasLocation = null;
+    const dataLook = $("body").find(`[data-${dataName}]`).each(function () {
+        const dataSearch = $(this).data(dataName);
+        const getBackUp = dataSearch == undefined ? true : false;
+        dataGet = dataSearch ? dataSearch.split(" ") : null;
+        backUp = getBackUp;
+        // In testing, have a console log for both dataSearch, the type of dataSearch (typeof dataSearch) and dataGet
+        // In testing have a console.log for backUp
+        if (backUp != true) {
+            var dataPlace;
+            const dataGetSize = dataGet.length;
+            console.log(`{CHECK} [dataGetSize] is ${dataGetSize}`);
+            if (dataGetSize == 1) {
+                dataPlace = dataGet[0];
+                if (dataSearch.includes("top") || dataSearch.includes("lft") || dataSearch.includes("btm") || dataSearch.includes("rgt")) {
+                    var dataLocation = dataSearch.includes("top") ? "top" : dataSearch.includes("lft") ? "left" : dataSearch.includes("btm") ? "bottom" : dataSearch.includes("rgt") ? "right" : null;
+                    dataHasLocation = true;
                 } else {
-                    console.log("Match not working");
+                    dataHasLocation = false;
+                }
+                if (dataHasLocation == true) {
+                    dataPlace = dataSearch.substring(8);
+                } else {
+                    dataPlace = dataSearch.substring(4);
+                }
+                if (dataSearch.includes("clr")) {
+                    var bordColor;
+                    if (/^[0-9A-Fa-f]{6}$/.test(dataPlace)) {
+                        bordColor = `#${dataPlace}`;
+                    } else {
+                        bordColor = dataPlace;
+                    }
+                    if (dataHasLocation == true) {
+                        $(this).css(`border-${dataLocation}-color`, bordColor);
+                    } else {
+                        $(this).css("border-color", bordColor);
+                    }
+                } else if (dataSearch.includes("rad")) {
+                    if (dataHasLocation == true) {
+                        $(this).css(`border-${dataLocation}-radius`, dataPlace);
+                    } else {
+                        $(this).css("border-radius", dataPlace);
+                    }
+                } else if (dataSearch.includes('wid')) {
+                    if (dataHasLocation == true) {
+                        $(this).css(`border-${dataLocation}-width`, dataPlace);
+                    } else {
+                        $(this).css("border-width", dataPlace);
+                    }
+                }
+            } else if (dataGetSize > 1) {
+                for (var i = 0; i < dataGetSize; i++) {
+                    var dataPlace = dataGet[i];
+                    console.log(`{CHECK} [i] is ${i}`);
+                    if (dataSearch.includes("top") || dataSearch.includes("lft") || dataSearch.includes("btm") || dataSearch.includes("rgt")) {
+                        console.log("[dataSearch] has a location");
+                        var dataLocation = dataSearch.includes("top") ? "top" : dataSearch.includes("lft") ? "left" : dataSearch.includes("btm") ? "btm" : dataSearch.includes("rgt") ? "right" : null;
+                        // dataLocation is to get the location, if any are present, while also being quick to reference in the jQuery code
+                        console.log(`[dataLocation] is ${dataLocation}`);
+                        dataHasLocation = true;
+                        console.log(`[dataHasLocation] is ${dataHasLocation}`);
+                    } else {
+                        dataHasLocation = false;
+                    }
+                    if (dataHasLocation == true) {
+                        dataPlace = dataSearch.substring(8);
+                        console.log("{CHECK} location present. [dataPlace] has substring(8)");
+                    } else {
+                        dataPlace = dataSearch.substring(4);
+                        console.log("{CHECK} location not present. [dataPlace] has substring(4)");
+                    }
+                    console.log(`[dataPlace] is ${dataPlace}`);
+                    if (dataSearch.includes("clr")) {
+                        console.log("{STATUS} data-bord has [clr]");
+                        var bordColor;
+                        if (/^[0-9A-Fa-f]{6}$/.test(dataPlace)) {
+                            console.log("{STATUS} data-bord has hexadecimal");
+                            bordColor = `#${dataPlace}`;
+                        } else {
+                            console.log("{STATUS} data-bord doesn't have hexadecimal");
+                            bordColor = dataPlace;
+                        }
+                        if (dataHasLocation == true) {
+                            $(this).css(`border-${dataLocation}-color`, bordColor);
+                        } else {
+                            $(this).css("border-color", bordColor);
+                        }
+                    } else if (dataSearch.includes("rad")) {
+                        console.log("{STATUS} data-bord has [rad]");
+                        console.log(`{CHECK} radius is ${dataPlace}`);
+                        if (dataHasLocation == true) {
+                            $(this).css(`border-${dataLocation}-radius`, dataPlace);
+                        } else {
+                            $(this).css("border-radius", dataPlace);
+                        }
+                    } else if (dataSearch.includes('wid')) {
+                        console.log("{STATUS} data-bord has [siz]");
+                        console.log(`{CHECK} border size is ${dataPlace}`);
+                        if (dataHasLocation == true) {
+                            $(this).css(`border-${dataLocation}-width`, dataPlace);
+                        } else {
+                            $(this).css("border-width", dataPlace);
+                        }
+                    }
                 }
             }
-        });
-    } else {
-        PageImageBackup();
-    }
+        } else {
+            PageBackup("data", "border");
+            console.error("encountered an error with trying to run page options datas");
+        }
+    });
+    return dataLook;
 }
-
-export function PageOptions() {
-    PageClassOptions("*", "marg", "margin");
-    PageClassOptions("*", "pad", "padding");
-    /* 
-        Border Data Options
-        ~> Border Data Name = data-bord
-        Spot 1: "*" // treat as string
-            will always be "*"/"*"Fill
-        Spot 2: position // treat as string 
-            Where the border will go
-            If position is none, apply to every spot
-        Spot 3: attrSuffix // treat as string
-            The class suffix name
-        Spot 4: cssName // treat as string
-            The css function name
-    */
-    // Universal Border
-    PageBorders("*", "none", "sz", "border-width");
-    PageBorders("*", "none", "rad", "border-radius");
-    PageBorders("*", "none", "clr", "border-color");
-    // Top Border
-    PageBorders("*", "top", "top-sz", "border-top-width");
-    PageBorders("*", "top", "top-clr", "border-top-color");
-    // Left Border
-    PageBorders("*", "left", "lft-sz", "border-left-width");
-    PageBorders("*", "left", "lft-clr", "border-left-color");
-    // Bottom Border
-    PageBorders("*", "bottom", "btm-sz", "border-bottom-width");
-    PageBorders("*", "bottom", "btm-clr", "border-bottom-color");
-    // Right Border
-    PageBorders("*", "right", "rgt-sz", "border-right-width");
-    PageBorders("*", "right", "rgt-clr", "border-right-color");
-    /*
-            Image Data Options
-            ~> Image Data Name = data-img
-            Spot 1: attrName // treat as string variable
-                // For the change being done
-                // Choices: height (hgt) and width (wid)
-            Spot 2: attrSuffix // treat as string variable
-                // Short for attributeSuffix
-                // The suffix of what it will do
-                    // Invert ~> inv
-                    // Height ~> hgt
-                    // Width ~> wid
-            Spot 5: cssName // treat as string variable
-                // The name is CSS for what we want to do
-        */
-    PageImageOption("*", "height", "hgt", "height");
-    PageImageOption("*", "width", "wid", "width");
+export function PageFunction() {
+    PageClasses();
+    PageDatas("bord");
 }
