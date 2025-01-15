@@ -1,47 +1,25 @@
 import $ from "jquery";
 import { CopyBackup } from "./backup";
 /*
-    Code is taken from ChatGPT
-    Modifying to be more useful
+    Data-*:
+    - Clip [data-clip]
+        - Text [data-clip="text"]
+        // data-clip="text" defines the whole area that will be added to the clipboard
+        - Select [data-clip="select"]
+        // data-clip="select" defined the text that will be added to the clipboard
+        // Select may change to a class, if it does make it called copy-sel
+    Classes:
+    - Copy Button [class="copy-btn"]
+    // copy-btn is what will copy the text to the clip-board
+    Functions:
+    - Look for the copying section [data-clip="text"]
+    - Get all text in the section that is copyable [data-clip="select"]
+    // If [data-clip="select"] is made into a class, it will be [class="copy-sel"]
+    - When [class="copy-btn"] is clicked, the text is added to the local clip-board
 */
-function ToClip(selector) {
-    var text = $(selector).text();
-    navigator.clipboard.writeText(text).then(function() {
-        console.log("Copies " + text);
-    }).cache(function() {
-        console.error("failed to copy text");
-    });
-}
 function GetCopy() {
-    var copyText = $(this).hasClass("copy-text"); // if the $(this) fails, change to "*"
-    var copyButton = $("button").hasClass("copy-button");
-    let backUp = copyText == undefined ? true : false;
-    let backUpTwice = copyButton == undefined ? true : false;
-    if (backUp == false && backUpTwice == false) {
-        if (copyText) {
-            console.log("Copy Text is " + copyText + "\nCopy Button is " + copyButton);
-            $(copyText).each(function() {
-                var textCopied = $(this).text();
-                if (copyButton) {
-                    $(copyButton).on("click", function(index) {
-                        console.log("clicked"); // remove later
-                        ToClip(textCopied);
-                    });
-                }
-            });
-        }
-    } else {
-        CopyBackup();
-        if (backUp == true) {
-            if (backUpTwice == true) {
-                console.error("[copyText] and [copyButton] are undefined");
-            } else {
-                console.error("[copyText] is undefined");
-            }
-        } else {
-            console.error("[copyButton] is undefined");
-        }
-    }
+    const copyArea = $(this).attr("data", "text");
+    console.log("[copyArea] is " + copyArea);
 }
 export function CopyClip() { 
     GetCopy();

@@ -4,197 +4,209 @@
 
     Each function will have a comment for which file they belong to
 */
-export function TextBackup() {
+export function TextBackup(option) {
     // for "./text_changes.js"
-    const bgElements = document.querySelectorAll("[class*='bg-']");
-    bgElements.forEach(element => {
-        // console.log("Background Started");
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("bg-")) {
-                const colorCode = cls.substring(3);
-                if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-                    element.style.backgroundColor = `#${colorCode}`;
-                }
-            }
-        });
-    });
-    const mnElements = document.querySelectorAll("[class*='fg-']");
-    mnElements.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("fg-")) {
-                const colorCode = cls.substring(3);
-                if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-                    element.style.color = `#${colorCode}`;
-                }
-            }
-        });
-    });
-    const fontWeightClass = document.querySelectorAll("[class*='fw-']");
-    fontWeightClass.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("fw-")) {
-                const fwValue = cls.substring(3);
-                if (/^\d+px?$/.test(fwValue)) {
-                    element.style.fontWeight = fwValue;
-                }
-            }
-        });
-    });
-    const fontSizeValue = document.querySelectorAll("[class*='sz-']");
-    fontSizeValue.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("sz-")) {
-                const sizeValue = cls.substring(3);
-                if (/^\d+px?$/.test(sizeValue)) {
-                    element.style.fontSize = sizeValue;
-                }
-            }
-        });
-    });
-}
-export function PageClassBackup() {
-    const marginElements = document.querySelectorAll("[class*='margin-']");
-    marginElements.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("margin-")) {
-                const marginValue = cls.substring(7);
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(marginValue)) {
-                    element.style.margin = `${marginValue}`;
-                }
-            }
-            else if (cls.startsWith("margin-top-")) {
-                const topMargin = cls.substring(11);
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(topMargin)) {
-                    element.style.marginTop = `${topMargin}`;
-                }
-            } else if (cls.startsWith("margin-right-")) {
-                const rightMargin = cls.substring(13);
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(rightMargin)) {
-                    element.style.marginRight = `${rightMargin}`;
-                }
-            } else if (cls.startsWith("margin-bottom-")) {
-                const bottomMargin = cls.substring(14);
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(bottomMargin)) {
-                    element.style.marginBottom = `${bottomMargin}`;
-                }
-            } else if (cls.startsWith("margin-left-")) {
-                const leftMargin = cls.substring(12);
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(leftMargin)) {
-                    element.style.marginLeft = `${leftMargin}`;
-                }
-            }
-        });
-    });
-    const paddingElements = document.querySelectorAll("[class*='padding-']");
-    paddingElements.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("padding-")) {
-                const paddingValue = cls.substring(8); // Get the padding value after "padding-"
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(paddingValue)) {
-                    element.style.padding = `${paddingValue}`; // Apply the padding to all sides
-                }
-            }
-            else if (cls.startsWith("padding-top-")) {
-                const topPadding = cls.substring(12); // Get the top padding value
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(topPadding)) {
-                    element.style.paddingTop = `${topPadding}`; // Apply padding-top
-                }
-            } else if (cls.startsWith("padding-right-")) {
-                const rightPadding = cls.substring(14); // Get the right padding value
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(rightPadding)) {
-                    element.style.paddingRight = `${rightPadding}`; // Apply padding-right
-                }
-            } else if (cls.startsWith("padding-bottom-")) {
-                const bottomPadding = cls.substring(15); // Get the bottom padding value
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(bottomPadding)) {
-                    element.style.paddingBottom = `${bottomPadding}`; // Apply padding-bottom
-                }
-            } else if (cls.startsWith("padding-left-")) {
-                const leftPadding = cls.substring(13); // Get the left padding value
-                if (/^\d+(\.\d+)?(px|em|rem|%)?$/.test(leftPadding)) {
-                    element.style.paddingLeft = `${leftPadding}`; // Apply padding-left
-                }
-            }
-        });
-    });
-}
-export function PageBorderBackup() {
-    const borderElements = document.querySelectorAll("[data-border]");
-    borderElements.forEach(element => {
-        const borderData = element.getAttribute("data-border");
-        const borderClasses = borderData.split(" ");
-        borderClasses.forEach(borderClass => {
-            if (borderClass.startsWith("clr")) {
-                const colorCode = borderClass.substring(3);
-                if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
-                    element.style.borderTopColor = `#${colorCode}`;
-                    element.style.borderLeftColor = `#${colorCode}`;
-                    element.style.borderRightColor = `#${colorCode}`;
-                    element.style.borderBottomColor = `#${colorCode}`;
-                }
-            }
-            if (borderClass.startsWith("sz")) {
-                const size = borderClass.substring(2);
-                if (/^\d+(px|em|rem|%)$/.test(size)) {
-                    element.style.borderTopWidth = size;
-                    element.style.borderLeftWidth = size;
-                    element.style.borderRightWidth = size;
-                    element.style.borderBottomWidth = size;
-                }
-            }
-            if (borderClass === "top") {
-                if (borderClasses.includes("clr")) element.style.borderTopColor = `#${colorCode}`;
-                if (borderClasses.includes("sz")) element.style.borderTopWidth = size;
-            }
-            if (borderClass === "lft") {
-                if (borderClasses.includes("clr")) element.style.borderLeftColor = `#${colorCode}`;
-                if (borderClasses.includes("sz")) element.style.borderLeftWidth = size;
-            }
-            if (borderClass === "rgt") {
-                if (borderClasses.includes("clr")) element.style.borderRightColor = `#${colorCode}`;
-                if (borderClasses.includes("sz")) element.style.borderRightWidth = size;
-            }
-            if (borderClass === "btm") {
-                if (borderClasses.includes("clr")) element.style.borderBottomColor = `#${colorCode}`;
-                if (borderClasses.includes("sz")) element.style.borderBottomWidth = size;
-            }
-        });
-    });    
-}
-export function PageImageBackup() {
-    const imgElements = document.querySelectorAll("[class*='data-img']");
-    imgElements.forEach(element => {
-        const classes = element.className.split(" ");
-        classes.forEach(cls => {
-            if (cls.startsWith("data-img")) {
-                const size = cls.substring(8);
-                if (size.startsWith("hgt")) {
-                    const height = size.substring(3);
-                    if (/^\d+(\.\d+)?(px|em|rem|%|vw|vh)$/.test(height)) {
-                        element.style.height = height;
+    if (option == "color" || option == "bg" || option == "fg") {
+        const bgElements = document.querySelectorAll("[class*='bg-']");
+        bgElements.forEach(element => {
+            console.log("Background Color Started");
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("bg-")) {
+                    const colorCode = cls.substring(3);
+                    if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                        element.style.backgroundColor = `#${colorCode}`;
                     }
                 }
-                if (size.startsWith("wid")) {
-                    const width = size.substring(3);
-                    if (/^\d+(\.\d+)?(px|em|rem|%|vw|vh)$/.test(width)) {
-                        element.style.width = width;
+            });
+        });
+        const mnElements = document.querySelectorAll("[class*='fg-']");
+        mnElements.forEach(element => {
+            console.log("Text Color Started");
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("fg-")) {
+                    const colorCode = cls.substring(3);
+                    if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                        element.style.color = `#${colorCode}`;
                     }
                 }
-            }
+            });
         });
-    });
+    } else {
+        const fontSizeValue = document.querySelectorAll("[class*='fs-']");
+        fontSizeValue.forEach(element => {
+            console.log("Font Size Started");
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("fs-")) {
+                    const sizeValue = cls.substring(3);
+                    if (/^\d+px?$/.test(sizeValue)) {
+                        element.style.fontSize = sizeValue;
+                    }
+                }
+            });
+        });
+        const fontWeightClass = document.querySelectorAll("[class*='fw-']");
+        fontWeightClass.forEach(element => {
+            console.log("Font Weight Started");
+            const classes = element.className.split(" ");
+            classes.forEach(cls => {
+                if (cls.startsWith("fw-")) {
+                    const fwValue = cls.substring(3);
+                    if (/^\d+(px|em|rem|pt|in|cm|mm)?$/.test(fwValue)) {
+                        element.style.fontWeight = fwValue;
+                    }
+                }
+            });
+        });
+    }
+}
+export function PageBackup(option, optionSub) {
+    if (option == "class") {
+        if (optionSub == "margin") {
+            const marginElements = document.querySelectorAll("[class*='marg-']");
+            marginElements.forEach(element => {
+                const classes = element.className.split(" ");
+                classes.forEach(cls => {
+                    if (cls.startsWith("marg-")) {
+                        const marginValue = cls.substring(5);
+                        element.style.margin = `${marginValue}`;
+                    }
+                    else if (cls.startsWith("marg-top-")) {
+                        const topMargin = cls.substring(8);
+                        element.style.marginTop = `${topMargin}`;
+                    } else if (cls.startsWith("marg-rgt-")) {
+                        const rightMargin = cls.substring(8);
+                        element.style.marginRight = `${rightMargin}`;
+                    } else if (cls.startsWith("margin-btm-")) {
+                        const bottomMargin = cls.substring(8);
+                        element.style.marginBottom = `${bottomMargin}`;
+                    } else if (cls.startsWith("margin-lft-")) {
+                        const leftMargin = cls.substring(8);
+                        element.style.marginLeft = `${leftMargin}`;
+                    }
+                });
+            });
+        } else if (optionSub == "height") {
+            const heightElements = document.querySelectorAll("[class*='higt-']");
+            heightElements.forEach(element => {
+                const classes = element.className.split(" ");
+                classes.forEach(cls => {
+                    const elementHeight = substring(5);
+                    element.style.height = elementHeight;
+                });
+            });
+        } else if (optionSub == "width") { 
+            const widthElements = document.querySelectorAll("[class*='widt'");
+            widthElements.forEach(element => {
+                const classes = element.className.split(" ");
+                classes.forEach(cls => {
+                    const elementWidth = substring(5);
+                    element.style.width = `${elementWidth}`;
+                });
+            });
+        } else if (optionSub == "zindex") { 
+            const zIndexElements = document.querySelectorAll("[class*='indz-']");
+            zIndexElements.forEach(element => {
+                const classes = element.className.split(" ");
+                classes.forEach(cls => {
+                    if (cls.startsWith("zind")) {
+                        const zIndexValue = cls.substring(5);
+                        element.style.zIndex = `${zIndexValue}`;
+                    }
+                });
+            });
+        } else {
+            const paddingElements = document.querySelectorAll("[class*='padd-']");
+            paddingElements.forEach(element => {
+                const classes = element.className.split(" ");
+                classes.forEach(cls => {
+                    if (cls.startsWith("padd-")) {
+                        const paddingValue = cls.substring(5); // Get the padding value after "padding-"
+                        element.style.padding = `${paddingValue}`; // Apply the padding to all sides
+                    } else if (cls.startsWith("padd-top-")) {
+                        const topPadding = cls.substring(8); // Get the top padding value
+                        element.style.paddingTop = `${topPadding}`; // Apply padding-top
+                    } else if (cls.startsWith("padd-rgt-")) {
+                        const rightPadding = cls.substring(8); // Get the right padding value
+                        element.style.paddingRight = `${rightPadding}`; // Apply padding-right
+                    } else if (cls.startsWith("padd-bot")) {
+                        const bottomPadding = cls.substring(8); // Get the bottom padding value
+                        element.style.paddingBottom = `${bottomPadding}`; // Apply padding-bottom
+                    } else if (cls.startsWith("padd-lft-")) {
+                        const leftPadding = cls.substring(8); // Get the left padding value
+                        element.style.paddingLeft = `${leftPadding}`; // Apply padding-left
+                    } 
+                });
+            });
+            
+        }
+    } else {
+        if (optionSub == "border") {
+            const borderElements = document.querySelectorAll("[data-bord]");
+            borderElements.forEach(element => {
+                const borderData = element.getAttribute("data-bord");
+                const borderClasses = borderData.split(" ");
+                borderClasses.forEach(borderClass => {
+                    if (borderClass.startsWith("clr")) {
+                        var colorCode = borderClass.substring(4);
+                        if (borderClass.includes("top")) {
+                            colorCode = borderClass.substring(4);
+                            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                                element.style.borderTopColor = `#${colorCode}`;
+                            } else {
+                                element.style.borderTopColor = colorCode;
+                            }
+                        } else if (borderClass.includes("lft")) {
+                            colorCode = borderClass.substring(4);
+                            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                                element.style.borderLeftColor = `#${colorCode}`;
+                            } else {
+                                element.style.borderLeftColor = colorCode;
+                            }
+                        } else if (borderClass.includes("rgt")) {
+                            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                                element.style.borderRightColor = `#${colorCode}`;
+                            } else {
+                                element.style.borderRightColor = colorCode;
+                            }
+                        } else {
+                            if (/^[0-9A-Fa-f]{6}$/.test(colorCode)) {
+                                element.style.borderBottomColor = `#${colorCode}`;
+                            } else {
+                                element.style.borderBottomColor = colorCode;
+                            }
+                        }
+                    }
+                    if (borderClass.startsWith("wid")) {
+                        var size = borderClass.substring(4);
+                        if (size.startsWith("top")) {
+                            const topSize = size.substring(4);
+                            element.style.borderTopWidth = topSize;
+                        } else if (size.startsWith("lft")) {
+                            const leftSize = size.substring(4)
+                            element.style.borderLeftWidth = leftSize;
+                        } else if (size.startsWith("rgt")) {
+                            const rightSize = size.substring(4);
+                            element.style.borderRightWidth = rightSize;
+                        } else if (size.startsWith("btm")) {
+                            const bottomSize = size.substring(4);
+                            element.style.borderBottomWidth = bottomSize;
+                        } else {
+                            element.style.borderWidth = size;
+                        }
+                    }
+                });
+            });
+        }
+    }
 }
 export function CopyBackup() {
     var copyText = document.querySelectorAll("[class^='copy-text']");
     var copyButtons = document.querySelectorAll("[class^='copy-button']");
     copyButtons.forEach((button, index) => {
-        button.onclick = function() {
+        button.onclick = function () {
             console.log("clicked")
             if (copyText[index] instanceof HTMLElement) {
                 const textElement = copyText[index];
