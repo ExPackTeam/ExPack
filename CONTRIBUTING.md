@@ -21,6 +21,7 @@ git pull https://github.com/ExPackTeam/ExPack
         <link href="../dist/css/expack.min.css" rel="stylesheet">
     </head>
     <body>
+        <h1 class="fg-red">Testing {WHAT YOU'RE TESTING}</h1>
         <!-- Insert the HTML code you want to debug here -->
         <script src="../dist/js/expack.min.js"></script>
     </body>
