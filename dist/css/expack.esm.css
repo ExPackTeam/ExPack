@@ -362,12 +362,13 @@ nav .global_sidenav__-Z4oT ul.global_sidenav-list__FnvVc li.global_sidenav-item_
 }
 
 .global_align-center__hV74U {
-  justify-content: "center";
+  align-content: center;
   margin: 0 auto;
 }
 
 .global_align-centre__vEaSq {
-  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
 }
 
 .global_align-right__ZGT5c {
