@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { PageBackup } from "./backup";
-// Retype Count: 1 // This is the amount I have re-written this code FROM scratch
+// Retype Count: ~5 // This is the amount I have re-written this code FROM scratch
 // All `console.log()`s are for debugging, they are going to removed once it's ready for the master branch
 function PageClasses() {
     var classGet = [];
@@ -11,8 +11,7 @@ function PageClasses() {
         const getBackUp = classSearch == undefined ? true : false;
         classGet = classSearch ? classSearch.split(" ") : null;
         backUp = getBackUp;
-        console.log("[classGet] is " + classGet + "\n[classGet] is " + typeof classGet);
-        console.log("[backUp] is " + backUp);
+        // Check for classGet, classSearch, and backUp
         if (backUp != true) {
             const classGetSize = classGet.length;
             console.log("[classGetSize] is " + classGetSize);
@@ -100,125 +99,127 @@ function PageClasses() {
     });
     return classLook;
 }
-function PageDatas(dataName) {
-    // May change to be classes
-    // If changed to classes, it will be bord-{function} with bordloc-{location} for where
+function PageDatas() {
+    // Formatting is {location}-{option}-{option value}
     var dataGet = [];
     var backUp = null;
-    var dataHasLocation = null;
-    const dataLook = $("body").find(`[data-${dataName}]`).each(function () {
-        const dataSearch = $(this).data(dataName);
+    var dataHasLocations = null;
+    const classLook = $("body").find("[data-bord]").each(function () {
+        const dataSearch = $("[data-bord]").data("bord");
         const getBackUp = dataSearch == undefined ? true : false;
         dataGet = dataSearch ? dataSearch.split(" ") : null;
         backUp = getBackUp;
-        // In testing, have a console log for both dataSearch, the type of dataSearch (typeof dataSearch) and dataGet
-        // In testing have a console.log for backUp
+        // check for dataSearch, dataGet, and backUp
         if (backUp != true) {
-            var dataPlace;
-            const dataGetSize = dataGet.length;
-            console.log(`{CHECK} [dataGetSize] is ${dataGetSize}`);
-            if (dataGetSize == 1) {
-                dataPlace = dataGet[0];
-                if (dataSearch.includes("top") || dataSearch.includes("lft") || dataSearch.includes("btm") || dataSearch.includes("rgt")) {
-                    var dataLocation = dataSearch.includes("top") ? "top" : dataSearch.includes("lft") ? "left" : dataSearch.includes("btm") ? "bottom" : dataSearch.includes("rgt") ? "right" : null;
-                    dataHasLocation = true;
+            // status check for backUp being false
+            if (dataGet) {
+                const dataSize = dataGet.length;
+                // check for dataSize
+                if (dataSize == 1) {
+                    var dataPlace = dataGet[0];
+                    if (dataPlace) {
+                        console.log(`{CHECK} [dataPlace] is ${dataPlace}`);
+                        if (dataPlace.includes("top") || dataPlace.includes("btm") || dataPlace.includes("lft") || dataPlace.includes("rgt")) {
+                            var dataLocation = dataPlace.includes("top") ? "top" : dataPlace.includes("lft") ? "left" : dataPlace.includes("btm") ? "btm" : dataPlace.includes("rgt") ? "right" : null;
+                            var dataPart = dataPlace.substring(4);
+                            // check for dataPart 
+                            dataHasLocations = true;
+                        } else {
+                            dataHasLocations = false;
+                        }
+                        if (dataPlace.includes("clr")) {
+                            if (dataHasLocations == true) {
+                                dataPart = dataPlace.substring(8);
+                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                $(this).css(`border-${dataLocation}-color`, `#${dataPart}`);
+                            } else {
+                                dataPart = dataPlace.substring(4);
+                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                $(this).css("border-color", `#${dataPart}`);
+                            }
+                        } else if (dataPlace.includes("rad")) { 
+                            if (dataHasLocations == true) {
+                                dataPart = dataPlace.substring(8);
+                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                $(this).css(`border-${dataLocation}-radius`, dataPart);
+                            } else {
+                                dataPart = dataPlace.substring(4);
+                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                $(this).css("border-radius", dataPart);
+                            }
+                        } else if (dataPlace.includes("wid")) {
+                            if (dataHasLocations == true) {
+                                dataPart = dataPlace.substring(8);
+                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                $(this).css(`border-${dataLocation}-width`, dataPart);
+                            } else {
+                                dataPart = dataPlace.substring(4);
+                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                $(this).css("border-width", dataPart);
+                            }
+                        }  
+                    }
                 } else {
-                    dataHasLocation = false;
-                }
-                if (dataHasLocation == true) {
-                    dataPlace = dataSearch.substring(8);
-                } else {
-                    dataPlace = dataSearch.substring(4);
-                }
-                if (dataSearch.includes("clr")) {
-                    var bordColor;
-                    if (/^[0-9A-Fa-f]{6}$/.test(dataPlace)) {
-                        bordColor = `#${dataPlace}`;
-                    } else {
-                        bordColor = dataPlace;
-                    }
-                    if (dataHasLocation == true) {
-                        $(this).css(`border-${dataLocation}-color`, bordColor);
-                    } else {
-                        $(this).css("border-color", bordColor);
-                    }
-                } else if (dataSearch.includes("rad")) {
-                    if (dataHasLocation == true) {
-                        $(this).css(`border-${dataLocation}-radius`, dataPlace);
-                    } else {
-                        $(this).css("border-radius", dataPlace);
-                    }
-                } else if (dataSearch.includes('wid')) {
-                    if (dataHasLocation == true) {
-                        $(this).css(`border-${dataLocation}-width`, dataPlace);
-                    } else {
-                        $(this).css("border-width", dataPlace);
-                    }
-                }
-            } else if (dataGetSize > 1) {
-                for (var i = 0; i < dataGetSize; i++) {
-                    var dataPlace = dataGet[i];
-                    console.log(`{CHECK} [i] is ${i}`);
-                    if (dataSearch.includes("top") || dataSearch.includes("lft") || dataSearch.includes("btm") || dataSearch.includes("rgt")) {
-                        console.log("[dataSearch] has a location");
-                        var dataLocation = dataSearch.includes("top") ? "top" : dataSearch.includes("lft") ? "left" : dataSearch.includes("btm") ? "btm" : dataSearch.includes("rgt") ? "right" : null;
-                        // dataLocation is to get the location, if any are present, while also being quick to reference in the jQuery code
-                        console.log(`[dataLocation] is ${dataLocation}`);
-                        dataHasLocation = true;
-                        console.log(`[dataHasLocation] is ${dataHasLocation}`);
-                    } else {
-                        dataHasLocation = false;
-                    }
-                    if (dataHasLocation == true) {
-                        dataPlace = dataSearch.substring(8);
-                        console.log("{CHECK} location present. [dataPlace] has substring(8)");
-                    } else {
-                        dataPlace = dataSearch.substring(4);
-                        console.log("{CHECK} location not present. [dataPlace] has substring(4)");
-                    }
-                    console.log(`[dataPlace] is ${dataPlace}`);
-                    if (dataSearch.includes("clr")) {
-                        console.log("{STATUS} data-bord has [clr]");
-                        var bordColor;
-                        if (/^[0-9A-Fa-f]{6}$/.test(dataPlace)) {
-                            console.log("{STATUS} data-bord has hexadecimal");
-                            bordColor = `#${dataPlace}`;
+                    for (var i = 0; i < dataSize; i++) {
+                        var dataPlace = dataGet[i];
+                        // check for i value
+                        if (dataPlace.includes("top") || dataPlace.includes("btm") || dataPlace.includes("lft") || dataPlace.includes("rgt")) {
+                            var dataLocation = dataPlace.includes("top") ? "top" : dataPlace.includes("lft") ? "left" : dataPlace.includes("btm") ? "btm" : dataPlace.includes("rgt") ? "right" : null;
+                            var dataPart = dataPlace.substring(4);
+                            // check for dataPart
+                            dataHasLocations = true;
                         } else {
-                            console.log("{STATUS} data-bord doesn't have hexadecimal");
-                            bordColor = dataPlace;
+                            dataHasLocations = false;
                         }
-                        if (dataHasLocation == true) {
-                            $(this).css(`border-${dataLocation}-color`, bordColor);
-                        } else {
-                            $(this).css("border-color", bordColor);
-                        }
-                    } else if (dataSearch.includes("rad")) {
-                        console.log("{STATUS} data-bord has [rad]");
-                        console.log(`{CHECK} radius is ${dataPlace}`);
-                        if (dataHasLocation == true) {
-                            $(this).css(`border-${dataLocation}-radius`, dataPlace);
-                        } else {
-                            $(this).css("border-radius", dataPlace);
-                        }
-                    } else if (dataSearch.includes('wid')) {
-                        console.log("{STATUS} data-bord has [siz]");
-                        console.log(`{CHECK} border size is ${dataPlace}`);
-                        if (dataHasLocation == true) {
-                            $(this).css(`border-${dataLocation}-width`, dataPlace);
-                        } else {
-                            $(this).css("border-width", dataPlace);
-                        }
+                        if (dataPlace.includes("clr")) {
+                            if (dataHasLocations == true) {
+                                dataPart = dataPlace.substring(8);
+                                // check for dataPart
+                                if (/^[0-9A-Fa-f]{6}$/.test(dataPart)) {
+                                    $(this).css(`border-${dataLocation}-color`, `#${dataPart}`);
+                                } else {
+                                    $(this).css(`border-${dataLocation}-color`, dataPart);
+                                }
+                            } else {
+                                dataPart = dataPlace.substring(4);
+                                // check for dataPart
+                                if (/^[0-9A-Fa-f]{6}$/.test(dataPart)) {
+                                    $(this).css("border-color", `#${dataPart}`);
+                                } else {
+                                    $(this).css("border-color", dataPart);
+                                }
+                            }
+                        } else if (dataPlace.includes("rad")) { 
+                            if (dataHasLocations == true) {
+                                dataPart = dataPlace.substring(8);
+                                // check for dataPart
+                                $(this).css(`border-${dataLocation}-radius`, dataPart);
+                            } else {
+                                dataPart = dataPlace.substring(4);
+                                // check for dataPart
+                                $(this).css("border-radius", dataPart);
+                            }
+                        } else if (dataPlace.includes("wid")) {
+                            if (dataHasLocations == true) {
+                                dataPart = dataPlace.substring(8);
+                                // check for dataPart
+                                $(this).css(`border-${dataLocation}-width`, dataPart);
+                            } else {
+                                dataPart = dataPlace.substring(4);
+                                // check for dataPart
+                                $(this).css("border-width", dataPart);
+                            }
+                        } 
                     }
                 }
             }
         } else {
             PageBackup("data", "border");
-            console.error("encountered an error with trying to run page options datas");
         }
     });
-    return dataLook;
+    return classLook;
 }
 export function PageFunction() {
     PageClasses();
-    PageDatas("bord");
+    PageDatas();
 }
