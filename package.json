@@ -1,6 +1,6 @@
 {
   "name": "expack_library",
-  "version": "1.0.13",
+  "version": "1.1.0",
   "description": "A utility library focused on the user's ability to modify and design",
   "main": "dist/js/expack.min.js",
   "scripts": {
