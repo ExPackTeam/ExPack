@@ -1,40 +1,24 @@
 import $ from "jquery";
+// Rewrite Count: 3
+// Code works, need to figure out how to have it only affect one modal at a time
+// Will figure out how to add the backup code at a later date
 export function ModalFunction() {
-  $(document).ready(function() {
-    const modal = $("*").attr("data-popup");
-    var hiddenContent = $(modalContent).hide();
-    var shownContent = $(modalContent).show();
-    console.log(modal);
-    if (modal === "modal") {
-      var modalContent = $("*").attr("data-modal");
-    }
-    var modalBtn = $("button").hasClass("modal-btn");
-    var modalBtnCall = $("*").hasClass("modal-btn");
-    console.log(modalBtn);
-    var closeClick = $("*").hasClass("close");
-    $(closeClick).click();
-    if (modalBtnCall == "undefined") {
-      shownContent;
+    if ($("*").hasClass("modal-hid")) {
+        $(".modal-cnt").hide();
+        $(".close").hide();
+    } else if ($("*").hasClass("modal-shn")) {
+        $(".modal-cnt").show();
+        $(".close").show();
     } else {
-      hiddenContent;
-      modalBtn.onclick = function() {
-        shownContent;
-        console.log(shownContent);
-      }
-      $(modalBtn).on("click", function() {
-        alert(shownContent);
-        console.log(shownContent);
-      });
+        $(".modal-cnt").hide();
+        $(".close").hide();
     }
-    $(closeClick).on("click", function() {
-      alert(hiddenContent);
-      hiddenContent;
+    $(".modal-btn").on("click", function() {
+        $(this).closest("[data-popup='modal']").find(".modal-cnt").show();
+        $(this).closest("[data-popup='modal']").find(".close").show();
     });
-    /*window.onclick = function(event) {
-      if (event.target == modal) {
-        hiddenContent;
-        console.log(hiddenContent);
-      }
-    }*/
-  });
+    $(".close").on("click", function() {
+        $(this).closest("[data-popup='modal']").find(".modal-cnt").hide();
+        $(this).closest("[data-popup='modal']").find(".close").hide();
+    });
 }

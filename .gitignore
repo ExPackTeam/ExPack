@@ -4,8 +4,8 @@ npm-debug.log
 yarn-error.log
 yarn.lock
 # Build output
-build/
-out/
+/build/
+/out/
 
 # Dependency directories
 bower_components/
@@ -53,6 +53,11 @@ Thumbs.db
 
 # Git specific
 *.git/
+/node_modules/ 
+/tests/
+/References/
+/src/quick_ref.md
+/notes/
 node_modules/
 tests/
 src/js/text_changes_test.js

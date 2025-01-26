@@ -12,25 +12,25 @@
         @if $position == "top" {
             @if $type == "stl" {
                 border-top-style: unquote($option);
-            } @else if $type == "sz" {
+            } @else if $type == "siz" {
                 border-top-width: unquote($option);
             }
         } @else if $position == "rgt" {
             @if $type == "stl" {
                 border-right-style: unquote($option);
-            } @else if $type == "sz"{
+            } @else if $type == "siz"{
                 border-right-width: unquote($option);
             }
         } @else if $position == "lft" {
             @if $type == "stl" {
                 border-left-style: unquote($option);
-            } @else if $type == "sz" {
+            } @else if $type == "siz" {
                 border-left-width: unquote($option);
             }
         } @else if $position == "bot" {
             @if $type == "stl" {
                 border-bottom-style: unquote($option);
-            } @else if $type == "sz" {
+            } @else if $type == "siz" {
                 border-bottom-width: unquote($option);
             }
         }

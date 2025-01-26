@@ -1,18 +1,16 @@
 import $ from "jquery";
 import { TextFunction } from "./text_changes.js";
-// import { PageOptions } from "./page_options.js";
-// import { UnicodeFunction } from "./unicode_character.js";
-// import { ModalFunction } from "./modals";
-// import { CopyClip } from "./copy_clip.js";
-// import { LoginOption } from "./login.js";
+import { PageFunction } from "./page_options.js";
+import { LinkExport } from "./link_options.js";
+import { ModalFunction } from "./modals"; // Modals are causing PageFunction to break, reason unknown
+import { CopyClip } from "./copy_clip.js";
 function ExpackExport() {
     $(function() {
         TextFunction();
-        // PageOptions();
-        // CopyClip();
-        // ModalFunction();
-        // LoginOption();
-        // UnicodeFunction();
+        PageFunction();
+        LinkExport();
+        ModalFunction();
+        CopyClip();
     });
 }
 export default ExpackExport();

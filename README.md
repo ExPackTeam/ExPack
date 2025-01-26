@@ -4,6 +4,27 @@ ExPack is a library that lets you customize everything, being easy to use and ab
 
 ExPack was programmed in Visual Studio Code.
 
+## Libraries
+ExPack wouldn't be possibly without a few libraries that are accessed (these are all as of 17 December 2024).
+### NPM
+NPM is used for both distributing and building ExPack. 
+### jQuery
+The jQuery Javascript Library is used for the Javascript side of ExPack.
+
+By using jQuery it makes it easier to do things like accessing classes. If a file uses `$()` at all, that means jQuery is used.
+
+If you want to start contributing to ExPack, you can learn the formatting of jQuery from the [jQuery site](https://api.jquery.com).
+### Rollup
+ExPack uses a few of the rollup plugins, this is what makes it possible to build ExPack.
+
+By running `npm run build` in the console, because of the way that the [package.json](https://github.com/ExPackTeam/ExPack/blob/master/package.json) file is set up, the command `rollup --config` is ran as well.
+
+## Importing ExPack
+For the CSS code, put the code below in your HTML **<head>** tag:
+For the JavaScript code, at the bottom of your **<body>** tag put the code below:
+
+It is also recommended to include jQuery as well.
+
 ## Languages
 ### Programmed With
 ExPack was made with the following Coding Languages
@@ -57,9 +78,12 @@ Also see the [Focal Issues](./Issues.md) or go to [Issues](https://github.com/Ex
     - @babel/core
     - @babel/preset-env
 - jQuery
-- Rollup
 
-All *npm* installs are localed in the **node_module** directory.
+#### Import String
+After you cloned ExPack and entered the file, you can enter the code below to auto import everything
+```bash
+npm i jquery @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-babel @rollup/plugin-terser rollup-plugin-postcss babel-loader @babel/core @babel/preset-env --save-dev
+```
 
 ## Recommendations
 To properly run this, please make sure you install [SASS](https://sass-lang.com/install/). The starting system for ExPack was using `npm install -g sass`.

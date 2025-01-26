@@ -13,8 +13,8 @@
 			}
 		}
 	}
-	@else if $align == "just" {
-		.justify-#{$place} {
+	@else if $align == "justify" {
+		.just-#{$place} {
 			@if $place != "centre" {
 				justify-content: unquote($place);
 			} @else {
@@ -32,19 +32,35 @@
 		}
 	}
 }
+@mixin Position($name, $type) {
+	.pos-#{$name} {
+		position: unquote($type);
+	}
+}
 // Alignment
 @include Alignment("align", "left");
 @include Alignment("align", "center");
 @include Alignment("align", "centre");
 @include Alignment("align", "right");
 // Justify 
-@include Alignment("just", "left");
-@include Alignment("just", "center");
-@include Alignment("just", "centre");
-@include Alignment("just", "right");
+@include Alignment("justify", "left");
+@include Alignment("justify", "center");
+@include Alignment("justify", "centre");
+@include Alignment("justify", "right");
 // Text
 @include Alignment("text", "left");
 @include Alignment("text", "center");
 @include Alignment("text", "centre");
 @include Alignment("text", "right");
 @include Alignment("text", "justify");
+// Position
+@include Position("position", "absolute");
+@include Position("position", "fixed");
+@include Position("position", "inherit");
+@include Position("position", "initial");
+@include Position("position", "relative");
+@include Position("position", "revert");
+@include Position("position", "revert-layer");
+@include Position("position", "static");
+@include Position("position", "sticky");
+@include Position("position", "unset");

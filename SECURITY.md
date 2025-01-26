@@ -17,6 +17,13 @@ currently being supported with security updates.
 | 1.0.4   | :white_check_mark: |
 | 1.0.5   | :white_check_mark: |
 | 1.0.6   | :white_check_mark: |
+| 1.0.7   | :white_check_mark: |
+| 1.0.9   | :white_check_mark: |
+| 1.0.10  | :white_check_mark: |
+| 1.0.11  | :white_check_mark: |
+| 1.0.12  | :white_check_mark: |
+| 1.0.13  | :white_check_mark: |
+| 1.1.0   | :white_check_mark: |
 
 :grey_question: = untested with security or current generation (`x.`) but not current version
 
