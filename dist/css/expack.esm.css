@@ -95,18 +95,6 @@
   border-top-style: solid;
 }
 
-[data-bord=sz-top-thin] {
-  border-top-width: thin;
-}
-
-[data-bord=sz-top-medium] {
-  border-top-width: medium;
-}
-
-[data-bord=sz-top-thick] {
-  border-top-width: thick;
-}
-
 [data-bord=stl-lft-solid] {
   border-left-style: solid;
 }
@@ -145,18 +133,6 @@
 
 [data-bord=stl-lft-solid] {
   border-left-style: solid;
-}
-
-[data-bord=sz-lft-thin] {
-  border-left-width: thin;
-}
-
-[data-bord=sz-lft-medium] {
-  border-left-width: medium;
-}
-
-[data-bord=sz-lft-thick] {
-  border-left-width: thick;
 }
 
 [data-bord=stl-rgt-solid] {
@@ -199,18 +175,6 @@
   border-right-style: solid;
 }
 
-[data-bord=sz-rgt-thin] {
-  border-right-width: thin;
-}
-
-[data-bord=sz-rgt-medium] {
-  border-right-width: medium;
-}
-
-[data-bord=sz-rgt-thick] {
-  border-right-width: thick;
-}
-
 [data-bord=stl-bot-dashed] {
   border-bottom-style: dashed;
 }
@@ -245,18 +209,6 @@
 
 [data-bord=stl-bot-solid] {
   border-bottom-style: solid;
-}
-
-[data-bord=sz-bot-thin] {
-  border-bottom-width: thin;
-}
-
-[data-bord=sz-bot-medium] {
-  border-bottom-width: medium;
-}
-
-[data-bord=sz-bot-thick] {
-  border-bottom-width: thick;
 }
 
 [data-font=alegreya] {
