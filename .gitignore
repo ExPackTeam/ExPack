@@ -58,3 +58,6 @@ Thumbs.db
 /References/
 /src/quick_ref.md
 /notes/
+node_modules/
+tests/
+src/js/text_changes_test.js

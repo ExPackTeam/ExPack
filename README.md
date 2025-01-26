@@ -29,11 +29,12 @@ It is also recommended to include jQuery as well.
 ### Programmed With
 ExPack was made with the following Coding Languages
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) 
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
 ### Externally Used
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
-![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) 
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) 
+![RollupJS](https://img.shields.io/badge/RollupJS-ef3335?style=for-the-badge&logo=rollup.js&logoColor=white)
 
 # To-Do
 ## Code
@@ -43,6 +44,8 @@ ExPack was made with the following Coding Languages
 - [ ]  Have JavaScript search for fonts.
 ## Others
 - [x]  Add to a CDN
+
+Also see the [Focal Issues](./Issues.md) or go to [Issues](https://github.com/ExPackTeam/ExPack/issues)
 
 # Installs
 ## To Have Installed
@@ -69,8 +72,6 @@ ExPack was made with the following Coding Languages
 > [!IMPORTANT]
 > Since 16/09/2024, devolpment of Expack v0.0.3, Expack has switched from using Webpack to Rollup
 
-
-- Rollup
 - Sass
 - Babel
     - babel-loader
