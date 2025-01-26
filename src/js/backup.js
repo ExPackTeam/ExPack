@@ -9,7 +9,6 @@ export function TextBackup(option) {
     if (option == "color" || option == "bg" || option == "fg") {
         const bgElements = document.querySelectorAll("[class*='bg-']");
         bgElements.forEach(element => {
-            console.log("Background Color Started");
             const classes = element.className.split(" ");
             classes.forEach(cls => {
                 if (cls.startsWith("bg-")) {
@@ -22,7 +21,6 @@ export function TextBackup(option) {
         });
         const mnElements = document.querySelectorAll("[class*='fg-']");
         mnElements.forEach(element => {
-            console.log("Text Color Started");
             const classes = element.className.split(" ");
             classes.forEach(cls => {
                 if (cls.startsWith("fg-")) {
@@ -36,7 +34,6 @@ export function TextBackup(option) {
     } else {
         const fontSizeValue = document.querySelectorAll("[class*='fs-']");
         fontSizeValue.forEach(element => {
-            console.log("Font Size Started");
             const classes = element.className.split(" ");
             classes.forEach(cls => {
                 if (cls.startsWith("fs-")) {
@@ -49,7 +46,6 @@ export function TextBackup(option) {
         });
         const fontWeightClass = document.querySelectorAll("[class*='fw-']");
         fontWeightClass.forEach(element => {
-            console.log("Font Weight Started");
             const classes = element.className.split(" ");
             classes.forEach(cls => {
                 if (cls.startsWith("fw-")) {
@@ -207,7 +203,6 @@ export function CopyBackup() {
     var copyButtons = document.querySelectorAll("[class^='copy-button']");
     copyButtons.forEach((button, index) => {
         button.onclick = function () {
-            console.log("clicked")
             if (copyText[index] instanceof HTMLElement) {
                 const textElement = copyText[index];
                 // Check if the textElement is an input or textarea

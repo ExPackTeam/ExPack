@@ -14,7 +14,7 @@ function PageClasses() {
         // Check for classGet, classSearch, and backUp
         if (backUp != true) {
             const classGetSize = classGet.length;
-            console.log("[classGetSize] is " + classGetSize);
+            // check for classGetSize
             if (classGetSize == 1) {
                 const classPlace = classGet[0];
                 if (classPlace.includes("top") || classPlace.includes("btm") || classPlace.includes("lft") || classPlace.includes("rgt")) {
@@ -30,7 +30,7 @@ function PageClasses() {
                 } else {
                     classPart = classPlace.substring(5);
                 }
-                console.log("[classPart] is " + classPart);
+                // check for classPart
                 if (classPlace) {
                     if (classPlace.includes("marg")) {
                         if (classHasLocations == true) {
@@ -55,7 +55,7 @@ function PageClasses() {
             } else if (classGetSize > 1) {
                 for (var i = 0; i < classGetSize; i++) {
                     const classPlace = classGet[i];
-                    console.log("[i] is " + i);
+                    // check for i
                     if (classGet.includes("top") || classGet.includes("btm") || classGet.includes("lft") || classGet.includes("rgt")) {
                         var classLocation = classPlace.includes("top") ? "top" : classPlace.includes("lft") ? "left" : classPlace.includes("btm") ? "bottom" : classPlace.includes("rgt") ? "right" : null;
                         classHasLocations = true;
@@ -118,7 +118,7 @@ function PageDatas() {
                 if (dataSize == 1) {
                     var dataPlace = dataGet[0];
                     if (dataPlace) {
-                        console.log(`{CHECK} [dataPlace] is ${dataPlace}`);
+                        // check for dataPlace
                         if (dataPlace.includes("top") || dataPlace.includes("btm") || dataPlace.includes("lft") || dataPlace.includes("rgt")) {
                             var dataLocation = dataPlace.includes("top") ? "top" : dataPlace.includes("lft") ? "left" : dataPlace.includes("btm") ? "btm" : dataPlace.includes("rgt") ? "right" : null;
                             var dataPart = dataPlace.substring(4);
@@ -130,31 +130,31 @@ function PageDatas() {
                         if (dataPlace.includes("clr")) {
                             if (dataHasLocations == true) {
                                 dataPart = dataPlace.substring(8);
-                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                // check for dataPart
                                 $(this).css(`border-${dataLocation}-color`, `#${dataPart}`);
                             } else {
                                 dataPart = dataPlace.substring(4);
-                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                // check for dataPart
                                 $(this).css("border-color", `#${dataPart}`);
                             }
                         } else if (dataPlace.includes("rad")) { 
                             if (dataHasLocations == true) {
                                 dataPart = dataPlace.substring(8);
-                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                // check for dataPart
                                 $(this).css(`border-${dataLocation}-radius`, dataPart);
                             } else {
                                 dataPart = dataPlace.substring(4);
-                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                // check for dataPart
                                 $(this).css("border-radius", dataPart);
                             }
                         } else if (dataPlace.includes("wid")) {
                             if (dataHasLocations == true) {
                                 dataPart = dataPlace.substring(8);
-                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                // check for dataPart
                                 $(this).css(`border-${dataLocation}-width`, dataPart);
                             } else {
                                 dataPart = dataPlace.substring(4);
-                                console.log(`{CHECK} [dataPart] is ${dataPart}`);
+                                // check for dataPart
                                 $(this).css("border-width", dataPart);
                             }
                         }  
