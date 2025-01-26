@@ -56,10 +56,23 @@ function TextOptions(cssName) {
                     // In testing: put a console.log() check for i here, it involves the i variable
                     var classPlace = classGet[i];
                     // In testing: put a console.log() check for classPlace here, it involves the classPlace variable
-                    if (classPlace.includes("bg") || classPlace.includes("fg")) {
-                        var classPart = classPlace.substring(3);
+                    if (classPlace.includes("bg")) {
                         // In testing: put a console.log() check for classPart here, it involves the classPart variable
-                        var color;
+                        var color = classPlace.substring(3);
+                        if (/^[0-9A-Fa-f]{6}$/.test(classPart)) {
+                            color = `#${classPart}`;
+                        } else {
+                            color = classPart;
+                        }
+                        // In testing: put a console.log() check for color here, it involves the color variable
+                        if (classPlace.includes("bg")) {
+                            $(this).css("background-color", color);
+                        } else if (classPlace.includes("fg")) {
+                            $(this).css("color", color);
+                        }
+                    } else if (classPlace.includes("fg")) { 
+                        // In testing: put a console.log() check for classPart here, it involves the classPart variable
+                        var color = classPlace.substring(3);
                         if (/^[0-9A-Fa-f]{6}$/.test(classPart)) {
                             color = `#${classPart}`;
                         } else {
