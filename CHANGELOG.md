@@ -39,5 +39,6 @@ Only fixed some minor bugs that were happening that weren't caught.
 ## Bug Fixes
 - 
 ## Additions
+- **Added** Special Elite font to [_fonts.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/_fonts.scss)
 ## Removed
-- **Removed** link_options.js
+- **Removed** link_options.js was causing issues with links for some reason.
