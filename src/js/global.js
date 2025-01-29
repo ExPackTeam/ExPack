@@ -7,7 +7,6 @@ function ExpackExport() {
     $(function() {
         TextFunction();
         PageFunction();
-        LinkExport();
         ModalFunction();
         CopyClip();
     });
