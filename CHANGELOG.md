@@ -38,6 +38,8 @@ Only fixed some minor bugs that were happening that weren't caught.
 # v1.1.4
 ## Bug Fixes
 - 
+## Changes
+- Changes sidenav in [navbar.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/_navbar.scs) to not need `<nav>`
 ## Additions
 - **Added** Special Elite font to [_fonts.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/_fonts.scss)
 ## Removed
