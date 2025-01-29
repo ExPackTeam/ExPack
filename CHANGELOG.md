@@ -31,3 +31,13 @@
 ## Removed
 - **Removed** login.js
 - **Removed** time.js
+
+# v1.1.1 - v1.1.3
+Only fixed some minor bugs that were happening that weren't caught.
+
+# v1.1.4
+## Bug Fixes
+- 
+## Additions
+## Removed
+- **Removed** link_options.js
