@@ -205,7 +205,6 @@ export function CopyBackup() {
         button.onclick = function () {
             if (copyText[index] instanceof HTMLElement) {
                 const textElement = copyText[index];
-                // Check if the textElement is an input or textarea
                 if (textElement instanceof HTMLInputElement || textElement instanceof HTMLTextAreaElement) {
                     textElement.focus();
                     textElement.select();
