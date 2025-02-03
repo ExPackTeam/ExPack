@@ -44,3 +44,9 @@ Only fixed some minor bugs that were happening that weren't caught.
 - **Added** Special Elite font to [_fonts.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/_fonts.scss)
 ## Removed
 - **Removed** link_options.js was causing issues with links for some reason.
+# v1.1.5
+## Bug Fixes
+## Changes
+- **Removed** iframe in [global.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/global.scs)
+- **Modified** disabled in [global.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/global.scs)
+## Additions
