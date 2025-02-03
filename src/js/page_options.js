@@ -34,13 +34,13 @@ function PageClasses() {
                 if (classPlace) {
                     if (classPlace.includes("marg")) {
                         if (classHasLocations == true) {
-                            $(this).css(`margin-${classLocation}`, classPart);
+                            $(this).css("margin-" + classLocation, classPart);
                         } else {
                             $(this).css("margin", classPart);
                         }
                     } else if (classPlace.includes("padd")) {
                         if (classHasLocations == true) {
-                            $(this).css(`padding-${classLocation}`, classPart);
+                            $(this).css("padding-" + classLocation, classPart);
                         } else {
                             $(this).css("padding", classPart);
                         }
