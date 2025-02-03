@@ -799,13 +799,6 @@ optgroup option.global_dropdown-item__c4FH-.global_arrow__SV6jP::before {
   display: inline;
 }
 
-iframe {
-  margin: auto;
-}
-iframe .global_no-border__cEHI5 {
-  border: none;
-}
-
 .global_disable__OR46N {
-  cursor: move;
+  cursor: not-allowed;
 }
