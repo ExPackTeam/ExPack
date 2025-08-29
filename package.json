@@ -1,6 +1,6 @@
 {
   "name": "expack_library",
-  "version": "1.1.4",
+  "version": "1.1.7",
   "description": "A utility library focused on the user's ability to modify and design",
   "main": "dist/js/expack.min.js",
   "scripts": {
@@ -23,8 +23,6 @@
   },
   "homepage": "https://github.com/TeamExpack/ExPack#readme",
   "dependencies": {
-    "expack": "file:",
-    "expack_library": "file:",
     "jquery": "^3.7.1"
   },
   "devDependencies": {

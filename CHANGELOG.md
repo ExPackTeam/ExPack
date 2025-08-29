@@ -49,4 +49,10 @@ Only fixed some minor bugs that were happening that weren't caught.
 ## Changes
 - **Removed** iframe in [global.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/global.scs)
 - **Modified** disabled in [global.scss](https://github.com/ExPackTeam/ExPack/blob/master/src/scss/global.scs)
-## Additions
+# v1.1.6
+## Bug Fixes
+- **Modified** [package.json](https://github.com/ExPackTeam/ExPack/blob/master/package.json) to remove console error
+```bash
+npm error Cannot read properties of null (reading 'package')
+npm error A complete log of this run can be found in: /home/ruby/.npm/_logs/2025-05-18T02_01_32_729Z-debug-0.log
+```
