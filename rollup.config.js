@@ -4,114 +4,68 @@ import { babel } from "@rollup/plugin-babel";
 import terser from "@rollup/plugin-terser";
 import postcss from 'rollup-plugin-postcss';
 import postcssAttributeCaseInsensitive from "postcss-attribute-case-insensitive";
-const basePlugin = {
-  plugins: [
-    resolve(),
-    commonjs(),
-    babel({
-      exclude: "node_modules/**",
-      presets: ["@babel/preset-env"],
-      babelHelpers: "bundled",
-    }),
-    postcss({
-      extract: true, // Extract CSS into a separate file
-      modules: true, // Set to true if you want CSS modules
-      minimize: false, // Change to false to prevent minification in the main CSS
-      sourcemap: false, // Generate source maps
-      plugins: [
-        postcssAttributeCaseInsensitive(),
-      ]
-    }),
-  ],
+
+// Shared plugins configuration
+const sharedPlugins = [
+  resolve(),
+  commonjs(),
+  babel({
+    exclude: "node_modules/**",
+    presets: [["@babel/preset-env", {
+      targets: "defaults, not ie 11",
+      bugfixes: true
+    }]],
+    babelHelpers: "bundled",
+  }),
+  postcss({
+    extract: true,
+    modules: true,
+    minimize: false,
+    sourcemap: false,
+    plugins: [postcssAttributeCaseInsensitive()],
+  }),
+];
+
+// Base configuration
+const baseConfig = {
+  plugins: sharedPlugins,
 };
 
-const basejsConfig = {
-  input: "src/js/global.js",
-  ...basePlugin,
-};
-
-const baseCSSConfig = {
-  input: "src/scss/global.scss",
-  ...basePlugin,
-};
-
+// JavaScript configuration
 const jsConfig = {
+  ...baseConfig,
+  input: "src/js/global.js",
   output: {
     file: "dist/js/expack.esm.js",
     format: "esm",
     name: "ExPack",
-    sourcemap: false, // Generate source maps
+    sourcemap: false,
   },
   external: ['jquery'],
   plugins: [
+    ...sharedPlugins,
     terser({
       mangle: {
         reserved: ['$', 'jquery'],
+      },
+      format: {
+        comments: false,
+      },
+      compress: {
+        drop_console: false, // Set to true for production
       },
     }),
   ],
 };
 
-const jsMiniConfig = {
-  output: {
-    file: "dist/js/expack.min.js",
-    format: "iife",
-    name: "ExPack",
-    sourcemap: false,
-  },
-};
-
+// CSS configuration
 const cssConfig = {
+  ...baseConfig,
+  input: "src/scss/global.scss",
   output: {
-    file: "dist/css/expack.esm.css",
-    format: "esm",
-    name: "Expack",
-    sourcemap: false,
+    file: "dist/css/global.css", // Explicit output for CSS
+    format: "es", // CSS doesn't need module format but this prevents warnings
   },
 };
 
-const cssMiniConfig = {
-  output: {
-    file: "dist/css/expack.min.css",
-    format: "iife",
-    name: "Expack",
-    sourcemap: false,
-  },
-};
-export default [
-  {
-    ...basejsConfig,
-    ...jsConfig,
-  },
-  {
-    ...basejsConfig,
-    plugins: [
-      ...basePlugin.plugins,
-      terser(), // Apply Terser plugin only to the minimized output
-    ],
-    ...jsMiniConfig,
-  },
-  {
-    ...baseCSSConfig,
-    ...cssConfig,
-  },
-  {
-    ...baseCSSConfig,
-    plugins: [
-      resolve(),
-      commonjs(),
-      babel({
-        exclude: "node_modules/**",
-        presets: ["@babel/preset-env"],
-        babelHelpers: "bundled",
-      }),
-      postcss({
-        extract: true,
-        modules: false,
-        minimize: true, // Minify only in the minified output
-        sourceMap: false, // No source maps for minified output
-      }),
-    ],
-    ...cssMiniConfig,
-  }
-];
+export default [jsConfig, cssConfig];

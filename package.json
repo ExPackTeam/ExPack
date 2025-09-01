@@ -26,18 +26,19 @@
     "jquery": "^3.7.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.4",
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^26.0.1",
-    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-commonjs": "^26.0.3",
+    "@rollup/plugin-node-resolve": "^15.3.1",
     "@rollup/plugin-terser": "^0.4.4",
     "babel-loader": "^9.2.1",
-    "postcss-attribute-case-insensitive": "^7.0.0",
+    "postcss-attribute-case-insensitive": "^7.0.1",
     "postcss-modules": "^6.0.1",
     "postcss-scss": "^4.0.9",
+    "rollup": "^4.50.0",
     "rollup-plugin-postcss": "^4.0.2",
-    "sass": "^1.79.3"
+    "sass": "^1.91.0"
   },
   "type": "module"
 }

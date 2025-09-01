@@ -61,3 +61,4 @@ Thumbs.db
 node_modules/
 tests/
 src/js/text_changes_test.js
+package-lock.js
