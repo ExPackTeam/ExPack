@@ -40,7 +40,7 @@ function TextOptions(cssName) {
     });
 }
 
-function ExtractedValue() {
+function ExtractedValue(className, prefix) {
     const value = className.substring(prefix.length); // Checks the length of the prefix to the class // this also gets the color called
     
     if (prefix === "bg" || prefix === "fg") {
@@ -50,11 +50,11 @@ function ExtractedValue() {
     return value; // this will return the value if it isn't a hex code
 }
 
-function IsValidHex() {
+function IsValidHex(color) {
     return /^[0-9A-Fa-f]{6}$/.test(color);
 }
 
-function HandleMissingClasses() {
+function HandleMissingClasses(cssName, propertyName) {
     const jqueryError = new Error("[jQuery] failed to find the class");
     let classError;
 
@@ -63,7 +63,7 @@ function HandleMissingClasses() {
     } else {
         TextBackup("other");
     }
-    classError = new Error(`[${cssName}] jquery failed to find the [{$cssName}] class, using backup [${cssName}] code`);
+    classError = new Error(`[${cssName}] jquery failed to find the [${cssName}] class, using backup [${cssName}] code`);
     console.error(jqueryError + "\n" + classError);
 }
 

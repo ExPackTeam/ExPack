@@ -6,7 +6,7 @@ import postcss from 'rollup-plugin-postcss';
 import postcssAttributeCaseInsensitive from "postcss-attribute-case-insensitive";
 
 // Shared plugins configuration
-const sharedPlugins = [
+const SharedPlugins = [
   resolve(),
   commonjs(),
   babel({
@@ -26,14 +26,34 @@ const sharedPlugins = [
   }),
 ];
 
+const MinizedSharedPlugins = [
+    resolve(),
+    commonjs(),
+    babel({
+        exlude: "node_modules/**",
+        presets: [["@babel/present-env", {
+            targets: "defaults, not ie 11",
+            bugfixes: true
+        }]],
+        babelHelpers: "bundled"
+    }),
+    postcss({
+        extract: true,
+        modules: true,
+        minized: true,
+        sourcemap: false,
+        plugins: [postcssAttributeCaseInsensitive()], 
+    })
+]
+
 // Base configuration
-const baseConfig = {
-  plugins: sharedPlugins,
+const BaseConfig = {
+  plugins: SharedPlugins,
 };
 
 // JavaScript configuration
-const jsConfig = {
-  ...baseConfig,
+const JsConfig = {
+  ...BaseConfig,
   input: "src/js/global.js",
   output: {
     file: "dist/js/expack.esm.js",
@@ -43,7 +63,7 @@ const jsConfig = {
   },
   external: ['jquery'],
   plugins: [
-    ...sharedPlugins,
+    ...SharedPlugins,
     terser({
       mangle: {
         reserved: ['$', 'jquery'],
@@ -58,13 +78,17 @@ const jsConfig = {
   ],
 };
 
+const JsMiniConfig = {
+    ...
+}
+
 // CSS configuration
-const cssConfig = {
-  ...baseConfig,
+const CssConfig = {
+  ...BaseConfig,
   input: "src/scss/global.scss",
   output: {
-    file: "dist/css/global.css", // Explicit output for CSS
-    format: "es", // CSS doesn't need module format but this prevents warnings
+    file: "dist/css/expack.esm.css", // Explicit output for CSS
+    format: "esm", // CSS doesn't need module format but this prevents warnings
   },
 };
 
