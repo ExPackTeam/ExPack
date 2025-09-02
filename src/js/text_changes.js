@@ -28,11 +28,10 @@ function TextOptions(cssName) {
         }
         
         const classes = classNames.split(" "); // splits the classes found
-        let valueApplied = false; // this enables things to be called later 
         
-        for (const className of classes) {
-            if (!className.startsWith(cssName)) continue; // this is error handling that enables the code to skip if there isn't a class found via cssName
-            const value = ExtractedValue(className, cssName); // this checks for the extracted values, see the ExtractedValue function for how it's done
+        for (const cls of classes) {
+            if (!cls.startsWith(cssName)) continue; // this is error handling that enables the code to skip if there isn't a class found via cssName
+            const value = ExtractedValue(cls, cssName); // this checks for the extracted values, see the ExtractedValue function for how it's done
             if (value) {
                 $element.css(propertyName, value); // this inserts the value for the             
             }
@@ -40,8 +39,8 @@ function TextOptions(cssName) {
     });
 }
 
-function ExtractedValue(className, prefix) {
-    const value = className.substring(prefix.length); // Checks the length of the prefix to the class // this also gets the color called
+function ExtractedValue(classNameValue, prefix) {
+    const value = classNameValue.substring(prefix.length + 1); // Checks the length of the prefix to the class // this also gets the color called
     
     if (prefix === "bg" || prefix === "fg") {
         return IsValidHex(value) ? `#${value}` : value; // this checks if the value found is a hex code or not // if it is, it will have value of the color be the hexcode
