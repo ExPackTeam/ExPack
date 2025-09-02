@@ -1,8 +1,9 @@
 import $ from "jquery";
 import { TextFunction } from "./text_changes.js";
 import { PageFunction } from "./page_options.js";
-import { ModalFunction } from "./modals"; // Modals are causing PageFunction to break, reason unknown
+import { ModalFunction } from "./modals";
 import { CopyClip } from "./copy_clip.js";
+
 function ExpackExport() {
     $(function() {
         TextFunction();
@@ -11,4 +12,5 @@ function ExpackExport() {
         CopyClip();
     });
 }
-export default ExpackExport();
+
+export default ExpackExport; // ✅ Export the function, don't call it
